@@ -37,72 +37,8 @@
     </div>
     <!-- [ Pre-loader ] End -->
 
-    <!-- [ navigation menu ] start -->
-    <nav class="pcoded-navbar">
-        <div class="navbar-wrapper">
-            <div class="navbar-brand header-logo">
-               <a href="index.html" class="b-brand">
-                   <div class="b-bg">
-                       <i class="feather icon-trending-up"></i>
-                   </div>
-                   <span class="b-title">Datta Able</span>
-               </a>
-               <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-           </div>
-            <div class="navbar-content scroll-div">
-                <ul class="nav pcoded-inner-navbar">
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Navigation</label>
-                    </li>
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
-                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>UI Element</label>
-                    </li>
-                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Components</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="bc_button.html" class="">Button</a></li>
-                            <li class=""><a href="bc_badges.html" class="">Badges</a></li>
-                            <li class=""><a href="bc_breadcrumb-pagination.html" class="">Breadcrumb & paggination</a></li>
-                            <li class=""><a href="bc_collapse.html" class="">Collapse</a></li>
-                            <li class=""><a href="bc_tabs.html" class="">Tabs & pills</a></li>
-                            <li class=""><a href="bc_typography.html" class="">Typography</a></li>
-                            <li class=""><a href="icon-feather.html" class="">Feather<span class="pcoded-badge label label-danger">NEW</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Forms & table</label>
-                    </li>
-                    <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                        <a href="form_elements.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Form elements</span></a>
-                    </li>
-                    <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Table</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Chart & Maps</label>
-                    </li>
-                    <li data-username="Charts Morris" class="nav-item"><a href="chart-morris.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a></li>
-                    <li data-username="Maps Google" class="nav-item active"><a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a></li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Pages</label>
-                    </li>
-                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="auth-signup.html" class="" target="_blank">Sign up</a></li>
-                            <li class=""><a href="auth-signin.html" class="" target="_blank">Sign in</a></li>
-                        </ul>
-                    </li>
-                    <li data-username="Sample Page" class="nav-item"><a href="sample-page.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li>
-                    <li data-username="Disabled Menu" class="nav-item disabled"><a href="javascript:" class="nav-link"><span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Disabled menu</span></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- [ navigation menu ] end -->
+    <?php include('template/menu.php'); ?>
+
 
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
@@ -224,7 +160,7 @@
     <!-- [ Header ] end -->
 
     <!-- [ Main Content ] start -->
-    <section class="pcoded-main-container">
+    <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
@@ -234,12 +170,12 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Google Map</h5>
+                                        <h5 class="m-b-10">Typography</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="#!">Maps</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Google Maps</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Basic Componants</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Typography</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -250,135 +186,220 @@
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!-- [ basic-map ] start -->
-                                <div class="col-lg-12 col-xl-6">
+                                <!-- [ Typography ] start -->
+                                <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Basic</h5>
-                                            <span class="d-block m-t-5">Map shows places around the world</span>
+                                            <h5>Headings</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <div id="basic-map" class="set-map" style="height:400px;"></div>
+                                        <div class="card-body">
+                                            <h1>This is a Heading 1</h1>
+                                            <p class="text-muted mb-4">Suspendisse vel quam malesuada, aliquet sem sit amet, fringilla elit. Morbi tempor tincidunt tempor. Etiam id turpis viverra, vulputate sapien nec, varius sem. Curabitur ullamcorper fringilla eleifend. In ut eros hendrerit est consequat posuere et at velit.</p>
+                                            <div class="clearfix"></div>
+                                            <h2>This is a Heading 2</h2>
+                                            <p class="text-muted mb-4">In nec rhoncus eros. Vestibulum eu mattis nisl. Quisque viverra viverra magna nec pulvinar. Maecenas pellentesque porta augue, consectetur facilisis diam porttitor sed. Suspendisse tempor est sodales augue rutrum tincidunt. Quisque a malesuada purus.</p>
+                                            <div class="clearfix"></div>
+                                            <h3>This is a Heading 3</h3>
+                                            <p class="text-muted mb-4">Vestibulum auctor tincidunt semper. Phasellus ut vulputate lacus. Suspendisse ultricies mi eros, sit amet tempor nulla varius sed. Proin nisl nisi, feugiat quis bibendum vitae, dapibus in tellus.</p>
+                                            <div class="clearfix"></div>
+                                            <h4>This is a Heading 4</h4>
+                                            <p class="text-muted mb-4">Nulla et mattis nunc. Curabitur scelerisque commodo condimentum. Mauris blandit, velit a consectetur egestas, diam arcu fermentum justo, eget ultrices arcu eros vel erat.</p>
+                                            <div class="clearfix"></div>
+                                            <h5>This is a Heading 5</h5>
+                                            <p class="text-muted mb-4">Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus elementum. Suspendisse molestie ullamcorper ornare.
+                                            </p>
+                                            <div class="clearfix"></div>
+                                            <h6>This is a Heading 6</h6>
+                                            <p class="text-muted mb-0">Donec ultricies, lacus id tempor condimentum, orci leo faucibus sem, a molestie libero lectus ac justo. ultricies mi eros, sit amet tempor nulla varius sed. Proin nisl nisi, feugiat quis bibendum vitae, dapibus in tellus.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ basic-map ] end -->
-
-                                <!-- [ Markers-map ] start -->
-                                <div class="col-lg-12 col-xl-6">
+                                <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Markers</h5>
-                                            <span class="d-block m-t-5">Maps shows <code>location</code> of the place</span>
+                                            <h5>Display Headings</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <div id="markers-map" class="set-map" style="height:400px;"></div>
+                                        <div class="card-body">
+                                            <h1 class="display-1">Display 1</h1>
+                                            <h1 class="display-2">Display 2</h1>
+                                            <h1 class="display-3">Display 3</h1>
+                                            <h1 class="display-4">Display 4</h1>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Markers-map ] end -->
-
-                                <!-- [ Geo-Coding-map ] start -->
-                                <div class="col-lg-12 col-xl-6">
+                                <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Geo-Coding</h5>
-                                            <span class="d-block m-t-5">Search your location</span>
+                                            <h5>Inline Text Elements</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <form method="post" id="geocoding_form1">
-                                                <div class="input-group input-group-button mb-3">
-                                                    <input type="text" id="address" class="form-control" placeholder="Write your place">
-                                                    <span class="input-group-addon" id="basic-addon1">
-                                                  <button class="btn btn-primary m-0">Search Location</button>
-                                                  </span>
-                                                </div>
-                                            </form>
-                                            <div id="mapGeo" class="set-map" style="height:400px;"></div>
+                                        <div class="card-body">
+                                            <p class="lead m-t-0">Your title goes here</p>
+                                            You can use the mark tag to
+                                            <mark>highlight</mark> text.
+                                            <br>
+                                            <del>This line of text is meant to be treated as deleted text.</del>
+                                            <br>
+                                            <ins>This line of text is meant to be treated as an addition to the document.</ins>
+                                            <br>
+                                            <strong>rendered as bold text</strong>
+                                            <br>
+                                            <em>rendered as italicized text</em>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Geo-Coding-map ] end -->
-
-                                <!-- [ Overlay-map ] start -->
-                                <div class="col-lg-12 col-xl-6">
+                                <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Overlay</h5>
-                                            <span class="d-block m-t-5">Map shows places around the world</span>
+                                            <h5>Contextual Text Colors</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <form method="post" id="geocoding_form2">
-                                                <div id="mapOverlay" class="set-map" style="height:400px;"></div>
-                                            </form>
+                                        <div class="card-body">
+                                            <p class="text-muted mb-1">
+                                                Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.
+                                            </p>
+                                            <p class="text-primary mb-1">
+                                                Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                            </p>
+                                            <p class="text-success mb-1">
+                                                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                                            </p>
+                                            <p class="text-info mb-1">
+                                                Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                            </p>
+                                            <p class="text-warning mb-1">
+                                                Etiam porta sem malesuada magna mollis euismod.
+                                            </p>
+                                            <p class="text-danger mb-1">
+                                                Donec ullamcorper nulla non metus auctor fringilla.
+                                            </p>
+                                            <p class="text-dark mb-1">
+                                                Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Overlay-map ] end -->
-
-                                <!-- [ Street-View-map ] start -->
-                                <div class="col-lg-12 col-xl-6">
+                                <div class="col-md-6 col-lg-4">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Street View</h5>
-                                            <span class="d-block m-t-5">Map shows view of street</span>
+                                            <h5>Unordered</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <form method="post" id="geocoding_form3">
-                                                <div id="mapStreet" class="set-map" style="height:400px;"></div>
-                                            </form>
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>Lorem ipsum dolor sit amet</li>
+                                                <li>Consectetur adipiscing elit</li>
+                                                <li>Integer molestie lorem at massa</li>
+                                                <li>Facilisis in pretium nisl aliquet</li>
+                                                <li>Nulla volutpat aliquam velit
+                                                    <ul>
+                                                        <li>Phasellus iaculis neque</li>
+                                                        <li>Purus sodales ultricies</li>
+                                                        <li>Vestibulum laoreet porttitor sem</li>
+                                                        <li>Ac tristique libero volutpat at</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Faucibus porta lacus fringilla vel</li>
+                                                <li>Aenean sit amet erat nunc</li>
+                                                <li>Eget porttitor lorem</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Street-View-map ] end -->
-
-                                <!-- [ Map-Types-map ] start -->
-                                <div class="col-lg-12 col-xl-6">
+                                <div class="col-md-6 col-lg-4">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Map Types</h5>
-                                            <span class="d-block m-t-5">Select your <code>map-types</code> to see differant views</span>
+                                            <h5>Ordered</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <form method="post" id="geocoding_form4">
-                                                <div id="mapTypes" class="set-map" style="height:400px;"></div>
-                                            </form>
+                                        <div class="card-body">
+                                            <ol>
+                                                <li>Lorem ipsum dolor sit amet</li>
+                                                <li>Consectetur adipiscing elit</li>
+                                                <li>Integer molestie lorem at massa</li>
+                                                <li>Facilisis in pretium nisl aliquet</li>
+                                                <li>Nulla volutpat aliquam velit
+                                                    <ul>
+                                                        <li>Phasellus iaculis neque</li>
+                                                        <li>Purus sodales ultricies</li>
+                                                        <li>Vestibulum laoreet porttitor sem</li>
+                                                        <li>Ac tristique libero volutpat at</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Faucibus porta lacus fringilla vel</li>
+                                                <li>Aenean sit amet erat nunc</li>
+                                                <li>Eget porttitor lorem</li>
+                                            </ol>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Map-Types-map ] end -->
-
-                                <!-- [ GeoRSS-Layers ] start -->
-                                <div class="col-lg-12 col-xl-6">
+                                <div class="col-md-12 col-lg-4">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>GeoRSS Layers</h5>
-                                            <span class="d-block m-t-5">Shows <code>RSS</code> location</span>
+                                            <h5>Unstyled</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <form method="post" id="geocoding_form5">
-                                                <div id="georssmap" class="set-map" style="height:400px;"></div>
-                                            </form>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li>Lorem ipsum dolor sit amet</li>
+                                                <li>Integer molestie lorem at massa
+                                                    <ul>
+                                                        <li>Phasellus iaculis neque</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Faucibus porta lacus fringilla vel</li>
+                                                <li>Eget porttitor lorem</li>
+                                            </ul>
+                                            <h5>Inline</h5>
+                                            <hr>
+                                            <ul class="list-inline m-b-0">
+                                                <li class="list-inline-item">Lorem ipsum</li>
+                                                <li class="list-inline-item">Phasellus iaculis</li>
+                                                <li class="list-inline-item">Nulla volutpat</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ GeoRSS-Layers ] end -->
-
-                                <!-- [ Marker-Clustering ] start -->
-                                <div class="col-lg-12 col-xl-6">
+                                <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Marker Clustering</h5>
-                                            <span class="d-block m-t-5">Multiple markers show differant location</span>
+                                            <h5>Blockquotes</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <form method="post" id="geocoding_form6">
-                                                <div id="map" class="set-map" style="height:400px;"></div>
-                                            </form>
+                                        <div class="card-body">
+                                            <p class="text-muted m-b-30">
+                                                Your awesome text goes here.
+                                            </p>
+                                            <blockquote class="blockquote">
+                                                <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                                            </blockquote>
+                                            <p class="text-muted m-b-15 m-t-20">
+                                                Add <code>.text-right</code> for a blockquote with right-aligned content.
+                                            </p>
+                                            <blockquote class="blockquote text-right">
+                                                <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                                            </blockquote>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Marker-Clustering ] end -->
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Horizontal Description</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <dl class="dl-horizontal row">
+                                                <dt class="col-sm-3">Description lists</dt>
+                                                <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+                                                <dt class="col-sm-3">Euismod</dt>
+                                                <dd class="col-sm-9">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                                                <dd class="col-sm-9">Donec id elit non mi porta gravida at eget metus.</dd>
+                                                <dt class="col-sm-3">Malesuada porta</dt>
+                                                <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+                                                <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+                                                <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- [ Typography ] end -->
                             </div>
                             <!-- [ Main Content ] end -->
                         </div>
@@ -386,7 +407,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- [ Main Content ] end -->
 
     <!-- Warning Section Starts -->
@@ -440,13 +461,6 @@
 <script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
-
-
-    <!-- google-map Js -->
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="assets/plugins/google-maps/js/gmaps.js"></script>
-    <script src="assets/js/pages/google-maps.js"></script>
 
 </body>
 </html>

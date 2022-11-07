@@ -37,72 +37,8 @@
     </div>
     <!-- [ Pre-loader ] End -->
 
-    <!-- [ navigation menu ] start -->
-    <nav class="pcoded-navbar">
-        <div class="navbar-wrapper">
-            <div class="navbar-brand header-logo">
-               <a href="index.html" class="b-brand">
-                   <div class="b-bg">
-                       <i class="feather icon-trending-up"></i>
-                   </div>
-                   <span class="b-title">Datta Able</span>
-               </a>
-               <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-           </div>
-            <div class="navbar-content scroll-div">
-                <ul class="nav pcoded-inner-navbar">
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Navigation</label>
-                    </li>
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
-                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>UI Element</label>
-                    </li>
-                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu active pcoded-trigger">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Components</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="bc_button.html" class="">Button</a></li>
-                            <li class=""><a href="bc_badges.html" class="">Badges</a></li>
-                            <li class="active"><a href="bc_breadcrumb-pagination.html" class="">Breadcrumb & paggination</a></li>
-                            <li class=""><a href="bc_collapse.html" class="">Collapse</a></li>
-                            <li class=""><a href="bc_tabs.html" class="">Tabs & pills</a></li>
-                            <li class=""><a href="bc_typography.html" class="">Typography</a></li>
-                            <li class=""><a href="icon-feather.html" class="">Feather<span class="pcoded-badge label label-danger">NEW</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Forms & table</label>
-                    </li>
-                    <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                        <a href="form_elements.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Form elements</span></a>
-                    </li>
-                    <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Table</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Chart & Maps</label>
-                    </li>
-                    <li data-username="Charts Morris" class="nav-item"><a href="chart-morris.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a></li>
-                    <li data-username="Maps Google" class="nav-item"><a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a></li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Pages</label>
-                    </li>
-                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="auth-signup.html" class="" target="_blank">Sign up</a></li>
-                            <li class=""><a href="auth-signin.html" class="" target="_blank">Sign in</a></li>
-                        </ul>
-                    </li>
-                    <li data-username="Sample Page" class="nav-item"><a href="sample-page.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li>
-                    <li data-username="Disabled Menu" class="nav-item disabled"><a href="javascript:" class="nav-link"><span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Disabled menu</span></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- [ navigation menu ] end -->
+    <?php include('template/menu.php'); ?>
+
 
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
@@ -222,6 +158,7 @@
         </div>
     </header>
     <!-- [ Header ] end -->
+
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
@@ -233,12 +170,12 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Breadcrumbs & Pagination</h5>
+                                        <h5 class="m-b-10">Collapse</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
                                         <li class="breadcrumb-item"><a href="javascript:">Basic Componants</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Breadcrumbs & Pagination</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Collapse</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -249,103 +186,91 @@
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!-- [ Breadcrumbs & Pagination ] start -->
-                                <div class="col-sm-6">
+                                <!-- [ collapse ] start -->
+                                <div class="col-sm-12">
+                                    <h5 class="mb-3">Basic Collapse</h5>
+                                    <hr>
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Breadcrumb</h5>
+                                            <a class="btn btn-primary m-t-5" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Link with href</a>
+                                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Button with data-target</button>
                                         </div>
+                                        <div class="collapse" id="collapseExample">
                                         <div class="card-body">
-                                            <nav aria-label="breadcrumb">
-                                                <ol class="breadcrumb">
-                                                    <li class="breadcrumb-item active" aria-current="page">Home</li>
-                                                </ol>
-                                            </nav>
-                                            <nav aria-label="breadcrumb">
-                                                <ol class="breadcrumb">
-                                                    <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                                </ol>
-                                            </nav>
-                                            <nav aria-label="breadcrumb">
-                                                <ol class="breadcrumb">
-                                                    <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                                                    <li class="breadcrumb-item"><a href="#!">Library</a></li>
-                                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                                                </ol>
-                                            </nav>
+                                                <p class="mb-0">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Breadcrumb Icon</h5>
+                                <div class="col-sm-12 mb-3">
+                                    <h5 class="mb-3">Multiple Targets</h5>
+                                    <hr>
+                                    <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="collapse multi-collapse mt-2" id="multiCollapseExample1">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <p class="mb-0">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                                            proident.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <nav aria-label="breadcrumb">
-                                                <ol class="breadcrumb">
-                                                    <li class="breadcrumb-item active" aria-current="page"><i class="feather icon-home"></i></li>
-                                                </ol>
-                                            </nav>
-                                            <nav aria-label="breadcrumb">
-                                                <ol class="breadcrumb">
-                                                    <li class="breadcrumb-item"><a href="#!"><i class="feather icon-home"></i></a></li>
-                                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                                </ol>
-                                            </nav>
-                                            <nav aria-label="breadcrumb">
-                                                <ol class="breadcrumb">
-                                                    <li class="breadcrumb-item"><a href="#!"><i class="feather icon-home"></i></a></li>
-                                                    <li class="breadcrumb-item"><a href="#!">Library</a></li>
-                                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                                                </ol>
-                                            </nav>
+                                        <div class="col">
+                                            <div class="collapse multi-collapse mt-2" id="multiCollapseExample2">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <p class="mb-0">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                                            proident.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Pagination</h5>
+                                    <h5 class="mb-3">Accordion Example</h5>
+                                    <hr>
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Collapsible Group Item #1</a></h5>
+                                            </div>
+                                            <div id="collapseOne" class=" card-body collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                                sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore
+                                                sustainable VHS.
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination">
-                                                    <li class="page-item"><a class="page-link" href="#!">Previous</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">1</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">Next</a></li>
-                                                </ul>
-                                            </nav>
-                                            <h5 class="mt-5">Working With Icons</h5>
-                                            <hr>
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination">
-                                                    <li class="page-item"><a class="page-link" href="#!" aria-label="Previous"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">1</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!" aria-label="Next"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
-                                                </ul>
-                                            </nav>
-                                            <h5 class="mt-5">Disabled and Active States</h5>
-                                            <hr>
-                                            <nav aria-label="...">
-                                                <ul class="pagination">
-                                                    <li class="page-item disabled"><span class="page-link">Previous</span></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">1</a></li>
-                                                    <li class="page-item active"><span class="page-link">2<span class="sr-only">(current)</span></span>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#!">Next</a></li>
-                                                </ul>
-                                            </nav>
+                                        <div class="card">
+                                            <div class="card-header" id="headingTwo">
+                                                <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Collapsible Group Item #2</a></h5>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse card-body" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                                sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore
+                                                sustainable VHS.
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree">
+                                                <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Collapsible Group Item #3</a></h5>
+                                            </div>
+                                            <div id="collapseThree" class="card-body collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                                sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore
+                                                sustainable VHS.
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Breadcrumbs & Pagination ] end -->
+                                <!-- [ collapse ] end -->
                             </div>
                             <!-- [ Main Content ] end -->
                         </div>

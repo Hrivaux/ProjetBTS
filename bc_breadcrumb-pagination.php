@@ -23,8 +23,6 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <!-- morris css -->
-    <link rel="stylesheet" href="assets/plugins/chart-morris/css/morris.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -39,72 +37,8 @@
     </div>
     <!-- [ Pre-loader ] End -->
 
-    <!-- [ navigation menu ] start -->
-    <nav class="pcoded-navbar">
-        <div class="navbar-wrapper">
-            <div class="navbar-brand header-logo">
-               <a href="index.html" class="b-brand">
-                   <div class="b-bg">
-                       <i class="feather icon-trending-up"></i>
-                   </div>
-                   <span class="b-title">Datta Able</span>
-               </a>
-               <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-           </div>
-            <div class="navbar-content scroll-div">
-                <ul class="nav pcoded-inner-navbar">
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Navigation</label>
-                    </li>
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
-                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>UI Element</label>
-                    </li>
-                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Componant</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="bc_button.html" class="">Button</a></li>
-                            <li class=""><a href="bc_badges.html" class="">Badges</a></li>
-                            <li class=""><a href="bc_breadcrumb-pagination.html" class="">Breadcrumb & paggination</a></li>
-                            <li class=""><a href="bc_collapse.html" class="">Collapse</a></li>
-                            <li class=""><a href="bc_tabs.html" class="">Tabs & pills</a></li>
-                            <li class=""><a href="bc_typography.html" class="">Typography</a></li>
-                            <li class=""><a href="icon-feather.html" class="">Feather<span class="pcoded-badge label label-danger">NEW</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Forms & table</label>
-                    </li>
-                    <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                        <a href="form_elements.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Form elements</span></a>
-                    </li>
-                    <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Table</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Chart & Maps</label>
-                    </li>
-                    <li data-username="Charts Morris" class="nav-item active"><a href="chart-morris.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a></li>
-                    <li data-username="Maps Google" class="nav-item"><a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a></li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Pages</label>
-                    </li>
-                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="auth-signup.html" class="" target="_blank">Sign up</a></li>
-                            <li class=""><a href="auth-signin.html" class="" target="_blank">Sign in</a></li>
-                        </ul>
-                    </li>
-                    <li data-username="Sample Page" class="nav-item"><a href="sample-page.html" class="nav-link"><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li>
-                    <li data-username="Disabled Menu" class="nav-item disabled"><a href="javascript:" class="nav-link"><span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Disabled menu</span></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- [ navigation menu ] end -->
+    <?php include('template/menu.php'); ?>
+
 
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
@@ -224,7 +158,6 @@
         </div>
     </header>
     <!-- [ Header ] end -->
-
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
@@ -236,12 +169,12 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Morris Chart</h5>
+                                        <h5 class="m-b-10">Breadcrumbs & Pagination</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Chart</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Morris Chart</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Basic Componants</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Breadcrumbs & Pagination</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -252,78 +185,103 @@
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!-- [ Morris Chart ] start -->
-                                <div class="col-xl-6">
+                                <!-- [ Breadcrumbs & Pagination ] start -->
+                                <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Bar [ Simple ] Chart</h5>
+                                            <h5>Breadcrumb</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <div id="morris-bar-chart" style="height:300px"></div>
+                                        <div class="card-body">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">Home</li>
+                                                </ol>
+                                            </nav>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#!">Home</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                                </ol>
+                                            </nav>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#!">Home</a></li>
+                                                    <li class="breadcrumb-item"><a href="#!">Library</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                                </ol>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-6">
+                                <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Bar [ Stacked ] Chart</h5>
+                                            <h5>Breadcrumb Icon</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <div id="morris-bar-stacked-chart" style="height:300px"></div>
+                                        <div class="card-body">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page"><i class="feather icon-home"></i></li>
+                                                </ol>
+                                            </nav>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#!"><i class="feather icon-home"></i></a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                                </ol>
+                                            </nav>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#!"><i class="feather icon-home"></i></a></li>
+                                                    <li class="breadcrumb-item"><a href="#!">Library</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                                </ol>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-6">
+                                <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Line [ Angle ] Chart</h5>
+                                            <h5>Pagination</h5>
                                         </div>
-                                        <div class="card-block">
-                                            <div id="morris-area-chart" style="height:300px"></div>
+                                        <div class="card-body">
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                    <li class="page-item"><a class="page-link" href="#!">Previous</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">1</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">Next</a></li>
+                                                </ul>
+                                            </nav>
+                                            <h5 class="mt-5">Working With Icons</h5>
+                                            <hr>
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                    <li class="page-item"><a class="page-link" href="#!" aria-label="Previous"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">1</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!" aria-label="Next"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+                                                </ul>
+                                            </nav>
+                                            <h5 class="mt-5">Disabled and Active States</h5>
+                                            <hr>
+                                            <nav aria-label="...">
+                                                <ul class="pagination">
+                                                    <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">1</a></li>
+                                                    <li class="page-item active"><span class="page-link">2<span class="sr-only">(current)</span></span>
+                                                    </li>
+                                                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#!">Next</a></li>
+                                                </ul>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Area [ Smooth ] Chart</h5>
-                                        </div>
-                                        <div class="card-block">
-                                            <div id="morris-area-curved-chart" style="height:300px"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Line [ Angle ] Chart</h5>
-                                        </div>
-                                        <div class="card-block">
-                                            <div id="morris-line-chart" class="ChartShadow" style="height:300px"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Line [ Smooth ] Chart</h5>
-                                        </div>
-                                        <div class="card-block">
-                                            <div id="morris-line-smooth-chart" class="ChartShadow" style="height:300px"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Donut Chart</h5>
-                                        </div>
-                                        <div class="card-block">
-                                            <div id="morris-donut-chart" style="height:300px"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- [ Morris Chart ] end -->
+                                <!-- [ Breadcrumbs & Pagination ] end -->
                             </div>
                             <!-- [ Main Content ] end -->
                         </div>
@@ -386,11 +344,6 @@
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
 
-
-    <!-- chart-morris Js -->
-    <script src="assets/plugins/chart-morris/js/raphael.min.js"></script>
-    <script src="assets/plugins/chart-morris/js/morris.min.js"></script>
-    <script src="assets/js/pages/chart-morris-custom.js"></script>
 
 </body>
 </html>

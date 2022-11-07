@@ -36,6 +36,7 @@
         </div>
     </div>
     <!-- [ Pre-loader ] End -->
+
 <?php include('template/menu.php'); ?>
 
     <!-- [ Header ] start -->
