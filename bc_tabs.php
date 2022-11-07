@@ -37,7 +37,7 @@
     </div>
     <!-- [ Pre-loader ] End -->
 
-    <?php include('template/menu.php'); ?>
+    <?php include('templates/menu.php'); ?>
 
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
