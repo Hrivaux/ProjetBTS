@@ -1,3 +1,3 @@
 # ProjetBTS
 
-Template implanté, est ce que tout le monde la vois ?
+Template implantée, est ce que tout le monde la voit ?
