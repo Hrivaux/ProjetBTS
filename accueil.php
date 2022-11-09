@@ -493,242 +493,109 @@ connected_only();
                                 <div class="col-xl-8 col-md-12 m-b-30">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Today</a>
+                                            <a class="nav-link active show" id="semaine-tab" data-toggle="tab" href="#semaine" role="tab" aria-controls="semaine" aria-selected="true">Cette semaine</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active show" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">This Week</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">All</a>
+                                            <a class="nav-link" id="tous-tab" data-toggle="tab" href="#tous" role="tab" aria-controls="tous" aria-selected="false">Tous</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="tab-pane fade active show" id="semaine" role="tabpanel" aria-labelledby="semaine-tab">
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>User</th>
-                                                        <th>Activity</th>
-                                                        <th>Time</th>
-                                                        <th>Status</th>
+                                                        <th>Utilisateur</th>
+                                                        <th>Adresse mail</th>
+                                                        <th>Date de création</th>
+                                                        <th>Adresse</th>
                                                         <th class="text-right"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle m-r-10" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user">Ida Jorgensen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">The quick brown fox</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">3:28 PM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-green">Done</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
-                                                    </tr>
+                                                <tbody> 
+                                                 <?php 
+                                                	$requete = ("SELECT * FROM utilisateurs WHERE created_date BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 10 DAY ) AND CURDATE( )");
 
+                                                    $requser = $bdd->prepare($requete);
+                                                    $requser->execute();
+                                                        
+                                                    $resultat = $requser->fetchAll();
+                                                        if (!empty($resultat)) 
+                                                        {
+                                                            foreach($resultat as $users)  { 
+                                                            ?>
                                                     <tr>
                                                         <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user">Albert Andersen</h6>
+                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $users['nom']." ".$users['prenom']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0">Jumps over the lazy</h6>
+                                                            <h6 class="m-0"><?php echo $users['email']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0">2:37 PM</h6>
+                                                            <h6 class="m-0"><?php echo $users['created_date'];?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0 text-c-red">Missed</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-red f-10"></i></td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user">Silje Larsen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">Dog the quick brown</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">10:23 AM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-purple">Delayed</h6>
+                                                            <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
                                                         </td>
                                                         <td class="text-right"><i class="fas fa-circle text-c-purple f-10"></i></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user">Ida Jorgensen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">The quick brown fox</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">4:28 PM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-green">Done</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
-                                                    </tr>
+                                                    <?php 
+                                                                                            } 
+                                                    } 
+                                                    else
+                                                    {
+                                                        echo "Aucun utilisateur n'a été créé";
+                                                    }?>
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                        <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="tab-pane fade" id="tous" role="tabpanel" aria-labelledby="tous-tab">
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>User</th>
-                                                        <th>Activity</th>
-                                                        <th>Time</th>
-                                                        <th>Status</th>
+                                                        <th>Utilisateur</th>
+                                                        <th>Adresse mail</th>
+                                                        <th>Date de création</th>
+                                                        <th>Adresse</th>
                                                         <th class="text-right"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php 
+                                                	    $requete = ("SELECT * FROM utilisateurs");
+                                                    
+                                                        $requser = $bdd->prepare($requete);
+                                                        $requser->execute();
+                                                        
+                                                        
+                                                        $resultat = $requser->fetchAll();
+                                                   
+                                                    
+                                                        if (!empty($resultat)) 
+                                                        {
+                                                            foreach($resultat as $users)
+                                                            { 
+                                                            ?>
                                                     <tr>
                                                         <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user">Albert Andersen</h6>
+                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $users['nom']." ".$users['prenom']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0">Jumps over the lazy</h6>
+                                                            <h6 class="m-0"><?php echo $users['email']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0">2:37 PM</h6>
+                                                            <h6 class="m-0"><?php echo $users['created_date'];?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0 text-c-red">Missed</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-red f-10"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle m-r-10" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user">Ida Jorgensen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">The quick brown fox</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">3:28 PM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-green">Done</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user">Ida Jorgensen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">The quick brown fox</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">4:28 PM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-green">Done</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user">Silje Larsen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">Dog the quick brown</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">10:23 AM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-purple">Delayed</h6>
+                                                            <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
                                                         </td>
                                                         <td class="text-right"><i class="fas fa-circle text-c-purple f-10"></i></td>
                                                     </tr>
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-                                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>User</th>
-                                                        <th>Activity</th>
-                                                        <th>Time</th>
-                                                        <th>Status</th>
-                                                        <th class="text-right"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user">Silje Larsen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">Dog the quick brown</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">10:23 AM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-purple">Delayed</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-purple f-10"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle m-r-10" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user">Ida Jorgensen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">The quick brown fox</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">3:28 PM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-green">Done</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user">Albert Andersen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">Jumps over the lazy</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">2:37 PM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-red">Missed</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-red f-10"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user">Ida Jorgensen</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">The quick brown fox</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0">4:28 PM</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-green">Done</h6>
-                                                        </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
-                                                    </tr>
+                                                    <?php } } 
+                                                    else
+                                                    {
+                                                        echo "Aucun utilisateur n'a été créé";
+                                                    }?>
                                                 </tbody>
                                             </table>
                                         </div>
