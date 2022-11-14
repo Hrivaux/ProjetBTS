@@ -59,7 +59,7 @@ connected_only();
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Bootstrap Tables Médecin</h5>
+                                        <h5 class="m-b-10">Tables Médecin</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
@@ -113,7 +113,6 @@ connected_only();
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $medecins['nom']." ".$medecins['prenom']; ?></h6>
-                                                        </td>
                                                         <td>
                                                             <h6 class="m-0"><?php echo $medecins['siret']; ?></h6>
                                                         </td>
