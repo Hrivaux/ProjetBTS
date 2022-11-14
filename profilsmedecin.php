@@ -4,19 +4,36 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>4</title>
+	<title>Profils de votre médecin</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="py-20">
+<body class="content-start">
 
-<h1 class="text-2xl ">test </h1>
+<center>
 
-<img class="bg-color-red" src="img/cyril.jpg">
+<?php 
+
+include "inc/sql.php";
+
+$sql = "SELECT * FROM medecins";
+
+    $reponse = $bdd->query($sql);
 
 
-<?php
+    while ($medecin = $reponse->fetch()) {
 
+        echo $medecin['nom']; 
+        echo $medecin['prenom'];
+    }
 ?>
+
+<img class="shadow rounded-full h-48 w-96 align-middle border-none" src="img/cyril.jpg">
+
+
+</center>
+
+
+
 
 </body>
 </html>
