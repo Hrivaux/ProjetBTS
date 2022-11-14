@@ -522,7 +522,7 @@ connected_only();
                                                         if (!empty($resultat)) 
                                                         {
                                                             foreach($resultat as $users)  { 
-                                                            ?>
+                                                 ?>
                                                     <tr>
                                                         <td>
                                                             <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $users['nom']." ".$users['prenom']; ?></h6>
