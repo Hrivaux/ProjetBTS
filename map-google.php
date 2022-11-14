@@ -1,3 +1,9 @@
+<?php
+@session_start();
+require ('global.php');
+
+connected_only();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
