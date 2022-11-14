@@ -420,7 +420,6 @@ connected_only();
                                                         <td>
                                                             <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
                                                         </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-purple f-10"></i></td>
                                                     </tr>
                                                     <?php 
                                                                                             } 
@@ -474,7 +473,6 @@ connected_only();
                                                         <td>
                                                             <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
                                                         </td>
-                                                        <td class="text-right"><i class="fas fa-circle text-c-purple f-10"></i></td>
                                                     </tr>
                                                     <?php } } 
                                                     else
