@@ -5,8 +5,13 @@ require ('global.php');
 connected_only();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+<?php
+@session_start();
+require ('global.php');
 
+connected_only();
+?>
 <head>
     <title>Datta Able Free Bootstrap 4 Admin Template</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
@@ -59,7 +64,7 @@ connected_only();
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Form Elements</h5>
+                                        <h5 class="m-b-10">Compte rendue</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
@@ -78,28 +83,24 @@ connected_only();
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Basic Componant</h5>
+                                            <h5>Ecrivez votre compte rendu</h5>
                                         </div>
                                         <div class="card-body">
-                                            <h5>Form controls</h5>
+                                            <h5>Compte rendu de M.</h5>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <form>
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail1">Email address</label>
-                                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                            <label for="exampleInputEmail1">Nom du médecin</label>
+                                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Sélectionnez le médecin">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleInputPassword1">Password</label>
-                                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                            <label for="exampleInputPassword1">Echantillon tester</label>
+                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Selectionner l'échantillon souhaiter">
                                                         </div>
-                                                        <div class="form-group form-check">
-                                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                        
+                                                        <button type="submit" class="btn btn-primary">Envoyer</button>
                                                     </form>
                                                 </div>
                                                 <div class="col-md-6">
@@ -108,24 +109,14 @@ connected_only();
                                                             <label>Text</label>
                                                             <input type="text" class="form-control" placeholder="Text">
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="exampleFormControlSelect1">Example select</label>
-                                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                        
+                                                        <div class="1">Commentaire</label>
+                                                            <textarea class="form-control comentairecomprendu" id="exampleFormControlTextarea1" rows="3"></textarea>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
-                                            <h5 class="mt-5">Sizing</h5>
+                                        <!--    <h5 class="mt-5">Sizing</h5>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -198,7 +189,7 @@ connected_only();
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Input group -->
+                                    <!-- Input group 
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Input Group</h5>
