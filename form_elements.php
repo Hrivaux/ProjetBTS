@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
 <?php
 @session_start();
 require ('global.php');
 
 connected_only();
 ?>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <title>Datta Able Free Bootstrap 4 Admin Template</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
