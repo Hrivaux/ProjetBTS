@@ -428,7 +428,8 @@ connected_only();
                                                     else
                                                     {
                                                         echo "Aucun utilisateur n'a été créé";
-                                                    }?>
+                                                    }
+                                                    ?>
                                                 </tbody>
                                             </table>
 

@@ -14,20 +14,18 @@ while ($usersession = $req_user->fetch()) {
 
 function connected_only()
 {
-if(!isset($_SESSION['user']))
-{
-
-Header("Location: index.php");
-exit();
-}
+	if(!isset($_SESSION['user'])) {
+		Header("Location: index.php");
+		exit();
+									}
 }
 
 function already_connected()
 {
-if(isset($_SESSION['user']))
-{
-Header("Location: index.php");
-exit();}
+	if(isset($_SESSION['user'])) {
+		Header("Location: index.php");
+		exit();
+								}
 }
 
 ?>
