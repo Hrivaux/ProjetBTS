@@ -43,7 +43,7 @@
                     <li data-username="Table bootstrap datatable footable" class="nav-item">
                         <a href="tbl_bootstrap.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Table</span></a>
                     </li>
-                    <li data-username="Table bootstrap datatable footable" class="nav-item">
+                    <li data-username="Liste des médecins" class="nav-item">
                         <a href="tb_medecin.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des médecins</span></a>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
@@ -70,7 +70,7 @@
                         </ul>
                     </li>
                     <li data-username="Sample Page" class="nav-item"><a href="sample-page.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li>
-                    <li data-username="Sample Page" class="nav-item"><a href="logout.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Déconnexion</span></a></li>
+                    <li data-username="Déconnexion" class="nav-item"><a href="logout.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Déconnexion</span></a></li>
                 </ul>
             </div>
         </div>
