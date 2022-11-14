@@ -9,7 +9,14 @@
 </head>
 <body class="content-start">
 
+
+
+
+
 <center>
+
+<img class="my-2 shadow rounded-full h-48 w-96 align-middle border-none" src="img/cyril.jpg">
+
 
 <?php 
 
@@ -22,12 +29,13 @@ $sql = "SELECT * FROM medecins";
 
     while ($medecin = $reponse->fetch()) {
 
-        echo $medecin['nom']; 
-        echo $medecin['prenom'];
+        echo $medecin['nom']." "; 
+        echo $medecin['prenom']."<br>";
+		echo 'Numéro de siret : '. $medecin['siret']."<br>";
+		echo 'Type de médicaments : '.$medecin['type_medicament'];
     }
 ?>
 
-<img class="shadow rounded-full h-48 w-96 align-middle border-none" src="img/cyril.jpg">
 
 
 </center>
