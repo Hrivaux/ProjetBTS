@@ -1,5 +1,11 @@
+<?php
+@session_start();
+require ('global.php');
+
+connected_only();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <title>Datta Able Free Bootstrap 4 Admin Template</title>
@@ -186,57 +192,11 @@
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!-- [ basic-table ] start -->
-                                <div class="col-xl-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Médecin qui ont signer un contrat </h5>
-                                            <span class="d-block m-t-5">use class <code>table</code> inside table element</span>
-                                        </div>
-                                        <div class="card-block table-border-style">
-                                            <div class="table-responsive">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Name</th>
-                                                            <th>N°siret</th>
-                                                            <th>ville</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark Otto</td>
-                                                            <td>5638269156</td>
-                                                            <td>Lyon</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob Thornton</td>
-                                                            <td>01746537565</td>
-                                                            <td>Paris</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry Bird</td>
-                                                            <td>01396001863</td>
-                                                            <td>Bordeaux</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- [ basic-table ] end -->
-
                                 <!-- [ Hover-table ] start -->
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Médecin ont cour de négociation</h5>
-                                            <span class="d-block m-t-5">use class <code>table-hover</code> inside table element</span>
+                                            <h5>Liste des médecins</h5>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -244,82 +204,60 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Name</th>
+                                                            <th>Nom</th>
                                                             <th>N°siret</th>
-                                                            <th>Ville</th>
+                                                            <th>Adresse</th>
+                                                            <th>Type de médicaments</th>
+                                                            <th>Quantité des échantillons</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>sam bertrant</td>
-                                                            <td>021584642</td>
-                                                            <td>Roubaix</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>jack Thornton</td>
-                                                            <td>017583792</td>
-                                                            <td>Toulouse</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Thomas Dubois</td>
-                                                            <td>016493643</td>
-                                                            <td>strasbourg</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- [ Hover-table ] end -->
 
-                                <!-- [ stiped-table ] start -->
-                                <div class="col-xl-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Médecin nos démarché</h5>
-                                            <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span>
-                                        </div>
-                                        <div class="card-block table-border-style">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Name</th>
-                                                            <th>N°siret</th>
-                                                            <th>Ville</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Martin Petit </td>
-                                                            <td>0169333339</td>
-                                                            <td>Nice</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Robert fleury</td>
-                                                            <td>0279261</td>
-                                                            <td>Nantes</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Adam Richard</td>
-                                                            <td>015415487</td>
-                                                            <td>Lille</td>
-                                                        </tr>
+                                                    <?php 
+                                                	$requete = ("SELECT * FROM medecins ORDER BY id DESC");
+
+                                                    $reqmedecins = $bdd->prepare($requete);
+                                                    $reqmedecins->execute();
+                                                        
+                                                    $resultat = $reqmedecins->fetchAll();
+                                                        if (!empty($resultat)) 
+                                                        {
+                                                            foreach($resultat as $medecins)  { 
+                                                    ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?php echo $medecins['id']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $medecins['nom']." ".$medecins['prenom']; ?></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><?php echo $medecins['siret']; ?></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0 text-c-purple"><?php echo $medecins['adresse']." ".$medecins['ville']." - ".$medecins['code_postal'];?></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><?php echo $medecins['type_medicament']; ?></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><?php echo $medecins['quantite_echantillon']; ?></h6>
+                                                        </td>
+                                                    </tr>
+                                            <?php 
+                                                } 
+                                                 } 
+                                                else
+                                                {
+                                                    echo "Aucun médecin n'a été créé";
+                                                }
+                                               ?>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ stiped-table ] end -->
                             </div>
                             <!-- [ Main Content ] end -->
                         </div>
