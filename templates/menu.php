@@ -41,7 +41,7 @@
                         <a href="form_elements.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Form elements</span></a>
                     </li>
                     <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="tbl_bootstrap.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Table</span></a>
+                        <a href="tbl_bootstrap.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des comptes rendus</span></a>
                     </li>
                     <li data-username="Table bootstrap datatable footable" class="nav-item">
                         <a href="tb_medecin.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des médecins</span></a>
@@ -51,10 +51,18 @@
                     </li>
                     <li data-username="Charts Morris" class="nav-item"><a href="chart-morris.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a></li>
                     <li data-username="Maps Google" class="nav-item"><a href="map-google.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a></li>
+                    <?php if ($user['grade'] >= 2) { ?>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Administration</label>
+                    </li>
+                    <?php if ($user['grade'] >= 3) { ?><li data-username="Paramètres du site" class="nav-item"><a href="site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li><?php } ?>
+                    <?php if ($user['grade'] >= 2) { ?><li data-username="Création de compte" class="nav-item"><a href="create_account.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li><?php } ?>
+                   
+                    <?php } ?>
                     <li class="nav-item pcoded-menu-caption">
                         <label>Pages</label>
                     </li>
-                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                    <li data-username="" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
                         <ul class="pcoded-submenu">
                             <li class=""><a href="auth-signup.html" class="" target="_blank">S'enregistrer</a></li>
