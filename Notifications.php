@@ -70,11 +70,6 @@ connected_only();
                                                             <input type="text" class="form-control" name="objet" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification">
                                                         </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Message</label>
-                                                            <input type="text" class="form-control" name="message" rows="3" placeholder="Quelle notification voulez-vous envoyer?">
-                                                       </div>
                                                 <label for="pet-select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le niveau d'urgence :</label>
                                                         <select id="urgence" name="urgence" class="form-control">
                                                                 <option selected>Veuillez choisir une option</option>
@@ -86,10 +81,15 @@ connected_only();
                                                         </select>
                                                         <br>
                                                         <br>
-                                                        <input type="submit" value="Envoyer" class="btn btn-primary"/>
+                                                <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Message</label>
+                                                            <input type="text" class="form-control" name="message" rows="3" placeholder="Quelle notification voulez-vous envoyer?">
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
+                                          <center><input type="submit" value="Envoyer" class="btn btn-primary"/></center>
                                             </div>                                        
                                         </div>
                                     </div>
