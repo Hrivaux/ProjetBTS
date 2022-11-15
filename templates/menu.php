@@ -54,25 +54,25 @@
                     </li>
                     <li data-username="Charts Morris" class="nav-item"><a href="chart-morris.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a></li>
                     <li data-username="Maps Google" class="nav-item"><a href="map-google.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a></li>
-                    <?php if ($user['grade'] >= 2) { ?>
+                    <?php if ($user['grade'] >= 3) { ?>
                     <li class="nav-item pcoded-menu-caption">
                         <label>Administration</label>
                     </li>
-                    <?php if ($user['grade'] >= 3) { ?><li data-username="Paramètres du site" class="nav-item"><a href="site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li><?php } ?>
-                    <?php if ($user['grade'] >= 2) { ?><li data-username="Création de compte" class="nav-item"><a href="create_account.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li><?php } ?>
-                   
+                    <li data-username="Paramètres du site" class="nav-item"><a href="site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li>
+                    <li data-username="Création de compte" class="nav-item"><a href="inscription.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li>
                     <?php } ?>
+
                     <li class="nav-item pcoded-menu-caption">
-                        <label>Pages</label>
+                        <label>Mon compte</label>
                     </li>
-                    <li data-username="" class="nav-item pcoded-hasmenu">
+                    <!-- <li data-username="" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
                         <ul class="pcoded-submenu">
                             <li class=""><a href="auth-signup.html" class="" target="_blank">S'enregistrer</a></li>
                             <li class=""><a href="auth-signin.html" class="" target="_blank">Connexion</a></li>
                         </ul>
                     </li>
-                    <li data-username="Sample Page" class="nav-item"><a href="sample-page.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li>
+                    <li data-username="Sample Page" class="nav-item"><a href="sample-page.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li> -->
                     <li data-username="Déconnexion" class="nav-item"><a href="logout.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Déconnexion</span></a></li>
                 </ul>
             </div>

@@ -18,25 +18,12 @@ $user = $sql->fetch(PDO::FETCH_ASSOC);
 $prenomnom = $user['prenom']." ".$user['nom'];
 $nomprenom = $user['nom']." ".$user['prenom'];
 $id_encours = $user['id'];
+$grade_encours = $user['grade'];
 }
 
 //date du jour en PHP
 $month = date('m');
 $day = date('d');
 $year = date('Y');
-$hour = date('h');
-$minute = date('m');
-
-$today = $year . '-' . $month . '-' . $day . ':' . $hour . ':' . $minute;
-/* Gérer les utilisateurs BANNIS
-
-$query = $bdd->prepare("SELECT * FROM bans WHERE value = ?"); 
-$query->execute(array($ip));
-//DEBAN SI TEMPS EXPIRÉ
-$d = $bdd->prepare('DELETE FROM bans WHERE ? >= expire');
-$d->execute(array(time()));
-if($query->rowcount() != 0){
-	header('location: banip.php');
-	exit();
-} */
+$today = $year . '-' . $month . '-' . $day;
 ?>
