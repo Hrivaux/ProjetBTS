@@ -44,7 +44,7 @@ connected_only();
 											<li class="breadcrumb-item">
 												<a href="index.html"><i class="feather icon-home"></i></a>
 											</li>
-											<li class="breadcrumb-item"><a href="javascript:">Form Componants</a></li>
+											<li class="breadcrumb-item"><a href="javascript:">Administratif</a></li>
 											<li class="breadcrumb-item"><a href="javascript:">Envoie notification</a></li>
 										</ul>
 									</div>
@@ -85,12 +85,13 @@ connected_only();
 																<label>Message</label>
 																<textarea name="message" class="form-control" placeholder="Quelle notification voulez-vous envoyer?"rows="4" cols="33"></textarea>
 															</div>
-														</form>
+														
 													</div>
 												</div>
 												<center>
 													<input type="submit" value="Envoyer" class="btn btn-primary"/>
 												</center>
+                                                </form>
 											</div>
 										</div>
 									</div>
