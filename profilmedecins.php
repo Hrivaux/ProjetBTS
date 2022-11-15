@@ -22,8 +22,6 @@ if (is_int($idmedecin))
 
 ?>
 
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -63,15 +61,15 @@ if (is_int($idmedecin))
 	<title>Profils de votre médecin</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="content-start">
+<body class="content-center">
 
 <center>
 
-<img class="my-2 shadow rounded-full h-48 w-96 align-middle border-none" src="img/<?php echo $profilmedecin['img']; ?>">
+<img class="shadow rounded-full h-48 w-96 align-middle border-none" src="img/<?php echo $profilmedecin['img']; ?>">
 
 
 <div class="overflow-x-auto relative">
-    <table class="border-2 text-sm text-left text-gray-500 dark:text-gray-400">
+    <table class="border-2 my-3 text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
