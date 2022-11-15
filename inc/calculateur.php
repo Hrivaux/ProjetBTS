@@ -18,3 +18,4 @@ $data = $nbgrade->fetch();
 $nbutilisateursgrade = $data['nb'];
 $nomgrade = $data['nom_grade'];
 if ($nbutilisateursgrade > 1) { $nomgrade = $nomgrade."s"; }
+?>
