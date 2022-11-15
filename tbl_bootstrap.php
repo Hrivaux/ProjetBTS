@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="frs">
 <?php
 @session_start();
 require ('global.php');
 
 connected_only();
 ?>
-
+<!DOCTYPE html>
+<html lang="frs">
 <head>
-    <title>Datta Able Free Bootstrap 4 Admin Template</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-    <!-- Meta -->
+    <title>GSB - Liste des comptes rendus</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,37 +15,29 @@ connected_only();
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
     <meta name="author" content="CodedThemes"/>
 
-    <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
 
     <?php include('templates/menu.php'); ?>
 
     <?php include('templates/header.php'); ?>
 
 
-    <!-- [ Main Content ] start -->
     <section class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] start -->
                     <div class="page-header">
                         <div class="page-block">
                             <div class="row align-items-center">
@@ -84,33 +68,66 @@ connected_only();
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table">
+                                                <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID Compte rendu</th>
-                                                            <th>Echantillon Tester</th>
+                                                            <th>Compte-rendu</th>
+                                                            <th>Médecin</th>
                                                             <th>Date</th>
-                                                            <th>Commentaire</th>
+                                                            <th>Échantillon</th>
+                                                            <th>Avis</th>
                                                         </tr>
                                                     </thead>
-                                                    
+                                                    <tbody>
 
-                                                  <?php  $query=$bdd->prepare('SELECT * FROM comptesrendus');
-                                                    while($data=$query->fetch()) 
-                                                              {echo'<tbody><tr><td>'.$data['id'].'</td><td>'.$data['id_echantillon'].'</td><td>'.$data['date'].'</tr></tbody>'; }?> 
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                        </tr>
-                                                  
+                                                    <?php 
+                                                	$requete = ("SELECT CR.id               as 'id_compterendu',
+                                                                        CR.id_visiteur      as 'id_visiteur',
+                                                                        CR.id_medecin       as 'id_medecin',
+                                                                        CR.date             as 'date',
+                                                                        CR.id_echantillon   as 'id_echantillon',
+                                                                        CR.avis             as 'avis',
+                                                                        M.id                as 'Mid_medecin',
+                                                                        M.nom               as 'nom_medecin',
+                                                                        M.prenom            as 'prenom_medecin'
+                                                    FROM comptesrendus  CR
+                                                    LEFT JOIN medecins  M ON M.id = CR.id_medecin
+                                                    WHERE id_visiteur = $id_encours 
+                                                    ORDER BY CR.id DESC");
+
+                                                    $reqcr = $bdd->prepare($requete);
+                                                    $reqcr->execute();
+                                                        
+                                                    $resultat = $reqcr->fetchAll();
+                                                        if (!empty($resultat)) 
+                                                        {
+                                                            foreach($resultat as $cr)  { 
+                                                    ?>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="consulter_compterendu.php?id=<?php echo $cr['id_compterendu'];?>">Ouvrir</a>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $cr['id_medecin'];?>"><?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0 text-c-purple"><?php echo $cr['date'];?></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><?php echo $cr['id_echantillon']; ?></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
+                                                        </td>
+                                                    </tr>
+                                            <?php 
+                                                } 
+                                                 } 
+                                                else
+                                                {
+                                                    echo "Aucn compte-rendu ne vous a été rattaché";
+                                                }
+                                               ?>
                                                     </tbody>
                                                 </table>
                                             </div>
