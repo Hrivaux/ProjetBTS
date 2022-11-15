@@ -18,7 +18,7 @@
                         <a href="accueil.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Tableau de bord</span></a>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
-                        <label>UI Element</label>
+                        <label>Elements</label>
                     </li>
                     <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Composants</span></a>
@@ -35,7 +35,7 @@
                         </ul>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
-                        <label>Forms & table</label>
+                        <label>Saisies & consultations</label>
                     </li>
                     <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                         <a href="form_elements.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
