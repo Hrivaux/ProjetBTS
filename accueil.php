@@ -50,14 +50,10 @@ connected_only();
                                 <div class="col-md-6 col-xl-4">
                                     <div class="card daily-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Daily Sales</h6>
+                                            <h6 class="mb-4">Nouvelle utilisateurs aujourd'hui</h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>$ 249.95</h3>
-                                                </div>
-
-                                                <div class="col-3 text-right">
-                                                    <p class="m-b-0">67%</p>
+                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>76</h3>
                                                 </div>
                                             </div>
                                             <div class="progress m-t-30" style="height: 7px;">
@@ -71,13 +67,12 @@ connected_only();
                                 <div class="col-md-6 col-xl-4">
                                     <div class="card Monthly-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Monthly Sales</h6>
+                                            <h6 class="mb-4">Nouvelle utilisateurs mensuelle</h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i>$ 2.942.32</h3>
+                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>3487</h3>
                                                 </div>
                                                 <div class="col-3 text-right">
-                                                    <p class="m-b-0">36%</p>
                                                 </div>
                                             </div>
                                             <div class="progress m-t-30" style="height: 7px;">
@@ -91,13 +86,10 @@ connected_only();
                                 <div class="col-md-12 col-xl-4">
                                     <div class="card yearly-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Yearly Sales</h6>
+                                            <h6 class="mb-4">Médecins Disponibles</h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>$ 8.638.32</h3>
-                                                </div>
-                                                <div class="col-3 text-right">
-                                                    <p class="m-b-0">80%</p>
+                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i>36</h3>
                                                 </div>
                                             </div>
                                             <div class="progress m-t-30" style="height: 7px;">
@@ -186,15 +178,15 @@ connected_only();
                                         <div class="card-block">
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="col">
-                                                    <h5 class="m-0">Upcoming Event</h5>
+                                                    <h5 class="m-0">Rendez-Vous quotidien</h5>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label class="label theme-bg2 text-white f-14 f-w-400 float-right">34%</label>
+                                                    <label class="label theme-bg2 text-white f-14 f-w-400 float-right">65%</label>
                                                 </div>
                                             </div>
-                                            <h2 class="mt-3 f-w-300">45<sub class="text-muted f-14">Competitors</sub></h2>
-                                            <h6 class="text-muted mt-4 mb-0">You can participate in event </h6>
-                                            <i class="fab fa-angellist text-c-purple f-50"></i>
+                                            <h2 class="mt-3 f-w-300">45<sub class="text-muted f-14">Rendez-vous</sub></h2>
+                                            <h6 class="text-muted mt-4 mb-0">Prévu à ce jour</h6>
+                                            <i class="fab fa-angellist text-c-red f-50"></i>
                                         </div>
                                     </div>
                                     <div class="card">
@@ -291,7 +283,7 @@ connected_only();
                                         <div class="card-block border-bottom">
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="col-auto">
-                                                    <i class="fab fa-google-plus-g text-c-red f-36"></i>
+                                                    <i class="fab fa-instagram text-c-red f-36"></i>
                                                 </div>
                                                 <div class="col text-right">
                                                     <h3>10,500</h3>
