@@ -69,8 +69,7 @@ connected_only();
                                                             <label for="exampleInputEmail1">Objet</label>
                                                             <input type="text" class="form-control" name="objet" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification">
                                                         </div>
-                                                </div>
-                                                <label for="pet-select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le niveau d'urgence :</label>
+                                                        <label for="pet-select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le niveau d'urgence :</label>
                                                         <select id="urgence" name="urgence" class="form-control">
                                                                 <option selected>Veuillez choisir une option</option>
                                                                 <option value="1">Ne pas faire </option>
@@ -81,11 +80,16 @@ connected_only();
                                                         </select>
                                                         <br>
                                                         <br>
+                                                    </div>
                                                 <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Message</label>
-                                                            <input type="text" class="form-control" name="message" rows="3" placeholder="Quelle notification voulez-vous envoyer?">
-                                                        </div>
+
+                                                            <textarea name="message" class="form-control" placeholder="Quelle notification voulez-vous envoyer?"
+                                                                rows="4" cols="33">
+                                                            </textarea>
+
+                                                       </div>
                                                     </form>
                                                 </div>
                                             </div>
