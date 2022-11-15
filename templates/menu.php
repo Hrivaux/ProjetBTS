@@ -41,7 +41,7 @@
                         <a href="Notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notifications</span></a>
                     </li>
                     <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                        <a href="form_elements.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Form elements</span></a>
+                        <a href="form_elements.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
                     </li>
                     <li data-username="Table bootstrap datatable footable" class="nav-item">
                         <a href="tbl_bootstrap.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des comptes rendus</span></a>
