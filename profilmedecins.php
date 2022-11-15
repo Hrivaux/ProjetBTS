@@ -87,10 +87,10 @@ if (is_int($idmedecin))
                     <?php echo $profilmedecin['siret']; ?>
                 </td>
                 <td class="py-4 px-6">
-                    X
+                <?php echo $profilmedecin['type_medicament']; ?>
                 </td>
                 <td class="py-4 px-6">
-                    X
+                    <?php echo $profilmedecin['quantite_medicament']; ?>
                 </td>
             </tr>
         </tbody>
@@ -121,7 +121,7 @@ if (is_int($idmedecin))
                     Lyon
                 </th>
                 <td class="py-4 px-6">
-                    69001
+                <?php echo $profilmedecin['code_postal']; ?>
                 </td>
                 <td class="py-4 px-6">
                 <?php echo $profilmedecin['email']; ?>
