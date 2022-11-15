@@ -5,7 +5,7 @@ require ('global.php');
 connected_only();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <title>Datta Able Free Bootstrap 4 Admin Template</title>
@@ -85,30 +85,28 @@ connected_only();
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form>
+                                                    <from action="inc/actions/form_notification.php" method="post">
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Objet</label>
-                                                            <input type="form-control" class="form-control" id="exampleInputPassword1" placeholder="Objet">
+                                                            <input type="form-control" name="objet" class="form-control" id="exampleInputPassword1" placeholder="Objet">
                                                         </div>
-                                                    </form>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <form action="form_notification.php" method="post">
                                                         <div class="form-group">
-                                                            <label  for="exampleFormControlTextarea1">Text</label>
-                                                            <input type="text" name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                                                            <label  for="exampleFormControlTextarea1">Message</label>
+                                                            <input type="text" name="message" class="form-control" id="message" rows="3"></input>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Niveau d'urgence</label>
                                                             <select class="form-control" id="exampleFormControlSelect1">
-                                                                <option>Est-ce vraiment à faire?</option>
-                                                                <option>Ne pas faire</option>
-                                                                <option>À faire bientôt</option>
-                                                                <option>À faire immédiatement</option>
-                                                                <option>À faire dans l'extrême urgence</option>
+                                                                <option value="1">Est-ce vraiment à faire?</option>
+                                                                <option value="2">Ne pas faire</option>
+                                                                <option value="3">À faire bientôt</option>
+                                                                <option value="4">À faire immédiatement</option>
+                                                                <option value="5">À faire dans l'extrême urgence</option>
                                                             </select>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                                                        <input type="submit" value="Envoyer" class="btn btn-primary"/>
                                                     </form>
                                                 </div>
                                             </div>
