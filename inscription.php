@@ -52,6 +52,13 @@ else {
                             <input type="text" name="prenom" class="form-control" placeholder="Prenom">
                         </div>
                         <div class="input-group mb-3">
+                            <select name="grade" class="form-control" id="grade">
+                                <option value="1">Visiteur</option>
+                                <option value="2">Délégué</option>
+                                <option value="3">Responsable</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
                             <input type="email" name="email" class="form-control" placeholder="Adresse mail">
                         </div>
                         <div class="input-group mb-4">
@@ -74,8 +81,32 @@ else {
     </div>
 
 <script src="assets/js/vendor-all.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
+<!-- Modal box erreurs -->
+<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Une erreur est survenue, veuillez vérifier que tous les champs aient bien été remplis.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) 
+	{
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'erreur':
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#erreur").modal('show');
+    });
+</script>
+<?php break; } } ?>	
 </body>
 </html>
 <?php 

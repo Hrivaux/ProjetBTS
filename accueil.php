@@ -372,14 +372,14 @@ require_once ('inc/calculateur.php');
                                                     <tr>
                                                         <th>Utilisateur</th>
                                                         <th>Adresse mail</th>
-                                                        <th>Date de création</th>
+                                                        <th>Embauche</th>
                                                         <th>Adresse</th>
                                                         <th class="text-right"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody> 
                                                  <?php 
-                                                	$requete = ("SELECT * FROM utilisateurs WHERE created_date BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 10 DAY ) AND CURDATE( )");
+                                                	$requete = ("SELECT * FROM utilisateurs WHERE date_embauche BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 10 DAY ) AND CURDATE( )");
 
                                                     $requser = $bdd->prepare($requete);
                                                     $requser->execute();
@@ -397,7 +397,7 @@ require_once ('inc/calculateur.php');
                                                             <h6 class="m-0"><?php echo $users['email']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php echo $users['created_date'];?></h6>
+                                                            <h6 class="m-0"><?php echo $users['date_embauche'];?></h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
@@ -450,7 +450,7 @@ require_once ('inc/calculateur.php');
                                                             <h6 class="m-0"><?php echo $users['email']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php echo $users['created_date'];?></h6>
+                                                            <h6 class="m-0"><?php echo $users['date_embauche'];?></h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
@@ -477,8 +477,29 @@ require_once ('inc/calculateur.php');
         </div>
     </div>
 <script src="assets/js/vendor-all.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/pcoded.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
 
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) {
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'success':
+?>
+<script>
+$(document).ready(function(){
+    $("#success").modal('show');
+});
+</script>
+<?php break; } } ?>	
 </body>
 </html>
