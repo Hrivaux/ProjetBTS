@@ -79,8 +79,8 @@ connected_only();
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Compte rendu de M.</h5>
-                                            <p>cliquer dessus pour les voir plus en détails</p>
+                                            <h5>Compte rendu fait</h5>
+                                            <p>cliquer dessus pour les modifiers</p>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -88,18 +88,16 @@ connected_only();
                                                     <thead>
                                                         <tr>
                                                             <th>ID Compte rendu</th>
-                                                            <th>Nom</th>
-                                                            <th>Prénom</th>
-                                                            <th>Username</th>
+                                                            <th>Echantillon Tester</th>
+                                                            <th>Date</th>
+                                                            <th>Commentaire</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                        </tr>
+                                                    
+
+                                                  <?php  $query=$bdd->prepare('SELECT * FROM comptesrendus');
+                                                    while($data=$query->fetch()) 
+                                                              {echo'<tbody><tr><td>'.$data['id'].'</td><td>'.$data['id_echantillon'].'</td><td>'.$data['date'].'</tr></tbody>'; }?> 
                                                         <tr>
                                                             <th scope="row">2</th>
                                                             <td>Jacob</td>
@@ -112,6 +110,7 @@ connected_only();
                                                             <td>the Bird</td>
                                                             <td>@twitter</td>
                                                         </tr>
+                                                  
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -124,24 +123,24 @@ connected_only();
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Hover Table</h5>
-                                            <span class="d-block m-t-5">use class <code>table-hover</code> inside table element</span>
+                                            <h5>Compte rendu à faire</h5>
+                                            <p>cliquer dessus pour les modifiers</p>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-hover">
+                                                <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th>#</th>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Username</th>
+                                                            <th>ID Compte rendu</th>
+                                                            <th>Echantillon Tester</th>
+                                                            <th>Prénom</th>
+                                                            <th>Commentaire</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">1</th>
-                                                            <td>Mark</td>
+                                                            <td>Doliprane</td>
                                                             <td>Otto</td>
                                                             <td>@mdo</td>
                                                         </tr>
@@ -163,9 +162,10 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
+                                </div>
                                 <!-- [ Hover-table ] end -->
 
-                                <!-- [ stiped-table ] start -->
+                                <!-- [ stiped-table ] start 
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -216,8 +216,7 @@ connected_only();
                 </div>
             </div>
         </div>
-    </section>
-    <!-- [ Main Content ] end -->
+    </section>      <!-- [ Main Content ] end -->
 
     <!-- Warning Section Starts -->
     <!-- Older IE warning message -->
