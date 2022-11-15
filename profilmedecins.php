@@ -3,45 +3,51 @@
 require ('global.php');
 
 connected_only();
+
+$idmedecin = htmlentities(trim($_GET['id']));
+$idmedecin = (int) $idmedecin;
+
+if (is_int($idmedecin))
+{
+	$requete = $bdd->prepare("SELECT * FROM medecins WHERE id = '$idmedecin'"); 
+        $requete->execute();
+        $profilmedecin = $requete->fetch();
+        $prenomnomprofil = $profilmedecin['prenom']." ".$profilmedecin['nom'];
+
+    }
+    else
+    {
+    Header('location: accueil.php');
+    }
+
 ?>
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <title>Datta Able Free Bootstrap 4 Admin Template</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-    <!-- Meta -->
-    <meta charset="utf-8">
+    <title>GSB - Consultation du profil d'un médecin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="Datta Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
     <meta name="author" content="CodedThemes"/>
 
-    <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
 
  <?php include('templates/menu.php'); ?>
 
@@ -61,26 +67,8 @@ connected_only();
 
 <center>
 
-<img class="my-2 shadow rounded-full h-48 w-96 align-middle border-none" src="img/cyril.jpg">
+<img class="my-2 shadow rounded-full h-48 w-96 align-middle border-none" src="img/<?php echo $profilmedecin['img']; ?>">
 
-
-<?php 
-
-//include "inc/sql.php";
-
-//$sql = "SELECT * FROM medecins";
-
-  //  $reponse = $bdd->query($sql);
-
-
-    //while ($medecin = $reponse->fetch()) {
-
-      //  echo $medecin['nom']." "; 
-       // echo $medecin['prenom']."<br>";
-	//	echo 'Numéro de siret : '. $medecin['siret']."<br>";
-	//	echo 'Type de médicaments : '.$medecin['type_medicament'];
-    //}
-// ?>
 
 <div class="overflow-x-auto relative">
     <table class="border-2 text-sm text-left text-gray-500 dark:text-gray-400">
@@ -93,26 +81,26 @@ connected_only();
                     Siret
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Type Médicament
+                    Email
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Stock Médicament
+                    Mot de passe
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Cyril Hanouna
+                    <?php echo $prenomnomprofil; ?>
                 </th>
                 <td class="py-4 px-6">
-                    09876543234567890
+                    <?php echo $profilmedecin['siret']; ?>
                 </td>
                 <td class="py-4 px-6">
-                    X
+                <?php echo $profilmedecin['email']; ?>
                 </td>
-                <td class="py-4 px-6">
-                    X
+                <td class="py-4 px-6 text-red-500">
+                Accès restreint
                 </td>
             </tr>
         </tbody>
@@ -130,26 +118,26 @@ connected_only();
                     Code Postal
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Nom d'utilisateur
+                    Type médicaments
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Password
+                    Quantité médicaments
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Lyon
+                    <?php echo $profilmedecin['ville']; ?>
                 </th>
                 <td class="py-4 px-6">
-                    69001
+                <?php echo $profilmedecin['code_postal']; ?>
                 </td>
                 <td class="py-4 px-6">
-                    CyrilLeBgDu69
+                <?php echo $profilmedecin['type_medicament']; ?>
                 </td>
-                <td class="py-4 px-6 text-red-500">
-                    Accès restreint
+                <td class="py-4 px-6">
+                <?php echo $profilmedecin['quantite_echantillon']; ?>
                 </td>
             </tr>
         </tbody>

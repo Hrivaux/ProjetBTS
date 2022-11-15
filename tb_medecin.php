@@ -9,13 +9,6 @@ connected_only();
 
 <head>
     <title>Liste Médecin</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,37 +16,29 @@ connected_only();
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
     <meta name="author" content="CodedThemes"/>
 
-    <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
 
 <?php include('templates/menu.php'); ?>
    
 <?php include('templates/header.php'); ?>
 
 
-    <!-- [ Main Content ] start -->
     <section class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] start -->
                     <div class="page-header">
                         <div class="page-block">
                             <div class="row align-items-center">
@@ -70,12 +55,9 @@ connected_only();
                             </div>
                         </div>
                     </div>
-                    <!-- [ breadcrumb ] end -->
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!-- [ Hover-table ] start -->
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -109,7 +91,7 @@ connected_only();
                                                     ?>
                                                     <tr>
                                                         <td>
-                                                            <?php echo $medecins['id']; ?>
+                                                            <a href="profilmedecins.php?id=<?php echo $medecins['id'];?>"><?php echo $medecins['id']; ?></a>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $medecins['nom']." ".$medecins['prenom']; ?></h6>
