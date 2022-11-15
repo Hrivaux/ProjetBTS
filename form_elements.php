@@ -366,7 +366,7 @@ connected_only();
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ Main Content ] end -->
+                          [ Main Content ] end -->
                         </div>
                     </div>
                 </div>

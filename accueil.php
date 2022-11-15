@@ -3,6 +3,8 @@
 require ('global.php');
 
 connected_only();
+
+require_once ('inc/calculateur.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,30 +36,21 @@ connected_only();
 
 <?php include('templates/header.php'); ?>
 
-    <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] start -->
 
-                    <!-- [ breadcrumb ] end -->
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!--[ daily sales section ] start-->
                                 <div class="col-md-6 col-xl-4">
                                     <div class="card daily-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Daily Sales</h6>
+                                            <h6 class="mb-4">Utilisateurs totaux</h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>$ 249.95</h3>
-                                                </div>
-
-                                                <div class="col-3 text-right">
-                                                    <p class="m-b-0">67%</p>
+                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i><?php echo $nbutilisateurs; ?></h3>
                                                 </div>
                                             </div>
                                             <div class="progress m-t-30" style="height: 7px;">
@@ -66,18 +59,16 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[ daily sales section ] end-->
-                                <!--[ Monthly  sales section ] starts-->
+
                                 <div class="col-md-6 col-xl-4">
                                     <div class="card Monthly-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Monthly Sales</h6>
+                                            <h6 class="mb-4"><?php echo $nomgrade; ?></h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i>$ 2.942.32</h3>
+                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i><?php echo $nbutilisateursgrade; ?></h3>
                                                 </div>
                                                 <div class="col-3 text-right">
-                                                    <p class="m-b-0">36%</p>
                                                 </div>
                                             </div>
                                             <div class="progress m-t-30" style="height: 7px;">
@@ -86,18 +77,14 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[ Monthly  sales section ] end-->
-                                <!--[ year  sales section ] starts-->
+
                                 <div class="col-md-12 col-xl-4">
                                     <div class="card yearly-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Yearly Sales</h6>
+                                            <h6 class="mb-4">Médecin<?php if ($nbmedecins > 1) { echo 's'; }?> rattaché<?php if ($nbmedecins > 1) { echo 's'; }?></h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>$ 8.638.32</h3>
-                                                </div>
-                                                <div class="col-3 text-right">
-                                                    <p class="m-b-0">80%</p>
+                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i><?php echo $nbmedecins; ?></h3>
                                                 </div>
                                             </div>
                                             <div class="progress m-t-30" style="height: 7px;">
@@ -106,12 +93,11 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[ year  sales section ] end-->
-                                <!--[ Recent Users ] start-->
+
                                 <div class="col-xl-8 col-md-6">
                                     <div class="card Recent-Users">
                                         <div class="card-header">
-                                            <h5>Recent Users</h5>
+                                            <h5>Utilisateurs récents</h5>
                                         </div>
                                         <div class="card-block px-0 py-3">
                                             <div class="table-responsive">
@@ -178,147 +164,52 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[ Recent Users ] end-->
-
-                                <!-- [ statistics year chart ] start -->
+                                
                                 <div class="col-xl-4 col-md-6">
                                     <div class="card card-event">
                                         <div class="card-block">
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="col">
-                                                    <h5 class="m-0">Upcoming Event</h5>
+                                                    <h5 class="m-0">Rendez-Vous quotidien</h5>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label class="label theme-bg2 text-white f-14 f-w-400 float-right">34%</label>
+                                                    <label class="label theme-bg2 text-white f-14 f-w-400 float-right">65%</label>
                                                 </div>
                                             </div>
-                                            <h2 class="mt-3 f-w-300">45<sub class="text-muted f-14">Competitors</sub></h2>
-                                            <h6 class="text-muted mt-4 mb-0">You can participate in event </h6>
-                                            <i class="fab fa-angellist text-c-purple f-50"></i>
+                                            <h2 class="mt-3 f-w-300">45<sub class="text-muted f-14">Rendez-vous</sub></h2>
+                                            <h6 class="text-muted mt-4 mb-0">Prévu à ce jour</h6>
+                                            <i class="fab fa-angellist text-c-red f-50"></i>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-block border-bottom">
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-auto">
-                                                    <i class="feather icon-zap f-30 text-c-green"></i>
+                                                    <i class="feather icon-zap f-30 text-c-red"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 class="f-w-300">235</h3>
-                                                    <span class="d-block text-uppercase">TOTAL IDEAS</span>
+                                                    <h3 class="f-w-300">13</h3>
+                                                    <span class="d-block text-uppercase">Compte rendu à rendre
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card-block">
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-auto">
-                                                    <i class="feather icon-map-pin f-30 text-c-blue"></i>
+                                                    <i class="feather icon-zap f-30 text-c-green"></i>
                                                 </div>
                                                 <div class="col">
                                                     <h3 class="f-w-300">26</h3>
-                                                    <span class="d-block text-uppercase">TOTAL LOCATIONS</span>
+                                                    <span class="d-block text-uppercase">Compte rendu terminés</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ statistics year chart ] end -->
-                                <!--[social-media section] start-->
-                                <div class="col-md-12 col-xl-4">
-                                    <div class="card card-social">
-                                        <div class="card-block border-bottom">
-                                            <div class="row align-items-center justify-content-center">
-                                                <div class="col-auto">
-                                                    <i class="fab fa-facebook-f text-primary f-36"></i>
-                                                </div>
-                                                <div class="col text-right">
-                                                    <h3>12,281</h3>
-                                                    <h5 class="text-c-green mb-0">+7.2% <span class="text-muted">Total Likes</span></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="row align-items-center justify-content-center card-active">
-                                                <div class="col-6">
-                                                    <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:</span>35,098</h6>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-c-theme" role="progressbar" style="width:60%;height:6px;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6 class="text-center  m-b-10"><span class="text-muted m-r-5">Duration:</span>3,539</h6>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-c-theme2" role="progressbar" style="width:45%;height:6px;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-xl-4">
-                                    <div class="card card-social">
-                                        <div class="card-block border-bottom">
-                                            <div class="row align-items-center justify-content-center">
-                                                <div class="col-auto">
-                                                    <i class="fab fa-twitter text-c-blue f-36"></i>
-                                                </div>
-                                                <div class="col text-right">
-                                                    <h3>11,200</h3>
-                                                    <h5 class="text-c-purple mb-0">+6.2% <span class="text-muted">Total Likes</span></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="row align-items-center justify-content-center card-active">
-                                                <div class="col-6">
-                                                    <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:</span>34,185</h6>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-c-green" role="progressbar" style="width:40%;height:6px;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6 class="text-center  m-b-10"><span class="text-muted m-r-5">Duration:</span>4,567</h6>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-c-blue" role="progressbar" style="width:70%;height:6px;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-xl-4">
-                                    <div class="card card-social">
-                                        <div class="card-block border-bottom">
-                                            <div class="row align-items-center justify-content-center">
-                                                <div class="col-auto">
-                                                    <i class="fab fa-google-plus-g text-c-red f-36"></i>
-                                                </div>
-                                                <div class="col text-right">
-                                                    <h3>10,500</h3>
-                                                    <h5 class="text-c-blue mb-0">+5.9% <span class="text-muted">Total Likes</span></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="row align-items-center justify-content-center card-active">
-                                                <div class="col-6">
-                                                    <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:</span>25,998</h6>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-c-theme" role="progressbar" style="width:80%;height:6px;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6 class="text-center  m-b-10"><span class="text-muted m-r-5">Duration:</span>7,753</h6>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-c-theme2" role="progressbar" style="width:50%;height:6px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--[social-media section] end-->
-                                <!-- [ rating list ] starts-->
+                                
+
+                                
                                 <div class="col-xl-4 col-md-6">
                                     <div class="card user-list">
                                         <div class="card-header">
@@ -373,7 +264,7 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ rating list ] end-->
+                                
                                 <div class="col-xl-8 col-md-12 m-b-30">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
@@ -390,14 +281,14 @@ connected_only();
                                                     <tr>
                                                         <th>Utilisateur</th>
                                                         <th>Adresse mail</th>
-                                                        <th>Date de création</th>
+                                                        <th>Embauche</th>
                                                         <th>Adresse</th>
                                                         <th class="text-right"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody> 
                                                  <?php 
-                                                	$requete = ("SELECT * FROM utilisateurs WHERE created_date BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 10 DAY ) AND CURDATE( )");
+                                                	$requete = ("SELECT * FROM utilisateurs WHERE date_embauche BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 10 DAY ) AND CURDATE( )");
 
                                                     $requser = $bdd->prepare($requete);
                                                     $requser->execute();
@@ -415,7 +306,7 @@ connected_only();
                                                             <h6 class="m-0"><?php echo $users['email']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php echo $users['created_date'];?></h6>
+                                                            <h6 class="m-0"><?php echo $users['date_embauche'];?></h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
@@ -468,7 +359,7 @@ connected_only();
                                                             <h6 class="m-0"><?php echo $users['email']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php echo $users['created_date'];?></h6>
+                                                            <h6 class="m-0"><?php echo $users['date_embauche'];?></h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
@@ -486,66 +377,38 @@ connected_only();
                                 </div>
 
                             </div>
-                            <!-- [ Main Content ] end -->
+                            
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- [ Main Content ] end -->
-
-    <!-- Warning Section Starts -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 11]>
-        <div class="ie-warning">
-            <h1>Warning!!</h1>
-            <p>You are using an outdated version of Internet Explorer, please upgrade
-               <br/>to any of the following web browsers to access this website.
-            </p>
-            <div class="iew-container">
-                <ul class="iew-download">
-                    <li>
-                        <a href="http://www.google.com/chrome/">
-                            <img src="assets/images/browser/chrome.png" alt="Chrome">
-                            <div>Chrome</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.mozilla.org/en-US/firefox/new/">
-                            <img src="assets/images/browser/firefox.png" alt="Firefox">
-                            <div>Firefox</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.opera.com">
-                            <img src="assets/images/browser/opera.png" alt="Opera">
-                            <div>Opera</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.apple.com/safari/">
-                            <img src="assets/images/browser/safari.png" alt="Safari">
-                            <div>Safari</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                            <img src="assets/images/browser/ie.png" alt="">
-                            <div>IE (11 & above)</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p>Sorry for the inconvenience!</p>
-        </div>
-    <![endif]-->
-    <!-- Warning Section Ends -->
-
-    <!-- Required Js -->
 <script src="assets/js/vendor-all.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/pcoded.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
 
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) {
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'success':
+?>
+<script>
+$(document).ready(function(){
+    $("#success").modal('show');
+});
+</script>
+<?php break; } } ?>	
 </body>
 </html>
