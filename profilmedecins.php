@@ -9,11 +9,21 @@ $idmedecin = (int) $idmedecin;
 
 if (is_int($idmedecin))
 {
-	$requete = $bdd->query("SELECT * FROM medecins WHERE id = '$idmedecin'"); 
-						while ($profilmedecin = $requete->fetch())
-						{
-							$prenomnomprofil = $profilmedecin['prenom']." ".$profilmedecin['nom'];
+	$requete = $bdd->prepare("SELECT * FROM medecins WHERE id = '$idmedecin'"); 
+        $requete->execute();
+        $profilmedecin = $requete->fetch();
+        $prenomnomprofil = $profilmedecin['prenom']." ".$profilmedecin['nom'];
+
+    }
+    else
+    {
+    Header('location: accueil.php');
+    }
+
 ?>
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -71,10 +81,10 @@ if (is_int($idmedecin))
                     Siret
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Type Médicament
+                    Email
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Stock Médicament
+                    Mot de passe
                 </th>
             </tr>
         </thead>
@@ -87,10 +97,10 @@ if (is_int($idmedecin))
                     <?php echo $profilmedecin['siret']; ?>
                 </td>
                 <td class="py-4 px-6">
-                    X
+                <?php echo $profilmedecin['email']; ?>
                 </td>
-                <td class="py-4 px-6">
-                    X
+                <td class="py-4 px-6 text-red-500">
+                Accès restreint
                 </td>
             </tr>
         </tbody>
@@ -108,26 +118,26 @@ if (is_int($idmedecin))
                     Code Postal
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Adresse mail
+                    Type médicaments
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Password
+                    Quantité médicaments
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Lyon
+                    <?php echo $profilmedecin['ville']; ?>
                 </th>
                 <td class="py-4 px-6">
-                    69001
+                <?php echo $profilmedecin['code_postal']; ?>
                 </td>
                 <td class="py-4 px-6">
-                <?php echo $profilmedecin['email']; ?>
+                <?php echo $profilmedecin['type_medicament']; ?>
                 </td>
-                <td class="py-4 px-6 text-red-500">
-                    Accès restreint
+                <td class="py-4 px-6">
+                <?php echo $profilmedecin['quantite_echantillon']; ?>
                 </td>
             </tr>
         </tbody>
@@ -145,11 +155,3 @@ if (is_int($idmedecin))
 
 </body>
 </html>
-<?php
-}
-}
-else
-{
-	Header('location: accueil.php');
-}
-?>
