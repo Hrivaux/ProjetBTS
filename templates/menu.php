@@ -38,9 +38,6 @@
                         <label>Forms & table</label>
                     </li>
                     <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                        <a href="Notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notifications</span></a>
-                    </li>
-                    <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                         <a href="form_elements.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
                     </li>
                     <li data-username="Table bootstrap datatable footable" class="nav-item">
@@ -59,6 +56,9 @@
                         <label>Administration</label>
                     </li>
                     <li data-username="Paramètres du site" class="nav-item"><a href="site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li>
+                    <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
+                        <a href="notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notifications</span></a>
+                    </li>
                     <li data-username="Création de compte" class="nav-item"><a href="inscription.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li>
                     <?php } ?>
 

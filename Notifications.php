@@ -85,7 +85,6 @@ connected_only();
 																<label>Message</label>
 																<textarea name="message" class="form-control" placeholder="Quelle notification voulez-vous envoyer?"rows="4" cols="33"></textarea>
 															</div>
-														
 													</div>
 												</div>
 												<center>
