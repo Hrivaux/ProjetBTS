@@ -90,7 +90,7 @@ if (is_int($idmedecin))
                 <?php echo $profilmedecin['type_medicament']; ?>
                 </td>
                 <td class="py-4 px-6">
-                    <?php echo $profilmedecin['quantite_medicament']; ?>
+                    <?php echo $profilmedecin['quantite_echantillon']; ?>
                 </td>
             </tr>
         </tbody>
