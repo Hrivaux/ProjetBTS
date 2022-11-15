@@ -44,7 +44,7 @@ connected_only();
 											<li class="breadcrumb-item">
 												<a href="index.html"><i class="feather icon-home"></i></a>
 											</li>
-											<li class="breadcrumb-item"><a href="javascript:">Administratif</a></li>
+											<li class="breadcrumb-item"><a href="javascript:">Administration</a></li>
 											<li class="breadcrumb-item"><a href="javascript:">Envoie notification</a></li>
 										</ul>
 									</div>
