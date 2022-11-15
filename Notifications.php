@@ -74,7 +74,19 @@ connected_only();
                                                         <div class="form-group">
                                                             <label>Message</label>
                                                             <input type="text" class="form-control" name="message" rows="3" placeholder="Quelle notification voulez-vous envoyer?">
-                                                        </div>
+                                                       </div>
+                                                       <label for="pet-select">le Niveau d'urgence:</label>
+
+                                                      <select name="urgence" id="urgence">
+                                                                <option value="">--Veuillez choisir une option--</option>
+                                                                <option value="1">Ne pas faire </option>
+                                                                <option value="2">Est-ce vraiment à faire ? </option>
+                                                                <option value="3">À faire bientôt </option>
+                                                                <option value="4">À faire immédiatement </option>
+                                                                <option value="5">À faire dans l'extrême urgence</option>
+                                                        </select>
+                                                        <br>
+                                                        <br>
                                                         <input type="submit" value="Envoyer" class="btn btn-primary"/>
                                                     </form>
                                                 </div>
