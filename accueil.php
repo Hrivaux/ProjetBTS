@@ -3,6 +3,8 @@
 require ('global.php');
 
 connected_only();
+
+require_once ('inc/calculateur.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,26 +36,21 @@ connected_only();
 
 <?php include('templates/header.php'); ?>
 
-    <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] start -->
 
-                    <!-- [ breadcrumb ] end -->
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!--[ daily sales section ] start-->
                                 <div class="col-md-6 col-xl-4">
                                     <div class="card daily-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Nouvelle utilisateurs aujourd'hui</h6>
+                                            <h6 class="mb-4">Utilisateurs totaux</h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>76</h3>
+                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i><?php echo $nbutilisateurs; ?></h3>
                                                 </div>
                                             </div>
                                             <div class="progress m-t-30" style="height: 7px;">
@@ -62,15 +59,14 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[ daily sales section ] end-->
-                                <!--[ Monthly  sales section ] starts-->
+
                                 <div class="col-md-6 col-xl-4">
                                     <div class="card Monthly-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Nouvelle utilisateurs mensuelle</h6>
+                                            <h6 class="mb-4"><?php echo $nomgrade; ?></h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>3487</h3>
+                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i><?php echo $nbutilisateursgrade; ?></h3>
                                                 </div>
                                                 <div class="col-3 text-right">
                                                 </div>
@@ -81,15 +77,14 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[ Monthly  sales section ] end-->
-                                <!--[ year  sales section ] starts-->
+
                                 <div class="col-md-12 col-xl-4">
                                     <div class="card yearly-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Médecins Disponibles</h6>
+                                            <h6 class="mb-4">Médecin<?php if ($nbmedecins > 1) { echo 's'; }?> rattaché<?php if ($nbmedecins > 1) { echo 's'; }?></h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i>36</h3>
+                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i><?php echo $nbmedecins; ?></h3>
                                                 </div>
                                             </div>
                                             <div class="progress m-t-30" style="height: 7px;">
@@ -98,8 +93,7 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[ year  sales section ] end-->
-                                <!--[ Recent Users ] start-->
+
                                 <div class="col-xl-8 col-md-6">
                                     <div class="card Recent-Users">
                                         <div class="card-header">
@@ -170,9 +164,7 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[ Recent Users ] end-->
-
-                                <!-- [ statistics year chart ] start -->
+                                
                                 <div class="col-xl-4 col-md-6">
                                     <div class="card card-event">
                                         <div class="card-block">
@@ -214,8 +206,7 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ statistics year chart ] end -->
-                                <!--[social-media section] start-->
+                                
                                 <div class="col-md-12 col-xl-4">
                                     <div class="card card-social">
                                         <div class="card-block border-bottom">
@@ -309,8 +300,7 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!--[social-media section] end-->
-                                <!-- [ rating list ] starts-->
+                                
                                 <div class="col-xl-4 col-md-6">
                                     <div class="card user-list">
                                         <div class="card-header">
@@ -365,7 +355,7 @@ connected_only();
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ rating list ] end-->
+                                
                                 <div class="col-xl-8 col-md-12 m-b-30">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
@@ -478,63 +468,14 @@ connected_only();
                                 </div>
 
                             </div>
-                            <!-- [ Main Content ] end -->
+                            
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- [ Main Content ] end -->
-
-    <!-- Warning Section Starts -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 11]>
-        <div class="ie-warning">
-            <h1>Warning!!</h1>
-            <p>You are using an outdated version of Internet Explorer, please upgrade
-               <br/>to any of the following web browsers to access this website.
-            </p>
-            <div class="iew-container">
-                <ul class="iew-download">
-                    <li>
-                        <a href="http://www.google.com/chrome/">
-                            <img src="assets/images/browser/chrome.png" alt="Chrome">
-                            <div>Chrome</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.mozilla.org/en-US/firefox/new/">
-                            <img src="assets/images/browser/firefox.png" alt="Firefox">
-                            <div>Firefox</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.opera.com">
-                            <img src="assets/images/browser/opera.png" alt="Opera">
-                            <div>Opera</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.apple.com/safari/">
-                            <img src="assets/images/browser/safari.png" alt="Safari">
-                            <div>Safari</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                            <img src="assets/images/browser/ie.png" alt="">
-                            <div>IE (11 & above)</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p>Sorry for the inconvenience!</p>
-        </div>
-    <![endif]-->
-    <!-- Warning Section Ends -->
-
-    <!-- Required Js -->
 <script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>

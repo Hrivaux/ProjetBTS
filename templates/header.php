@@ -56,6 +56,7 @@
                                                         N.id        as 'id_notif',
                                                         N.user_id   as 'user_id',
                                                         N.message   as 'message',
+                                                        N.urgence   as 'urgence',
                                                         N.send_date as 'date',
                                                         U.id        as 'id_user',
                                                         U.nom       as 'nom_user',
