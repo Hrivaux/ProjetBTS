@@ -8,52 +8,36 @@ connected_only();
 <html lang="fr">
 
 <head>
-    <title>Datta Able Free Bootstrap 4 Admin Template</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-    <!-- Meta -->
+    <title>GSB - Envoyer une notification</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="Datta Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
     <meta name="author" content="CodedThemes"/>
-
-    <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
 
     <?php include('templates/menu.php'); ?>
 
     <?php include('templates/header.php'); ?>
 
 
-    <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] start -->
                     <div class="page-header">
                         <div class="page-block">
                             <div class="row align-items-center">
@@ -70,54 +54,31 @@ connected_only();
                             </div>
                         </div>
                     </div>
-                    <!-- [ breadcrumb ] end -->
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ Main Content ] start -->
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
-                                        <div class="card-header">
-                                            <h5>Notifications</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <h5>Contenu du message</h5>
+                                    <div class="card-body">
+                                            <h5>Envoyer une notification</h5>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <from action="inc/actions/form_notification.php" method="post">
+                                                    <form method="post" action="inc/actions/form_notification.php">
                                                         <div class="form-group">
-                                                            <label for="exampleInputPassword1">Objet</label>
-                                                            <input type="form-control" name="objet" class="form-control" id="exampleInputPassword1" placeholder="Objet">
+                                                            <label for="exampleInputEmail1">Objet</label>
+                                                            <input type="text" class="form-control" name="objet" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification">
                                                         </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label  for="exampleFormControlTextarea1">Message</label>
-                                                            <input type="text" name="message" class="form-control" id="message" rows="3"></input>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="exampleFormControlSelect1">Niveau d'urgence</label>
-                                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                                <option value="1">Est-ce vraiment à faire?</option>
-                                                                <option value="2">Ne pas faire</option>
-                                                                <option value="3">À faire bientôt</option>
-                                                                <option value="4">À faire immédiatement</option>
-                                                                <option value="5">À faire dans l'extrême urgence</option>
-                                                            </select>
+                                                            <label>Message</label>
+                                                            <input type="text" class="form-control" name="message" rows="3" placeholder="Quelle notification voulez-vous envoyer?">
                                                         </div>
                                                         <input type="submit" value="Envoyer" class="btn btn-primary"/>
                                                     </form>
                                                 </div>
                                             </div>
-                                            
-                                            
-                                        
-                                                
-                                                    
-                                                </div>
-                                               
-                                        </div>
                                     </div>
                                    
                                         

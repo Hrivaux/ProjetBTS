@@ -183,7 +183,7 @@ connected_only();
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Input group 
+                                     Input group 
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Input Group</h5>
@@ -337,7 +337,7 @@ connected_only();
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ Main Content ] end -->
+                          [ Main Content ] end -->
                         </div>
                     </div>
                 </div>

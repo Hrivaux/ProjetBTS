@@ -1,20 +1,27 @@
 <?php
-@session_start();
-require ('global.php');
+session_start();
 
-connected_only();
+require_once '../../global.php';
 
-//On insère les données reçues
-$sth = $bdd->prepare("
-INSERT INTO notifications(id,user_id,message,send_date,urgence)
-VALUES(:id, :user_id, :objet, :message, :urgence, :send_date)");
-$sth->bindParam(':id',$id);
-$sth->bindParam(':user_id',$user_id);
-$sth->bindParam(':objet',$objet);
-$sth->bindParam(':message',$message);    
-$sth->bindParam(':urgence',$urgence);
-$sth->bindParam(':send_date',$send_date);
-$sth->execute();
-            
+$objet = $_POST['objet'];
+$msg = $_POST['message'];
+// Rajouter le champ urgence + rajouter dans la requête la colonne urgence + la valeur récupérée
+
+// Date courante
+$date = date('d-m-y');
+
+if (!empty($objet) && !empty($msg)) {
+
+    $reponse = $bdd->prepare("INSERT INTO notifications(user_id,objet,message,send_date) VALUES (?,?,?,?)");
+
+    $reponse->execute(array($id_encours, $objet, $msg, $date));
+
+    echo "<script type='script'> alert('Notification envoyée'); </script>";
+    header ('Location: ../../accueil.php');
+} 
+else 
+{
+    echo "<script type='script'> alert('Merci de remplir tous les champs'); </script>";
+}
 
 ?>
