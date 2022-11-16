@@ -66,10 +66,10 @@ connected_only();
 														<form method="post" action="inc/actions/form_notification.php">
 															<div class="form-group">
 																<label for="exampleInputEmail1">Objet</label>
-																<input type="text" class="form-control" name="objet" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification">
+																<input type="text" class="form-control" name="objet" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required  >
 															</div>
 															<label for="pet-select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le niveau d'urgence :</label>
-															<select id="urgence" name="urgence" class="form-control">
+															<select id="urgence" name="urgence" class="form-control" required >
 																<option selected>Veuillez choisir une option</option>
 																<option value="1">Ne pas faire </option>
 																<option value="2">Est-ce vraiment à faire ? </option>
@@ -83,7 +83,7 @@ connected_only();
 														<div class="col-md-6">
 															<div class="form-group">
 																<label>Message</label>
-																<textarea name="message" class="form-control" placeholder="Quelle notification voulez-vous envoyer?"rows="4" cols="33"></textarea>
+																<textarea name="message" class="form-control" placeholder="Quelle notification voulez-vous envoyer?"rows="4" cols="33" required ></textarea>
 															</div>
 													</div>
 												</div>
