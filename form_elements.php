@@ -35,6 +35,7 @@ connected_only();
 
 
     <div class="pcoded-main-container">
+        
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
@@ -54,25 +55,25 @@ connected_only();
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="main-body">
+                <section class="form-compter card-body"> 
+                    <div class="card-body">
                         <div class="page-wrapper">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
-                                        <div class="card-header">
+                                        <div class="card-header text-center">
                                             <h5>Ecrivez votre compte rendu</h5>
                                         </div>
                                         <div class="card-body">
                                             <h5>Compte rendu de M. <?php echo $prenomnom; ?></h5>
                                             <hr>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                <form action="inc/actions/form_compterendu.php" method="POST" class="">
-                                                        <div class="form-group">
-                                                        <h5 class="mt-5">Nom du médecin</h5>
+                                            <div class="card-body">
+                                                <div class="">
+                                                <form action="inc/actions/form_compterendu.php" method="POST" class="text-center">
+                                                        <div class="text-center">
+                                                        <h5 class="text-center">Nom du médecin</h5>
                                                             <hr>
-                                                              <select name="id_medecin"  id="id_medecin" class="form-control" required>
+                                                              <select name="id_medecin"  id="id_medecin" class="form-control text-center" required>
 		                                                    	<?php $reponse = $bdd->query('SELECT id, nom, prenom FROM medecins');
                                                                      while ($donnees = $reponse->fetch())
 									                                        {
@@ -84,17 +85,17 @@ connected_only();
 	                                                                    	</select>
                                                         </div>
                                                         
-                                                        <div class="col-md-6">
+                                                        <div class="">
                                                 
                                                         <div class="form-group">
                                                         <h5 class="mt-5">Date</h5>
                                                         <hr>    
-                                                            <input name="date" type="date" class="form-control" placeholder="Date">
+                                                            <input name="date" type="date" class="form-control text-center" placeholder="Date">
                                                         </div>
                                                         <div class="form-group">
                                                             <h5 class="mt-5">Echantillon tester</h5>
                                                             <hr>
-                                                              <select name="id_echantillon"  id="id_echantillon" class="form-control" required>
+                                                              <select name="id_echantillon"  id="id_echantillon" class="form-control text-center" required>
 		                                                    	<?php $reponse = $bdd->query('SELECT id, nom_medicament, fournisseur FROM echantillons');
                                                                      while ($donnees = $reponse->fetch())
 									                                        { ?>
@@ -104,8 +105,8 @@ connected_only();
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>
-                                                        <div class="row">
-                                                <div class="col-md-6">
+                                                        <div class="">
+                                                <div class="text-center">
                                                     <h5 class="mt-5">Avis</h5>
                                                     <hr>
                                                     <div class="custom-control custom-radio">
@@ -122,7 +123,7 @@ connected_only();
                                                     </div>
                                                         <h5 class="mt-5">Commentaire </h5>                                      
                                                        <hr> 
-                                                            <input type="text" name="compterendu" class="form-control" id="compterendu" rows="5"></input>
+                                                            <input type="text" name="compterendu" class="form-control height: 300px;"  size="50" id="compterendu" rows="5"></input>
                                                             <br><br>
                                                       <input type="submit" value="Envoyer"class="btn btn-primary"/>  
                                                     </div>
@@ -350,9 +351,11 @@ connected_only();
                         </div>
                     </div>
                 </div>
+                                                                            </section>
             </div>
         </div>
     </div>
+    
     <!-- [ Main Content ] end -->
 
     <!-- Warning Section Starts -->
@@ -407,5 +410,28 @@ connected_only();
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
 
+    <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte rendu a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) {
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'success':
+?>
+<script>
+$(document).ready(function(){
+    $("#success").modal('show');
+});
+</script>
+<?php break; } } ?>	
+</body>
+</html>
 </body>
 </html>
