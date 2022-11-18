@@ -4,21 +4,26 @@ require ('global.php');
 
 connected_only();
 
-$idmedecin = htmlentities(trim($_GET['id']));
-$idmedecin = (int) $idmedecin;
+function redirect_on_index(): never {
+    header('location: accueil.php');
+    exit;
+}
 
-if (is_int($idmedecin))
-{
-	$requete = $bdd->prepare("SELECT * FROM medecins WHERE id = '$idmedecin'"); 
-        $requete->execute();
-        $profilmedecin = $requete->fetch();
-        $prenomnomprofil = $profilmedecin['prenom']." ".$profilmedecin['nom'];
+if (!array_key_exists('id', $_GET) || false === ($id = filter_var($_GET['id'], FILTER_VALIDATE_INT))) {
+    redirect_on_index();
+}
 
-    }
-    else
-    {
-    Header('location: accueil.php');
-    }
+$requete = $bdd->prepare('SELECT * FROM medecins WHERE id = :id');
+$requete->bindValue('id', $_GET['id']);
+$requete->execute();
+$profilmedecin = $requete->fetch();
+if (!$profilmedecin) {
+    redirect_on_index();
+}
+$prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
+
+
+?>
 
 ?>
 
