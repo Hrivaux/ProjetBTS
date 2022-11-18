@@ -5,7 +5,7 @@ require ('global.php');
 connected_only();
 
 function redirect_on_index(): never {
-    header('location: accueil.php');
+    header('location: tb_medecin.php');
     exit;
 }
 
