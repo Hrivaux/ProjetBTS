@@ -25,7 +25,6 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 
 ?>
 
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
