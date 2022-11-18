@@ -26,3 +26,27 @@ else
 
 
 ?>
+	<!-- Modal box erreurs -->
+    <div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Une erreur est survenue, veuillez vérifier que tous les champs aient bien été remplis.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) 
+	{
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'erreur':
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#erreur").modal('show');
+    });
+</script>
+<?php break; } } ?>	
