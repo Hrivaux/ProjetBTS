@@ -83,7 +83,7 @@ connected_only();
 														<div class="col-md-6">
 															<div class="form-group">
 																<label>Message</label>
-																<textarea name="message" class="form-control" placeholder="Quelle notification voulez-vous envoyer?"rows="4" cols="33" required ></textarea>
+																<textarea name="message" class="form-control" placeholder="Quelle notification voulez-vous envoyer?"rows="4" cols="33" ></textarea>
 															</div>
 													</div>
 												</div>
@@ -104,9 +104,36 @@ connected_only();
 		</div>
 	</div>
     <!-- Required Js -->
-<script src="assets/js/vendor-all.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/pcoded.min.js"></script>
+	<script src="assets/js/vendor-all.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+
+	<!-- Modal box erreurs -->
+	<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Une erreur est survenue, veuillez vérifier que tous les champs aient bien été remplis.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) 
+	{
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'success':
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#success").modal('show');
+    });
+</script>
+<?php break; } } ?>	
+
+
 
 </body>
 </html>
