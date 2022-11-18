@@ -7,14 +7,7 @@ connected_only();
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Datta Able Free Bootstrap 4 Admin Template</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-    <!-- Meta -->
+    <title>GSB - Saisie de compte rendu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,37 +15,30 @@ connected_only();
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
     <meta name="author" content="CodedThemes"/>
 
-    <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
 
     <?php include('templates/menu.php'); ?>
 
     <?php include('templates/header.php'); ?>
 
 
-    <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
+        
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] start -->
                     <div class="page-header">
                         <div class="page-block">
                             <div class="row align-items-center">
@@ -69,48 +55,82 @@ connected_only();
                             </div>
                         </div>
                     </div>
-                    <!-- [ breadcrumb ] end -->
-                    <div class="main-body">
+                <section class="form-compter card-body"> 
+                    <div class="card-body">
                         <div class="page-wrapper">
-                            <!-- [ Main Content ] start -->
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card">
-                                        <div class="card-header">
+                                        <div class="card-header text-center">
                                             <h5>Ecrivez votre compte rendu</h5>
                                         </div>
                                         <div class="card-body">
-                                            <h5>Compte rendu de M.</h5>
+                                            <h5>Compte rendu de M. <?php echo $prenomnom; ?></h5>
                                             <hr>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label for="exampleInputEmail1">Nom du médecin</label>
-                                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Sélectionnez le médecin">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="exampleInputPassword1">Echantillon tester</label>
-                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Selectionner l'échantillon souhaiter">
-                                                        </div>
-                                                        
-                                                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                                                    </form>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label>Text</label>
-                                                            <input type="text" class="form-control" placeholder="Text">
+                                            <div class="card-body">
+                                                <div class="">
+                                                <form action="inc/actions/form_compterendu.php" method="POST" class="text-center">
+                                                        <div class="text-center">
+                                                        <h5 class="text-center">Nom du médecin</h5>
+                                                            <hr>
+                                                              <select name="id_medecin"  id="id_medecin" class="form-control text-center" required>
+		                                                    	<?php $reponse = $bdd->query('SELECT id, nom, prenom FROM medecins');
+                                                                     while ($donnees = $reponse->fetch())
+									                                        {
+									                                            ?>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"> 
+					                                                        <?php echo $donnees['prenom']." ".$donnees['nom']; ?>
+					                                                        </option>
+				                                                        	<?php } ?>
+	                                                                    	</select>
                                                         </div>
                                                         
-                                                        <div class="1">Commentaire</label>
-                                                            <textarea class="form-control comentairecomprendu" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                        <div class="">
+                                                
+                                                        <div class="form-group">
+                                                        <h5 class="mt-5">Date</h5>
+                                                        <hr>    
+                                                            <input name="date" type="date" class="form-control text-center" placeholder="Date">
                                                         </div>
-                                                    </form>
+                                                        <div class="form-group">
+                                                            <h5 class="mt-5">Echantillon tester</h5>
+                                                            <hr>
+                                                              <select name="id_echantillon"  id="id_echantillon" class="form-control text-center" required>
+		                                                    	<?php $reponse = $bdd->query('SELECT id, nom_medicament, fournisseur FROM echantillons');
+                                                                     while ($donnees = $reponse->fetch())
+									                                        { ?>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"> 
+					                                                            <?php echo $donnees['nom_medicament']; ?>
+					                                                        </option>
+				                                                        	<?php } ?>
+	                                                                    	</select>
+                                                        </div>
+                                                        <div class="">
+                                                <div class="text-center">
+                                                    <h5 class="mt-5">Avis</h5>
+                                                    <hr>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="avis" name="avis" class="custom-control-input">
+                                                        <label class="custom-control-label" for="avis">Bien passer </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="avis" name="avis" class="custom-control-input">
+                                                        <label class="custom-control-label" for="avis">Mal passer</label>
+                                                    </div>
+                                                     
+                                                    
+                                                    </div>
+                                                    </div>
+                                                        <h5 class="mt-5">Commentaire </h5>                                      
+                                                       <hr> 
+                                                            <input type="text" name="compterendu" class="form-control height: 300px;"  size="50" id="compterendu" rows="5"></input>
+                                                            <br><br>
+                                                      <input type="submit" value="Envoyer"class="btn btn-primary"/>  
+                                                    </div>
+                                                </form>
                                                 </div>
-                                            </div>
-                                        <!--    <h5 class="mt-5">Sizing</h5>
+                                            
+                                          <!-- <h5 class="mt-5">Sizing</h5>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -146,20 +166,9 @@ connected_only();
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                                 <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <h5 class="mt-5">Radios</h5>
-                                                    <hr>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                        <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
-                                                    </div>
-                                                    <h5 class="mt-5">Inline</h5>
+                                            </div> -->
+                                            
+                                                   <!-- <h5 class="mt-5">Inline</h5>
                                                     <hr>
                                                     <div class="custom-control custom-radio custom-control-inline">
                                                         <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
@@ -170,6 +179,7 @@ connected_only();
                                                         <label class="custom-control-label" for="customRadioInline2">Or toggle this other custom radio</label>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-6">
                                                     <h5 class="mt-5">Range</h5>
                                                     <hr>
@@ -341,9 +351,11 @@ connected_only();
                         </div>
                     </div>
                 </div>
+                                                                            </section>
             </div>
         </div>
     </div>
+    
     <!-- [ Main Content ] end -->
 
     <!-- Warning Section Starts -->
@@ -398,5 +410,28 @@ connected_only();
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
 
+    <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte rendu a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) {
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'success':
+?>
+<script>
+$(document).ready(function(){
+    $("#success").modal('show');
+});
+</script>
+<?php break; } } ?>	
+</body>
+</html>
 </body>
 </html>

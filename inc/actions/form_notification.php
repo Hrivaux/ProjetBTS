@@ -12,7 +12,7 @@ $urg = $_POST['urgence'];
 // Date courante
 $date = date('d-m-y');
 
-if (!empty($objet) && !empty($msg)) {
+if (!empty($objet) && !empty($msg) && !empty($urg)) {
 
     $reponse = $bdd->prepare("INSERT INTO notifications(user_id,objet,message,urgence,send_date) VALUES (?,?,?,?,?)");
 
@@ -23,7 +23,10 @@ if (!empty($objet) && !empty($msg)) {
 } 
 else 
 {
-    echo "<script type='script'> alert('Merci de remplir tous les champs'); </script>";
+    echo "<script> alert('Merci de remplir tous les champs'); </script>";
+    
 }
+
+
 
 ?>

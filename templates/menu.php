@@ -1,3 +1,9 @@
+<?php
+      // On recupere l'URL de la page pour ensuite affecter class = "active" aux liens de nav
+      $page = $_SERVER['REQUEST_URI'];
+      $page = str_replace("/siteyetistudio/", "",$page);
+?>
+    
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
             <div class="navbar-brand header-logo">
@@ -23,12 +29,12 @@
                     <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Composants</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="bc_button.php" class="">Boutton</a></li>
-                            <li class=""><a href="bc_badges.php" class="">Badges</a></li>
-                            <li class=""><a href="bc_breadcrumb-pagination.php" class="">Breadcrumb & paggination</a></li>
-                            <li class=""><a href="bc_collapse.php" class="">Collapse</a></li>
-                            <li class=""><a href="bc_tabs.php" class="">Tabs & pills</a></li>
-                            <li class=""><a href="bc_typography.php" class="">Typography</a></li>
+                            <li  <?php if($page == "bc_button.php"){echo 'class="nav-item active"';} ?>><a href="bc_button.php" class="">Boutton</a></li>
+                            <li  <?php if($page == "bc_badges.php"){echo 'class="nav-item active"';} ?>><a href="bc_badges.php" class="">Badges</a></li>
+                            <li  <?php if($page == "bc_breadcrumb-pagination.php"){echo 'class="nav-item active"';} ?>><a href="bc_breadcrumb-pagination.php" class="">Breadcrumb & paggination</a></li>
+                            <li  <?php if($page == "bc_collapse.php"){echo 'class="nav-item active"';} ?>><a href="bc_collapse.php" class="">Collapse</a></li>
+                            <li  <?php if($page == "bc_tabs.php"){echo 'class="nav-item active"';} ?>><a href="bc_tabs.php" class="">Tabs & pills</a></li>
+                            <li  <?php if($page == "bc_typography.php"){echo 'class="nav-item active"';} ?>><a href="bc_typography.php" class="">Typography</a></li>
 
 
                             <li class=""><a href="icon-feather.php" class="">Plume<span class="pcoded-badge label label-danger">Nouveau</span></a></li>
@@ -56,9 +62,7 @@
                         <label>Administration</label>
                     </li>
                     <li data-username="Paramètres du site" class="nav-item"><a href="site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li>
-                    <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                        <a href="notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notifications</span></a>
-                    </li>
+                    <li data-username="Notifications" class="nav-item"><a href="notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notifications</span></a></li>
                     <li data-username="Création de compte" class="nav-item"><a href="inscription.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li>
                     <?php } ?>
 

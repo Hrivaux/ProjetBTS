@@ -270,6 +270,7 @@ p.text-muted {
 .card .card-block,
 .card .card-body {
   padding: 30px 25px;
+  text-align: center;
 }
 .card.card-load {
   position: relative;
@@ -900,6 +901,10 @@ p.text-muted {
   -webkit-font-smoothing: antialiased;
 }
 
+.form-compter {
+
+  text-align: center;
+}
 /* material icon for material datetime picker */
 /**  =====================
       Generic-class css start
@@ -1769,7 +1774,7 @@ p.text-muted {
 .pcoded-header .main-search .input-group .form-control {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  width: 0;
+  width: 100%;
   font-size: 14px;
 }
 .pcoded-header .main-search .input-group .form-control:active, .pcoded-header .main-search .input-group .form-control:focus, .pcoded-header .main-search .input-group .form-control:hover,
@@ -1804,7 +1809,7 @@ p.text-muted {
 .pcoded-header .main-search.open .input-group .form-control {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  width: 0;
+  width: 100%;
 }
 .pcoded-header .main-search.open .input-group .form-control:active, .pcoded-header .main-search.open .input-group .form-control:focus, .pcoded-header .main-search.open .input-group .form-control:hover,
 .pcoded-header .main-search.open .input-group .search-btn:active,
@@ -2441,9 +2446,18 @@ p.text-muted {
 .pcoded-navbar.navbar-collapsed:hover .pcoded-menu-caption:after {
   background: transparent;
 }
-.pcoded-navbar.navbar-collapsed:hover .mobile-menu {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
+.form-control1 {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   opacity: 1;
 }
 .pcoded-navbar.navbar-collapsed:hover .pcoded-inner-navbar > li > a > .pcoded-mtext {
@@ -8839,7 +8853,7 @@ a.btn-theme.active {
 .header-chat .h-list-footer .input-group .form-control {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  width: 0;
+  width: 100%;
 }
 .header-chat .h-list-footer .input-group:after {
   content: "\67";
