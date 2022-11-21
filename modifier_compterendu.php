@@ -92,8 +92,30 @@ if (is_int($idCR))
                                                         <div class="text-center">
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                       <hr>   
-                                                            
-                                                            <?php echo $compterendu['id_medecin']; ?>
+                                                      <?php 
+                                                	$requete = ("SELECT CR.id               as 'id_compterendu',
+                                                                        CR.id_visiteur      as 'id_visiteur',
+                                                                        CR.id_medecin       as 'id_medecin',
+                                                                        CR.date             as 'date',
+                                                                        CR.id_echantillon   as 'id_echantillon',
+                                                                        CR.avis             as 'avis',
+                                                                        M.id                as 'Mid_medecin',
+                                                                        M.nom               as 'nom_medecin',
+                                                                        M.prenom            as 'prenom_medecin'
+                                                    FROM comptesrendus  CR
+                                                    LEFT JOIN medecins  M ON M.id = CR.id_medecin
+                                                    WHERE id_visiteur = $id_encours
+                                                    ORDER BY CR.id DESC");
+
+                                                    $reqcr = $bdd->prepare($requete);
+                                                    $reqcr->execute();
+                                                        
+                                                    $resultat = $reqcr->fetchAll();
+                                                        if (!empty($resultat)) 
+                                                        {
+                                                            foreach($resultat as $cr)  { 
+                                                    ?>
+                                                            <?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a>
                                                             <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>
@@ -106,8 +128,14 @@ if (is_int($idCR))
 					                                                        <?php echo $donnees['prenom']." ".$donnees['nom']; ?>
 					                                                        </option>
 				                                                        	<?php } ?>
-	                                                                    	</select>
-                                                                                      
+	                                                                    	</select><?php
+                                                                        } 
+                                                 } 
+                                                else
+                                                {
+                                                    echo "Aucn compte-rendu ne vous a été rattaché";
+                                                }
+                                               ?>                     
                                                         </div>
                                                         <div class="form-group">
 
@@ -163,7 +191,7 @@ if (is_int($idCR))
                                                         <h5 class="mt-5">Etat</h5>
                                                         <hr>  
                                                         
-                                                        <?php echo $compterendu['etat']; ?> 
+                                                        <?php if ($compterendu['avis'] == 1) { echo "Terminer"; } else { echo "A Terminer"; }; ?> 
                                                         <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>
@@ -190,3 +218,5 @@ if (is_int($idCR))
                                                     </div>
                                                 </form>
                                                 </div>
+                                                <?php 
+                                                
