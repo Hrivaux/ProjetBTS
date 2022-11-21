@@ -49,9 +49,6 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 		</div>
 		<?php include('templates/menu.php'); ?>
 		<?php include('templates/header.php'); ?>
-		<HTML>
-			<!DOCTYPE html>
-				<body class="content-center">
 					<center>
 						<img class="shadow rounded-full h-48 w-96 align-middle border-none" src="img/<?php echo $profilmedecin['img']; ?>">
 						<div class="overflow-x-auto relative">
