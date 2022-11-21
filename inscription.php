@@ -29,7 +29,7 @@ else {
                         <div class="mb-4">
                             <i class="feather icon-user-plus auth-icon"></i>
                         </div>
-                        <h3 class="mb-4">S'enregistrer</h3>
+                        <h3 class="mb-4">Création de compte</h3>
                         <div class="input-group mb-3">
                             <input type="text" name="nom" class="form-control" placeholder="Nom">
                         </div>
@@ -76,6 +76,15 @@ else {
 		</div>
 	</div>
 </div>
+
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Votre notification a bien été envoyée</h3>
+		</div>
+	</div>
+</div>
+
 <?php
 	if(isset($_GET['action'])) 
 	{
@@ -89,6 +98,18 @@ else {
     $(document).ready(function()
     {
         $("#erreur").modal('show');
+    });
+</script>
+<?php 
+        }
+switch($errlogin)
+{
+    case 'sucess':
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#success").modal('show');
     });
 </script>
 <?php break; } } ?>	

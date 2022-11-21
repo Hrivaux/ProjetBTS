@@ -2,7 +2,9 @@
 
 require_once('../../global.php');
 
-$id = $_POST['id'];
+$idCR = htmlentities(trim($_GET['id']));
+$idCR = (int) $idCR;
+
 $id_medecin = $_POST["id_medecin"];
 $id_echantillon = $_POST["id_echantillon"];
 $date = $_POST["date"];
@@ -43,7 +45,7 @@ $req="UPDATE comptesrendus SET ";
    $req=$req."etat='$etat',";
 }
 
-$req=substr($req,0, -1)." WHERE id = $id";
+$req=substr($req,0, -1)." WHERE id = $idCR";
 
 
 
