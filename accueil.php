@@ -175,9 +175,8 @@ include('templates/meta.php');
                                                     <i class="feather icon-zap f-30 text-c-red"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 class="f-w-300">13</h3>
-                                                    <span class="d-block text-uppercase">Compte rendu à rendre
-                                                    </span>
+                                                    <h3 class="f-w-300"><?php echo $nbcomptesrendusencours; ?></h3>
+                                                    <span class="d-block text-uppercase">Comptes rendus à rédiger</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -187,8 +186,8 @@ include('templates/meta.php');
                                                     <i class="feather icon-zap f-30 text-c-green"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 class="f-w-300">26</h3>
-                                                    <span class="d-block text-uppercase">Compte rendu terminés</span>
+                                                    <h3 class="f-w-300"><?php echo $nbcomptesrendustermines; ?></h3>
+                                                    <span class="d-block text-uppercase">Comptes rendus terminés</span>
                                                 </div>
                                             </div>
                                         </div>
