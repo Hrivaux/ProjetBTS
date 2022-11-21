@@ -69,7 +69,33 @@ include('templates/meta.php');
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                       <hr>   
                                                             
-                                                            <?php echo $compterendu['id_medecin']; ?>
+                                                      <?php 
+                                                	$requete = ("SELECT CR.id               as 'id_compterendu',
+                                                                        CR.id_visiteur      as 'id_visiteur',
+                                                                        CR.id_medecin       as 'id_medecin',
+                                                                        CR.date             as 'date',
+                                                                        CR.id_echantillon   as 'id_echantillon',
+                                                                        CR.avis             as 'avis',
+                                                                        M.id                as 'Mid_medecin',
+                                                                        M.nom               as 'nom_medecin',
+                                                                        M.prenom            as 'prenom_medecin'
+                                                    FROM comptesrendus  CR
+                                                    LEFT JOIN medecins  M ON M.id = CR.id_medecin
+                                                    WHERE CR.id = $idCR
+                                                    ORDER BY CR.id DESC");
+
+                                                    $reqcr = $bdd->prepare($requete);
+                                                    $reqcr->execute();
+                                                        
+                                                    $resultat = $reqcr->fetchAll();
+                                                        if (!empty($resultat)) 
+                                                        {
+                                                            foreach($resultat as $cr)  { 
+                                                    ?>
+                                                            <?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a>
+                                                            
+                                                            <?php
+                                                                        } ?>
                                                             <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>
@@ -81,9 +107,14 @@ include('templates/meta.php');
 				        	                                                <option value="<?php echo $donnees['id']; ?>"> 
 					                                                        <?php echo $donnees['prenom']." ".$donnees['nom']; ?>
 					                                                        </option>
-				                                                        	<?php } ?>
-	                                                                    	</select>
-                                                                                      
+                                                                            <?php } ?>  
+                                                                            </select>
+                                                  <?php                      } 
+                                                                    else
+                                                                     {
+                                                                      echo "Aucn compte-rendu ne vous a été rattaché";
+                                                                     }
+                                               ?>             
                                                         </div>
                                                         <div class="form-group">
 
@@ -100,7 +131,24 @@ include('templates/meta.php');
                                                             <div class="form-group">
                                                                 <h5 class="mt-5">Echantillon tester</h5>
                                                                 <hr>
+                                                                <?php 
+                                                	$requete_echantillon = ("SELECT CR.id   as 'id_compterendu',
+                                                                        CR.id_echantillon   as 'id_echantillon',
+                                                                        M.id                as 'echantillon',
+                                                                        M.nom_medicament    as 'nom_medicament'
+                                                    FROM comptesrendus      CR
+                                                    LEFT JOIN echantillons  M ON M.id = CR.id_echantillon
+                                                    WHERE CR.id = $idCR ");
 
+                                                    $reqechantillon = $bdd->prepare($requete_echantillon);
+                                                    $reqechantillon->execute();
+                                                        
+                                                    $echanti = $reqechantillon->fetchAll();
+                                                        if (!empty($echanti)) 
+                                                        {
+                                                            foreach($echanti as $e)  { 
+                                                    ?>
+                                                            <?php echo $e['nom_medicament']?></a>
                                                                 <?php echo $compterendu['id_echantillon']; ?>
                                                                 <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
@@ -113,6 +161,13 @@ include('templates/meta.php');
                                                                         </option>
                                                                     <?php } ?>
                                                                 </select>
+                                                                <?php }}                     
+                                                                    else
+                                                                     {
+                                                                      echo "Aucn compte-rendu ne vous a été rattaché";
+                                                                     }
+                                               ?>          
+
                                                                 <br>
                                                                 <div class="text-center">
 
@@ -142,7 +197,7 @@ include('templates/meta.php');
                                                         <h5 class="mt-5">Etat</h5>
                                                         <hr>  
                                                         
-                                                        <?php echo $compterendu['etat']; ?> 
+                                                        <?php if ($compterendu['etat'] == 1) { echo "Terminer"; } else { echo "A terminer"; }; ?>
                                                         <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>
