@@ -1,8 +1,10 @@
-<?php
+<?php 
+
 @session_start();
 require ('global.php');
 
 connected_only();
+
 
 function redirect_on_index(): never {
     header('location: tb_medecin.php');
@@ -23,12 +25,25 @@ if (!$profilmedecin) {
 $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 
 
-$pageinfo = "Consultation du profil d'un médecin";
-
-include('templates/meta.php');
 ?>
 
-	<body>
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>GSB - Consultation du profil d'un médecin</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Datta Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+		<meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
+		<meta name="author" content="CodedThemes"/>
+		<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
+		<link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	</head>
+	<body class="content-center">
 		<div class="loader-bg">
 			<div class="loader-track">
 				<div class="loader-fill"></div>
@@ -36,7 +51,6 @@ include('templates/meta.php');
 		</div>
 		<?php include('templates/menu.php'); ?>
 		<?php include('templates/header.php'); ?>
-				<body class="content-center">
 					<center>
 						<img class="shadow rounded-full h-48 w-96 align-middle border-none" src="img/<?php echo $profilmedecin['img']; ?>">
 						<div class="overflow-x-auto relative">
@@ -125,3 +139,5 @@ include('templates/meta.php');
 
 </body>
 </html>
+
+
