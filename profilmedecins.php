@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 @session_start();
 require ('global.php');
 
@@ -40,8 +41,9 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 		<link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
 		<link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
+		<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 	</head>
-	<body>
+	<body class="content-center">
 		<div class="loader-bg">
 			<div class="loader-track">
 				<div class="loader-fill"></div>
@@ -137,3 +139,5 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 
 </body>
 </html>
+
+
