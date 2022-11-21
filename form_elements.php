@@ -3,6 +3,12 @@
 require ('global.php');
 
 connected_only();
+
+if ($grade_encours <= 2) 
+{
+    Header('location: accueil.php');
+}
+else {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -110,14 +116,25 @@ connected_only();
                                                     <h5 class="mt-5">Avis</h5>
                                                     <hr>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="avis" name="avis" class="custom-control-input">
-                                                        <label class="custom-control-label" for="avis">Bien passer </label>
+                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="bien_passer">
+                                                        <label class="custom-control-label" for="bien_passer">Bien passer </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="avis" name="avis" class="custom-control-input">
-                                                        <label class="custom-control-label" for="avis">Mal passer</label>
+                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="mal_passer">
+                                                        <label class="custom-control-label" for="mal_passer">Mal passer</label>
                                                     </div>
-                                                     
+                                                    <div class="text-center">
+                                                    <h5 class="mt-5">Etat</h5>
+                                                    <hr>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="1" name="etat" class="custom-control-input" value="terminer" type="enum">
+                                                        <label class="custom-control-label" for="1">Terminer </label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="0" name="etat" class="custom-control-input" value="a_terminer" type="enum">
+                                                        <label class="custom-control-label" for="0">A terminer</label>
+                                                    </div>
+                                                    
                                                     
                                                     </div>
                                                     </div>
@@ -410,28 +427,32 @@ connected_only();
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
 
-    <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+ <!-- Modal box erreurs -->
+<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="tbmodal">
-			<h3 style="color:white;">Le compte rendu a bien été créé.</h3>
+			<h3 style="color:white;">Une erreur est survenue, veuillez vérifier que tous les champs aient bien été remplis.</h3>
 		</div>
 	</div>
 </div>
 <?php
-	if(isset($_GET['action'])) {
-		$errlogin = htmlspecialchars($_GET['action']);
+	if(isset($_GET['action1'])) 
+	{
+		$errlogin = htmlspecialchars($_GET['action1']);
 		
 		switch($errlogin)
 		{
-			case 'success':
+			case 'erreur':
 ?>
 <script>
-$(document).ready(function(){
-    $("#success").modal('show');
-});
+    $(document).ready(function()
+    {
+        $("#erreur").modal('show');
+    });
 </script>
 <?php break; } } ?>	
 </body>
 </html>
-</body>
-</html>
+<?php 
+}
+?>

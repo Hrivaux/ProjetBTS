@@ -406,7 +406,28 @@ require_once ('inc/calculateur.php');
 ?>
 <script>
 $(document).ready(function(){
-    $("#success").modal('show');
+    $("#success1").modal('show1');
+});
+</script>
+<?php break; } } ?>	
+<div class="modal fade" id="success1" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte rendu a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action1'])) {
+		$errlogin = htmlspecialchars($_GET['action1']);
+		
+		switch($errlogin)
+		{
+			case 'success1':
+?>
+<script>
+$(document).ready(function(){
+    $("#success1").modal('show1');
 });
 </script>
 <?php break; } } ?>	
