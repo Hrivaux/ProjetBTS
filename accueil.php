@@ -419,7 +419,27 @@ $(document).ready(function(){
 </script>
 <?php break; } } ?>	
 
-
+<div class="modal fade" id="successno" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Votre notification a bien été envoyée.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['actionno'])) {
+		$errlogin = htmlspecialchars($_GET['actionno']);
+		
+		switch($errlogin)
+		{
+			case 'successno':
+?>
+<script>
+$(document).ready(function(){
+    $("#successno").modal('show');
+});
+</script>
+<?php break; } } ?>	
 </body>
 
 </html>
