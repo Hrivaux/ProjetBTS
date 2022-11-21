@@ -87,9 +87,9 @@ if (is_int($idCR))
                                                                         M.nom               as 'nom_medecin',
                                                                         M.prenom            as 'prenom_medecin'
                                                     FROM comptesrendus  CR
-                                                    LEFT JOIN medecins  M ON M.id = CR.id_medecin
-                                                    WHERE id_visiteur = $id_encours
-                                                    ORDER BY CR.id DESC");
+                                                    LEFT JOIN medecins  M ON M.id = id_medecin
+                                                    WHERE CR.id = $idCR
+                                                    ORDER BY id_compterendu DESC");
 
                                                     $reqcr = $bdd->prepare($requete);
                                                     $reqcr->execute();
@@ -115,39 +115,33 @@ if (is_int($idCR))
                                                         <?php echo $compterendu['date']; ?> 
                                                         </div>
                                                         <div class="form-group">
-                                                        <h5 class="text-center">Echantillon Tester</h5>
+                                                        <h5 class="text-center">Échantillon testé</h5>
                                                       <hr>   
                                                       <?php 
-                                                	$requete = ("SELECT CR.id               as 'id_compterendu',
-                                                                        CR.id_visiteur      as 'id_visiteur',
-                                                                        CR.id_medecin       as 'id_medecin',
-                                                                        CR.date             as 'date',
+                                                	$requete_echantillon = ("SELECT CR.id   as 'id_compterendu',
                                                                         CR.id_echantillon   as 'id_echantillon',
-                                                                        CR.avis             as 'avis',
-                                                                        M.id                as 'Mid_medecin',
-                                                                        M.nom               as 'nom_medecin',
-                                                                        M.prenom            as 'prenom_medecin'
-                                                    FROM   CR
+                                                                        M.id                as 'echantillon',
+                                                                        M.nom_medicament    as 'nom_medicament'
+                                                    FROM comptesrendus      CR
                                                     LEFT JOIN echantillons  M ON M.id = CR.id_echantillon
-                                                    WHERE id_visiteur = $id_encours
-                                                    ORDER BY CR.id DESC");
+                                                    WHERE CR.id = $idCR ");
 
-                                                    $reqcr = $bdd->prepare($requete);
-                                                    $reqcr->execute();
+                                                    $reqechantillon = $bdd->prepare($requete_echantillon);
+                                                    $reqechantillon->execute();
                                                         
-                                                    $resultat = $reqcr->fetchAll();
-                                                        if (!empty($resultat)) 
+                                                    $echanti = $reqechantillon->fetchAll();
+                                                        if (!empty($echanti)) 
                                                         {
-                                                            foreach($resultat as $cr)  { 
+                                                            foreach($echanti as $e)  { 
                                                     ?>
-                                                            <?php echo $cr['id_echantillon']?></a>
+                                                            <?php echo $e['nom_medicament']?></a>
                                                             
                                                             <?php
                                                                         } 
                                                  } 
                                                 else
                                                 {
-                                                    echo "Aucn compte-rendu ne vous a été rattaché";
+                                                    echo "Il n'y a pas d'échantillon rattaché";
                                                 }
                                                ?>
                                                 <div class="text-center">
