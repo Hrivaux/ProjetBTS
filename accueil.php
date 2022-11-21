@@ -1,29 +1,15 @@
 <?php
 @session_start();
-require ('global.php');
+require('global.php');
 
 connected_only();
 
-require_once ('inc/calculateur.php');
+require_once('inc/calculateur.php');
+
+$pageinfo = "Gestion des comptes rendus";
+
+include('templates/meta.php');
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <title>GSB - Gestion des comptes rendus</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Free Datta Able Admin Template come up with latest Bootstrap 4 framework with basic components, form elements and lots of pre-made layout options" />
-    <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
-    <meta name="author" content="CodedThemes"/>
-
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-</head>
 
 <body>
     <div class="loader-bg">
@@ -32,9 +18,9 @@ require_once ('inc/calculateur.php');
         </div>
     </div>
 
-<?php include('templates/menu.php'); ?>
+    <?php include('templates/menu.php'); ?>
 
-<?php include('templates/header.php'); ?>
+    <?php include('templates/header.php'); ?>
 
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
@@ -81,7 +67,8 @@ require_once ('inc/calculateur.php');
                                 <div class="col-md-12 col-xl-4">
                                     <div class="card yearly-sales">
                                         <div class="card-block">
-                                            <h6 class="mb-4">Médecin<?php if ($nbmedecins > 1) { echo 's'; }?> rattaché<?php if ($nbmedecins > 1) { echo 's'; }?></h6>
+                                            <h6 class="mb-4">Médecin<?php if ($nbmedecins > 1) {  echo 's'; } ?> rattaché<?php if ($nbmedecins > 1) { echo 's'; } ?>
+                                            </h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
                                                     <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i><?php echo $nbmedecins; ?></h3>
@@ -164,7 +151,7 @@ require_once ('inc/calculateur.php');
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-xl-4 col-md-6">
                                     <div class="card card-event">
                                         <div class="card-block">
@@ -207,9 +194,9 @@ require_once ('inc/calculateur.php');
                                         </div>
                                     </div>
                                 </div>
-                                
 
-                                
+
+
                                 <div class="col-xl-4 col-md-6">
                                     <div class="card user-list">
                                         <div class="card-header">
@@ -264,7 +251,7 @@ require_once ('inc/calculateur.php');
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-xl-8 col-md-12 m-b-30">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
@@ -286,37 +273,34 @@ require_once ('inc/calculateur.php');
                                                         <th class="text-right"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody> 
-                                                 <?php 
-                                                	$requete = ("SELECT * FROM utilisateurs WHERE date_embauche BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 10 DAY ) AND CURDATE( )");
+                                                <tbody>
+                                                    <?php
+                                                    $requete = ("SELECT * FROM utilisateurs WHERE date_embauche BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 10 DAY ) AND CURDATE( )");
 
                                                     $requser = $bdd->prepare($requete);
                                                     $requser->execute();
-                                                        
+
                                                     $resultat = $requser->fetchAll();
-                                                        if (!empty($resultat)) 
-                                                        {
-                                                            foreach($resultat as $users)  { 
-                                                 ?>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $users['nom']." ".$users['prenom']; ?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0"><?php echo $users['email']; ?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0"><?php echo $users['date_embauche'];?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
-                                                        </td>
-                                                    </tr>
-                                                    <?php 
-                                                                                            } 
-                                                    } 
-                                                    else
-                                                    {
+                                                    if (!empty($resultat)) {
+                                                        foreach ($resultat as $users) {
+                                                    ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $users['nom'] . " " . $users['prenom']; ?></h6>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="m-0"><?php echo $users['email']; ?></h6>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="m-0"><?php echo $users['date_embauche']; ?></h6>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="m-0 text-c-purple"><?php echo $users['adresse'] . " " . $users['ville'] . " - " . $users['code_postal']; ?></h6>
+                                                                </td>
+                                                            </tr>
+                                                    <?php
+                                                        }
+                                                    } else {
                                                         echo "Aucun utilisateur n'a été créé";
                                                     }
                                                     ?>
@@ -336,40 +320,37 @@ require_once ('inc/calculateur.php');
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php 
-                                                	    $requete = ("SELECT * FROM utilisateurs");
-                                                    
-                                                        $requser = $bdd->prepare($requete);
-                                                        $requser->execute();
-                                                        
-                                                        
-                                                        $resultat = $requser->fetchAll();
-                                                   
-                                                    
-                                                        if (!empty($resultat)) 
-                                                        {
-                                                            foreach($resultat as $users)
-                                                            { 
-                                                            ?>
-                                                    <tr>
-                                                        <td>
-                                                            <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $users['nom']." ".$users['prenom']; ?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0"><?php echo $users['email']; ?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0"><?php echo $users['date_embauche'];?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-purple"><?php echo $users['adresse']." ".$users['ville']." - ".$users['code_postal'];?></h6>
-                                                        </td>
-                                                    </tr>
-                                                    <?php } } 
-                                                    else
-                                                    {
+                                                    <?php
+                                                    $requete = ("SELECT * FROM utilisateurs");
+
+                                                    $requser = $bdd->prepare($requete);
+                                                    $requser->execute();
+
+
+                                                    $resultat = $requser->fetchAll();
+
+
+                                                    if (!empty($resultat)) {
+                                                        foreach ($resultat as $users) {
+                                                    ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <h6 class="m-0"><img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user"><?php echo $users['nom'] . " " . $users['prenom']; ?></h6>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="m-0"><?php echo $users['email']; ?></h6>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="m-0"><?php echo $users['date_embauche']; ?></h6>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="m-0 text-c-purple"><?php echo $users['adresse'] . " " . $users['ville'] . " - " . $users['code_postal']; ?></h6>
+                                                                </td>
+                                                            </tr>
+                                                    <?php }
+                                                    } else {
                                                         echo "Aucun utilisateur n'a été créé";
-                                                    }?>
+                                                    } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -377,40 +358,42 @@ require_once ('inc/calculateur.php');
                                 </div>
 
                             </div>
-                            
-                            
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<script src="assets/js/vendor-all.min.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/pcoded.min.js"></script>
+    <script src="<?php echo $url; ?>/assets/js/vendor-all.min.js"></script>
+    <script src="<?php echo $url; ?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo $url; ?>/assets/js/pcoded.min.js"></script>
 
-<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="tbmodal">
-			<h3 style="color:white;">Le compte a bien été créé.</h3>
-		</div>
-	</div>
-</div>
-<?php
-	if(isset($_GET['action'])) {
-		$errlogin = htmlspecialchars($_GET['action']);
-		
-		switch($errlogin)
-		{
-			case 'success':
-?>
-<script>
-$(document).ready(function(){
-    $("#success").modal('show');
-});
-</script>
-<?php break; } } ?>	
+    <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="tbmodal">
+                <h3 style="color:white;">Le compte a bien été créé.</h3>
+            </div>
+        </div>
+    </div>
+    <?php
+    if (isset($_GET['action'])) {
+        $errlogin = htmlspecialchars($_GET['action']);
+
+        switch ($errlogin) {
+            case 'success':
+    ?>
+                <script>
+                    $(document).ready(function() {
+                        $("#success").modal('show');
+                    });
+                </script>
+    <?php break;
+        }
+    } ?>
 
 
 </body>
+
 </html>

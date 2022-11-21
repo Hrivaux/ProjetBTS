@@ -1,10 +1,6 @@
 ﻿<?php
 include("./inc/sql.php"); 
 
-/* Paramétrage du site
-$url = "http://localhost/ProjetBTS/";
-*/
-
 $req_user = $bdd->query("SELECT * FROM utilisateurs WHERE email = '$email'");
 while ($usersession = $req_user->fetch()) {
 	

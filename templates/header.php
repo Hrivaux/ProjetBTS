@@ -5,7 +5,7 @@
                    <div class="b-bg">
                        <i class="feather icon-trending-up"></i>
                    </div>
-                   <span class="b-title">GSB</span>
+                   <span class="b-title"><?php echo $nomsite; ?></span>
                </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -16,11 +16,11 @@
                 <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a></li>
                 <li class="nav-item dropdown">
                     <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown"><?php echo $prenomnom; ?></a>
-                    <ul class="dropdown-menu">
+                  <!--  <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="javascript:">Action</a></li>
                         <li><a class="dropdown-item" href="javascript:">Autre action</a></li>
                         <li><a class="dropdown-item" href="javascript:">Something else here</a></li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <li class="nav-item">
                     <div class="main-search">
@@ -74,7 +74,7 @@
                                 ?>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?php echo $url; ?>assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong><?php echo $notification['nom_user']." ".$notification['prenom_user'];?></strong><!--<span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span>--></p>
                                             <p><?php echo $notification['message'];?></p>

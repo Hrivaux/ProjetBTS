@@ -13,7 +13,6 @@ if(isset($_SESSION['user']))
 $email = $_SESSION['user'];
 $sql = $bdd->query("SELECT * FROM utilisateurs WHERE email= '$email' LIMIT 1");
 $user = $sql->fetch(PDO::FETCH_ASSOC);
-// $bdd->query("UPDATE utilisateurs SET online = '1' WHERE id = '".$user['id']."'");
 
 $prenomnom = $user['prenom']." ".$user['nom'];
 $nomprenom = $user['nom']." ".$user['prenom'];
@@ -21,9 +20,18 @@ $id_encours = $user['id'];
 $grade_encours = $user['grade'];
 }
 
-//date du jour en PHP
+// Date du jour en PHP
 $month = date('m');
 $day = date('d');
 $year = date('Y');
 $today = $year . '-' . $month . '-' . $day;
+
+// Paramètres du site
+$req = $bdd->query("SELECT * FROM site_settings WHERE id = 1");
+$config = $req->fetch(PDO::FETCH_ASSOC);
+    $url = $config['url'];
+    $nomsite = $config['site_name'];
+    $version = $config['version'];
+    $logo = $config['logo'];
+    
 ?>
