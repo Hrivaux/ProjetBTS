@@ -393,6 +393,34 @@ $(document).ready(function(){
 <?php break; } } ?>	
 
 
+	
+
+
+
+
+<div class="modal fade" id="successcr" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte rendu a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['actioncr'])) {
+		$errlogin = htmlspecialchars($_GET['actioncr']);
+		
+		switch($errlogin)
+		{
+			case 'successcr':
+?>
+<script>
+$(document).ready(function(){
+    $("#successcr").modal('show');
+});
+</script>
+<?php break; } } ?>	
+
+
 </body>
 
 </html>

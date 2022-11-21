@@ -64,7 +64,7 @@ include('templates/meta.php');
                                             </div>
                                             <div class="card-body">
                                                 <div class="">
-                                                <form action="inc/actions/form_compterendu_modif.php" method="POST" class="text-center">
+                                                <form action="inc/actions/form_compterendu_modif.php?id=<?php echo $idCR; ?>" method="POST" class="text-center">
                                                         <div class="text-center">
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                       <hr>   
@@ -174,7 +174,7 @@ include('templates/meta.php');
                                                                     <h5 class="mt-5">Avis</h5>
                                                                     <hr>
 
-                                                                    <?php if ($compterendu['avis'] == 1) {
+                                                                    <?php if ($compterendu['avis'] == '1') {
                                                                         echo "Favorable";
                                                                     } else {
                                                                         echo "Défavorable";
@@ -183,12 +183,12 @@ include('templates/meta.php');
                                                                     <h6><mark> Votre changement si besoin</mark></h6>
                                                                     <br>
                                                                     <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="avis" name="avis" class="custom-control-input">
-                                                                        <label class="custom-control-label" for="avis">Bien passer </label>
+                                                                        <input type="radio" id="avis" value="1" name="avis" class="custom-control-input">
+                                                                        <label class="custom-control-label" for="avis">Bien passé </label>
                                                                     </div>
                                                                     <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="avis1" name="avis" class="custom-control-input">
-                                                                        <label class="custom-control-label" for="avis1">Mal passer</label>
+                                                                        <input type="radio" id="avis" name="avis" class="custom-control-input">
+                                                                        <label class="custom-control-label" value="0" for="avis1">Mal passé</label>
                                                                     </div>
                                                                 </div>
 
@@ -197,17 +197,17 @@ include('templates/meta.php');
                                                         <h5 class="mt-5">Etat</h5>
                                                         <hr>  
                                                         
-                                                        <?php if ($compterendu['etat'] == 1) { echo "Terminer"; } else { echo "A terminer"; }; ?>
+                                                        <?php if ($compterendu['etat'] == 1) { echo "Terminé"; } else { echo "A terminé"; }; ?>
                                                         <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>
                                                             <div class="custom-control custom-radio">
-                                                        <input type="radio" id="etat" name="etat" class="custom-control-input">
-                                                        <label class="custom-control-label" for="etat">Terminer </label>
+                                                        <input type="radio" id="etat" name="etat" value="1" class="custom-control-input">
+                                                        <label class="custom-control-label" for="etat">Terminé </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="etat1" name="etat" class="custom-control-input">
-                                                        <label class="custom-control-label" for="etat1">A terminer</label>
+                                                        <input type="radio" id="etat" name="etat" value="0" class="custom-control-input">
+                                                        <label class="custom-control-label" for="etat1">A terminé</label>
                                                     </div>
                                                         </div>
                                                     
@@ -224,7 +224,12 @@ include('templates/meta.php');
                                                     </div>
                                                 </form>
                                                 </div>
-                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </section>   
 <script src="assets/js/vendor-all.min.js"></script>
 <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/pcoded.min.js"></script>

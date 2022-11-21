@@ -102,22 +102,22 @@ include('templates/meta.php');
                                                     <h5 class="mt-5">Avis</h5>
                                                     <hr>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="bien_passer">
+                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="0">
                                                         <label class="custom-control-label" for="bien_passer">Bien passer </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="mal_passer">
+                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="1">
                                                         <label class="custom-control-label" for="mal_passer">Mal passer</label>
                                                     </div>
                                                     <div class="text-center">
                                                     <h5 class="mt-5">Etat</h5>
                                                     <hr>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="1" name="etat" class="custom-control-input" value="terminer" type="enum">
+                                                        <input type="radio" id="1" name="etat" class="custom-control-input" value="1">
                                                         <label class="custom-control-label" for="1">Terminer </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="0" name="etat" class="custom-control-input" value="a_terminer" type="enum">
+                                                        <input type="radio" id="0" name="etat" class="custom-control-input" value="0">
                                                         <label class="custom-control-label" for="0">A terminer</label>
                                                     </div>
                                                     
@@ -414,7 +414,7 @@ include('templates/meta.php');
     <script src="assets/js/pcoded.min.js"></script>
 
  <!-- Modal box erreurs -->
-<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
+ <div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="tbmodal">
 			<h3 style="color:white;">Une erreur est survenue, veuillez vérifier que tous les champs aient bien été remplis.</h3>
@@ -422,9 +422,9 @@ include('templates/meta.php');
 	</div>
 </div>
 <?php
-	if(isset($_GET['action1'])) 
+	if(isset($_GET['action'])) 
 	{
-		$errlogin = htmlspecialchars($_GET['action1']);
+		$errlogin = htmlspecialchars($_GET['action']);
 		
 		switch($errlogin)
 		{
@@ -437,8 +437,32 @@ include('templates/meta.php');
     });
 </script>
 <?php break; } } ?>	
-</body>
-</html>
+
 <?php 
 }
 ?>
+
+
+<div class="modal fade" id="successcr" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte rendu a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) {
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'successcr':
+?>
+<script>
+$(document).ready(function(){
+    $("#successcr").modal('show');
+});
+</script>
+<?php break; } } ?>	
+</body>
+</html>
