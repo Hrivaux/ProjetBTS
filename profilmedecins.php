@@ -36,14 +36,6 @@ include('templates/meta.php');
 		</div>
 		<?php include('templates/menu.php'); ?>
 		<?php include('templates/header.php'); ?>
-		<HTML>
-			<!DOCTYPE html>
-			<html>
-				<head>
-					<meta charset="utf-8">
-					<title>Profils de votre médecin</title>
-					<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-				</head>
 				<body class="content-center">
 					<center>
 						<img class="shadow rounded-full h-48 w-96 align-middle border-none" src="img/<?php echo $profilmedecin['img']; ?>">
