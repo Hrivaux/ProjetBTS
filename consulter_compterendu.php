@@ -88,7 +88,7 @@ if (is_int($idCR))
                                             <hr>
                                             <div class="card-body">
                                                 <div class="">
-                                                s
+                                                
                                                         <div class="text-center">
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                             <hr>
@@ -108,7 +108,7 @@ if (is_int($idCR))
                                                 <div class="text-center">
                                                     <h5 class="mt-5">Avis</h5>
                                                     <hr>
-                                                    <?php echo $compterendu['avis']; ?> 
+                                                    <?php if ($compterendu['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?> 
                                                     </div>
                                                      
                                                     

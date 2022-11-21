@@ -370,28 +370,27 @@ include('templates/meta.php');
     <script src="<?php echo $url; ?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="<?php echo $url; ?>/assets/js/pcoded.min.js"></script>
 
-    <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="tbmodal">
-                <h3 style="color:white;">Le compte a bien été créé.</h3>
-            </div>
-        </div>
-    </div>
-    <?php
-    if (isset($_GET['action'])) {
-        $errlogin = htmlspecialchars($_GET['action']);
-
-        switch ($errlogin) {
-            case 'success':
-    ?>
-                <script>
-                    $(document).ready(function() {
-                        $("#success").modal('show');
-                    });
-                </script>
-    <?php break;
-        }
-    } ?>
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) {
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'success':
+?>
+<script>
+$(document).ready(function(){
+    $("#success").modal('show');
+});
+</script>
+<?php break; } } ?>	
 
 
 </body>

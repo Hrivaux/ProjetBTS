@@ -64,7 +64,7 @@ connected_only();
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Compte rendu fait</h5>
-                                            <p>cliquer dessus pour les modifiers</p>
+                                            <p>Cliquer dessus pour les consuleters (Non Modifiable)</p>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -92,7 +92,7 @@ connected_only();
                                                                         M.prenom            as 'prenom_medecin'
                                                     FROM comptesrendus  CR
                                                     LEFT JOIN medecins  M ON M.id = CR.id_medecin
-                                                    WHERE id_visiteur = $id_encours 
+                                                    WHERE id_visiteur = $id_encours AND (etat = '1')
                                                     ORDER BY CR.id DESC");
 
                                                     $reqcr = $bdd->prepare($requete);
@@ -141,7 +141,7 @@ connected_only();
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Compte rendu à faire</h5>
-                                            <p>cliquer dessus pour les modifiers</p>
+                                            <p>Cliquer dessus pour les modifiers</p>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -149,30 +149,62 @@ connected_only();
                                                     <thead>
                                                         <tr>
                                                             <th>ID Compte rendu</th>
-                                                            <th>Echantillon Tester</th>
-                                                            <th>Prénom</th>
-                                                            <th>Commentaire</th>
+                                                            <th>Médecin</th>
+                                                            <th>Date</th>
+                                                            <th>Echantillon</th>
+                                                            <th>Avis</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Doliprane</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                        </tr>
+                                                    <?php
+                                                    $requete = ("SELECT CR.id               as 'id_compterendu',
+                                                                        CR.id_visiteur      as 'id_visiteur',
+                                                                        CR.id_medecin       as 'id_medecin',
+                                                                        CR.date             as 'date',
+                                                                        CR.id_echantillon   as 'id_echantillon',
+                                                                        CR.avis             as 'avis',
+                                                                        M.id                as 'Mid_medecin',
+                                                                        M.nom               as 'nom_medecin',
+                                                                        M.prenom            as 'prenom_medecin'
+                                                    FROM comptesrendus  CR
+                                                    LEFT JOIN medecins  M ON M.id = CR.id_medecin
+                                                    WHERE (id_visiteur = $id_encours) AND (etat = '0')
+                                                    ORDER BY CR.id DESC");
+
+                                                    $reqcr = $bdd->prepare($requete);
+                                                    $reqcr->execute();
+                                                        
+                                                    $resultat = $reqcr->fetchAll();
+                                                        if (!empty($resultat)) 
+                                                        {
+                                                            foreach($resultat as $cr)  { 
+                                                    ?>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="modifier_compterendu.php?id=<?php echo $cr['id_compterendu'];?>">Ouvrir</a>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $cr['id_medecin'];?>"><?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0 text-c-purple"><?php echo $cr['date'];?></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><?php echo $cr['id_echantillon']; ?></h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
+                                                        </td>
+                                                    </tr>
+                                            <?php 
+                                                } 
+                                                 } 
+                                                else
+                                                {
+                                                    echo "Aucn compte-rendu ne vous a été rattaché";
+                                                }
+                                               ?>
+                                                       
                                                     </tbody>
                                                 </table>
                                             </div>
