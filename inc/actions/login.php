@@ -11,14 +11,12 @@
 		$check->execute(array($email));
 		$data = $check->fetch();
 		$row = $check->rowCount();
-		
 		if($row == 1)
 		{
 			if(filter_var($email, FILTER_VALIDATE_EMAIL))
 			{
-				
-				$pass_hash = password_hash('password', PASSWORD_DEFAULT);
-				if (password_verify('password', $pass_hash))
+				$pass_hash=$data['mot_de_passe'];
+				if (password_verify($_POST['password'], $pass_hash))
 				{				
 					$_SESSION['user'] = $data['email'];
 					header('Location: ../../accueil.php');

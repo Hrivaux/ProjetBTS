@@ -53,43 +53,43 @@ include('templates/meta.php');
 											<hr>
 											<div class="row">
 												<div class="col-md-6">
-													<form method="post" action="inc/actions/form_medecins.php">
+													<form method="post" action="inc/actions/form_medecins.php" enctype="multipart/form-data">
 														<div class="form-group">
 															<label for="exampleInputEmail1">Nom</label>
-															<input type="text" class="form-control" name="nom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required>
+															<input type="text" class="form-control" name="nom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom du médecin">
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Prénom</label>
-															<input type="text" class="form-control" name="prenom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required>
+															<input type="text" class="form-control" name="prenom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Prénom du médecin">
 														</div>
 														<div class="form-group">
-															<label for="exampleInputEmail1">Image</label>
-															<input type="file" id="image" name="image" class="form-control" accept="image/png, image/jpeg" required>
+															<label for="exampleInputEmail1">URL Image</label>
+															<input type="text" id="get_image" name="get_image" class="form-control" accept="image/png, image/jpeg; image/jpg; image/gif">
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Siret</label>
-															<input type="number" class="form-control" name="siret" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required>
+															<input type="number" class="form-control" name="siret" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="N° du SIRET">
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Adresse mail</label>
-															<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required>
+															<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse mail du médecin">
 														</div>
 												</div>
 												<div class="col-md-6">
 												<div class="form-group">
 															<label for="exampleInputEmail1">Adresse</label>
-															<input type="text" class="form-control" name="adresse" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required>
+															<input type="text" class="form-control" name="adresse" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse du médecin">
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Ville</label>
-															<input type="text" class="form-control" name="ville" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required>
+															<input type="text" class="form-control" name="ville" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ville du médecin">
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Code postal</label>
-															<input type="number" class="form-control" name="codepostal" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required>
+															<input type="number" class="form-control" name="codepostal" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Code postal du médecin">
 														</div>
 														<label for="echantillon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type de médicament :</label>
-															<select id="echantillon" name="echantillon" class="form-control" required >
+															<select id="echantillon" name="echantillon" class="form-control" >
 																<option selected>Veuillez choisir une option</option>
 																<?php $reponse = $bdd->query('SELECT id, nom_medicament FROM echantillons');
                                                                      while ($donnees = $reponse->fetch())
@@ -99,7 +99,7 @@ include('templates/meta.php');
 															</select><br>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Quantité échantillon</label>
-															<input type="number" class="form-control" name="quantiteechantillon" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required>
+															<input type="number" class="form-control" name="quantiteechantillon" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Quantité d'échantillons">
 														</div>
 												</div>
 											</div>
