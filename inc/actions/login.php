@@ -17,8 +17,8 @@
 			if(filter_var($email, FILTER_VALIDATE_EMAIL))
 			{
 				
-				if($data['mot_de_passe'] === $password)
-				{
+				if (password_verify('password', $pass_hash))
+				{				{
 					$_SESSION['user'] = $data['email'];
 					header('Location: ../../accueil.php');
 					
@@ -27,4 +27,6 @@
 		}else header('Location: ../index.php?login_err=champs');
 	
 	} else header('Location: ../index.php');
+}
 ?>
+
