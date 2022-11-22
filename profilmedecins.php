@@ -6,21 +6,13 @@ require ('global.php');
 connected_only();
 
 
-function redirect_on_index(): never {
-    header('location: tb_medecin.php');
-    exit;
-}
-
-if (!array_key_exists('id', $_GET) || false === ($id = filter_var($_GET['id'], FILTER_VALIDATE_INT))) {
-    redirect_on_index();
-}
-
 $requete = $bdd->prepare('SELECT * FROM medecins WHERE id = :id');
 $requete->bindValue('id', $_GET['id']);
 $requete->execute();
 $profilmedecin = $requete->fetch();
 if (!$profilmedecin) {
-    redirect_on_index();
+	header('location: tb_medecin.php');
+    exit;
 }
 $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 
