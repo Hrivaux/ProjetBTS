@@ -1,9 +1,9 @@
-<?php 
+<?php
 
-require_once('../../global.php');
+require_once ('../../global.php');
 
 $idCR = htmlentities(trim($_GET['id']));
-$idCR = (int) $idCR;
+$idCR = (int)$idCR;
 
 $id_medecin = $_POST["id_medecin"];
 $id_echantillon = $_POST["id_echantillon"];
@@ -12,50 +12,47 @@ $compterendu = $_POST["compterendu"];
 $avis = $_POST['avis'];
 $etat = $_POST['etat'];
 
+$req = "UPDATE comptesrendus SET ";
 
-$req="UPDATE comptesrendus SET ";
-
-   if (!empty($id_medecin))
+if (!empty($id_medecin))
 {
-   $req=$req."id_medecin='$id_medecin',";
+    $req = $req . "id_medecin='$id_medecin',";
 }
 
-   if (!empty($id_echantillon))
+if (!empty($id_echantillon))
 {
-   $req=$req."id_echantillon='$id_echantillon',";
+    $req = $req . "id_echantillon='$id_echantillon',";
 }
 
-   if (!empty($date))
+if (!empty($date))
 {
-   $req=$req."date='$date',";
+    $req = $req . "date='$date',";
 }
 
-   if (!empty($compterendu))
+if (!empty($compterendu))
 {
-   $req=$req."compterendu='$compterendu',";
+    $req = $req . "compterendu='$compterendu',";
 }
 
-   if (!empty($avis))
+if (!empty($avis))
 {
-   $req=$req."avis='$avis',";
+    $req = $req . "avis='$avis',";
 }
 
-   if (!empty($etat))
+if (!empty($etat))
 {
-   $req=$req."etat='$etat',";
+    $req = $req . "etat='$etat',";
 }
 
-$req=substr($req,0, -1)." WHERE id = $idCR";
+$req = substr($req, 0, -1) . " WHERE id = $idCR";
 
-
-
-if ($bdd -> exec($req))
+if ($bdd->exec($req))
 {
-   echo "Update réussie";
+    echo "Update réussie";
 }
-else 
+else
 {
-   echo "Update raté";
+    echo "Update raté";
 }
 
 
