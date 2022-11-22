@@ -18,7 +18,7 @@
 			{
 				
 				$pass_hash = password_hash('password', PASSWORD_DEFAULT);
-				if (password_verify('password', $pass_hash ))
+				if (password_verify('password', $pass_hash))
 				{				
 					$_SESSION['user'] = $data['email'];
 					header('Location: ../../accueil.php');
