@@ -99,13 +99,15 @@ include('templates/meta.php');
 <script src="assets/js/pcoded.min.js"></script>
 
 	<!-- Modal box erreurs -->
-	<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="tbmodal">
 			<h3 style="color:white;">Une erreur est survenue, veuillez vérifier que tous les champs aient bien été remplis.</h3>
 		</div>
 	</div>
 </div>
+
+
 <?php
 	if(isset($_GET['action'])) 
 	{
@@ -113,12 +115,12 @@ include('templates/meta.php');
 		
 		switch($errlogin)
 		{
-			case 'success':
+			case 'erreur':
 ?>
 <script>
     $(document).ready(function()
     {
-        $("#success").modal('show');
+        $("#erreur").modal('show');
     });
 </script>
 <?php break; } } ?>	

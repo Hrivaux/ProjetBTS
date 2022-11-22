@@ -14,7 +14,7 @@ if (!empty($objet) && !empty($msg) && !empty($urg)) {
 
     $reponse->execute(array($id_encours, $objet, $msg, $urg, $date));
 
-    header ('Location: ../../notifications.php?action=success');
+    header ('Location: ../../accueil.php?actionno=successno');
 } 
 else 
 {
