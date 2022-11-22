@@ -11,16 +11,17 @@ $idCR = (int) $idCR;
 if (is_int($idCR))
 {
 	$requete = $bdd->prepare("SELECT * FROM comptesrendus WHERE id = '$idCR'"); 
-        $requete->execute();
-        $compterendu = $requete->fetch();
+    $requete->execute();
+    $compterendu = $requete->fetch();
         
-       
-
-    }
-    else
-    {
+    if (!$compterendu) {
+        header('location: tbl_bootstrap.php');
+         exit; }     
+}
+else
+{
     Header('location: accueil.php');
-    }
+}
 
     $pageinfo = "Saisie des comptes rendus";
 
