@@ -17,16 +17,17 @@
 			if(filter_var($email, FILTER_VALIDATE_EMAIL))
 			{
 				
-				if (password_verify('password', $pass_hash))
-				{				{
+				$pass_hash = password_hash('password', PASSWORD_DEFAULT);
+				if (password_verify('password', $pass_hash ))
+				{				
 					$_SESSION['user'] = $data['email'];
 					header('Location: ../../accueil.php');
 					
 				}else header('Location: ../index.php?login_err=password');
 			}else header('Location: ../index.php?login_err=email');
 		}else header('Location: ../index.php?login_err=champs');
-	
+		
 	} else header('Location: ../index.php');
-}
+
 ?>
 
