@@ -112,7 +112,12 @@ include('templates/meta.php');
                                                             <td>
                                                                 <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i><?php echo $users['date_embauche'];?></h6>
                                                             </td>
-                                                            <td><a href="#!" class="label theme-bg2 text-white f-12">Supprimer le compte</a></td>
+                                                            <td>
+
+                                                             <a href="" methode="post" type="submit">
+
+
+                                                            </td>
                                                         </tr>
                                                     <?php } } ?>
                                                     </tbody>
@@ -387,7 +392,10 @@ $(document).ready(function(){
     $("#successcr").modal('show');
 });
 </script>
-<?php break; } } ?>	
+<?php break; } } ?>
+
+
+
 
 <div class="modal fade" id="successno" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
