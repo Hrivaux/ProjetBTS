@@ -56,40 +56,40 @@ include('templates/meta.php');
 													<form method="post" action="inc/actions/form_medecins.php" enctype="multipart/form-data">
 														<div class="form-group">
 															<label for="exampleInputEmail1">Nom</label>
-															<input type="text" class="form-control" name="nom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom du médecin">
+															<input type="text" class="form-control" name="nom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom du médecin" required>
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Prénom</label>
-															<input type="text" class="form-control" name="prenom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Prénom du médecin">
+															<input type="text" class="form-control" name="prenom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Prénom du médecin" required>
 														</div>
 														<div class="form-group">
-															<label for="exampleInputEmail1">URL Image</label>
-															<input type="text" id="get_image" name="get_image" class="form-control" accept="image/png, image/jpeg; image/jpg; image/gif">
+															<label for="exampleInputEmail1">Photo de profil</label>
+															<input type="text" id="get_image" name="get_image" class="form-control" accept="image/png, image/jpeg; image/jpg; image/gif" placeholder="Photo de profil du médecin">
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Siret</label>
-															<input type="number" class="form-control" name="siret" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="N° du SIRET">
+															<input type="number" class="form-control" name="siret" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="N° du SIRET" required>
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Adresse mail</label>
-															<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse mail du médecin">
+															<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse mail du médecin" required>
 														</div>
 												</div>
 												<div class="col-md-6">
 												<div class="form-group">
 															<label for="exampleInputEmail1">Adresse</label>
-															<input type="text" class="form-control" name="adresse" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse du médecin">
+															<input type="text" class="form-control" name="adresse" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse du médecin" required>
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Ville</label>
-															<input type="text" class="form-control" name="ville" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ville du médecin">
+															<input type="text" class="form-control" name="ville" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ville du médecin" required>
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Code postal</label>
-															<input type="number" class="form-control" name="codepostal" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Code postal du médecin">
+															<input type="number" class="form-control" name="codepostal" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Code postal du médecin" required>
 														</div>
 														<label for="echantillon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type de médicament :</label>
-															<select id="echantillon" name="echantillon" class="form-control" >
+															<select id="echantillon" name="echantillon" class="form-control" required>
 																<option selected>Veuillez choisir une option</option>
 																<?php $reponse = $bdd->query('SELECT id, nom_medicament FROM echantillons');
                                                                      while ($donnees = $reponse->fetch())
@@ -99,8 +99,20 @@ include('templates/meta.php');
 															</select><br>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Quantité échantillon</label>
-															<input type="number" class="form-control" name="quantiteechantillon" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Quantité d'échantillons">
+															<input type="number" class="form-control" name="quantiteechantillon" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Quantité d'échantillons" required>
 														</div>
+												</div>
+												<br>
+												<div class="col-md-12">
+												<label for="p_rattache" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Personne rattachée :</label>
+															<select id="p_rattache" name="p_rattache" class="form-control" required>
+																<option selected>Veuillez choisir une personne à rattacher à ce médecin</option>
+																<?php $reponse = $bdd->query('SELECT id, nom, prenom FROM utilisateurs WHERE grade != 3');
+                                                                     while ($donnees = $reponse->fetch())
+									                                        { ?>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['nom']." ".$donnees['prenom']; ?></option>
+				                                                <?php } ?>
+															</select><br>
 												</div>
 											</div>
 											<input type="submit" value="Ajouter" class="btn btn-primary" />
@@ -119,6 +131,32 @@ include('templates/meta.php');
 	<script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/pcoded.min.js"></script>
+
+<!-- Modal box erreurs -->
+<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Une erreur est survenue, veuillez vérifier que tous les champs aient bien été remplis.</h3>
+		</div>
+	</div>
+</div>
+
+<?php
+	if(isset($_GET['action'])) 
+	{
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'erreur':
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#erreur").modal('show');
+    });
+</script>
+<?php break; } } ?>	
 
 </body>
 

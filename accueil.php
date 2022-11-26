@@ -171,7 +171,7 @@ include('templates/meta.php');
 
 
 
-                                <div class="col-xl-4 col-md-6">
+                           <!--     <div class="col-xl-4 col-md-6">
                                     <div class="card user-list">
                                         <div class="card-header">
                                             <h5>Rating</h5>
@@ -224,9 +224,9 @@ include('templates/meta.php');
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="col-xl-8 col-md-12 m-b-30">
+                                <!-- <div class="col-xl-8 col-md-12 m-b-30">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active show" id="semaine-tab" data-toggle="tab" href="#semaine" role="tab" aria-controls="semaine" aria-selected="true">Cette semaine</a>
@@ -329,7 +329,7 @@ include('templates/meta.php');
                                             </table>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
 
@@ -366,12 +366,6 @@ $(document).ready(function(){
 </script>
 <?php break; } } ?>	
 
-
-	
-
-
-
-
 <div class="modal fade" id="successcr" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="tbmodal">
@@ -394,9 +388,6 @@ $(document).ready(function(){
 </script>
 <?php break; } } ?>
 
-
-
-
 <div class="modal fade" id="successno" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="tbmodal">
@@ -415,6 +406,28 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){
     $("#successno").modal('show');
+});
+</script>
+<?php break; } } ?>	
+
+<div class="modal fade" id="successmed" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Félicitations, le médecin a bien été inscrit.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['actionno'])) {
+		$errlogin = htmlspecialchars($_GET['actionno']);
+		
+		switch($errlogin)
+		{
+			case 'successmed':
+?>
+<script>
+$(document).ready(function(){
+    $("#successmed").modal('show');
 });
 </script>
 <?php break; } } ?>	
