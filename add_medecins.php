@@ -63,8 +63,8 @@ include('templates/meta.php');
 															<input type="text" class="form-control" name="prenom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Prénom du médecin" required>
 														</div>
 														<div class="form-group">
-															<label for="exampleInputEmail1">URL Image</label>
-															<input type="text" id="get_image" name="get_image" class="form-control" accept="image/png, image/jpeg; image/jpg; image/gif" placeholder="Entrez l'URL de votre image">
+															<label for="exampleInputEmail1">Photo de profil</label>
+															<input type="text" id="get_image" name="get_image" class="form-control" accept="image/png, image/jpeg; image/jpg; image/gif" placeholder="Photo de profil du médecin">
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Siret</label>
@@ -102,6 +102,18 @@ include('templates/meta.php');
 															<input type="number" class="form-control" name="quantiteechantillon" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Quantité d'échantillons" required>
 														</div>
 												</div>
+												<br>
+												<div class="col-md-12">
+												<label for="p_rattache" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Personne rattachée :</label>
+															<select id="p_rattache" name="p_rattache" class="form-control" required>
+																<option selected>Veuillez choisir une personne à rattacher à ce médecin</option>
+																<?php $reponse = $bdd->query('SELECT id, nom, prenom FROM utilisateurs WHERE grade != 3');
+                                                                     while ($donnees = $reponse->fetch())
+									                                        { ?>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['nom']." ".$donnees['prenom']; ?></option>
+				                                                <?php } ?>
+															</select><br>
+												</div>
 											</div>
 											<input type="submit" value="Ajouter" class="btn btn-primary" />
 											</form>
@@ -119,6 +131,32 @@ include('templates/meta.php');
 	<script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/pcoded.min.js"></script>
+
+<!-- Modal box erreurs -->
+<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Une erreur est survenue, veuillez vérifier que tous les champs aient bien été remplis.</h3>
+		</div>
+	</div>
+</div>
+
+<?php
+	if(isset($_GET['action'])) 
+	{
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'erreur':
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#erreur").modal('show');
+    });
+</script>
+<?php break; } } ?>	
 
 </body>
 

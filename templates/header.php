@@ -60,7 +60,8 @@
                                                         N.send_date as 'date',
                                                         U.id        as 'id_user',
                                                         U.nom       as 'nom_user',
-                                                        U.prenom    as 'prenom_user'
+                                                        U.prenom    as 'prenom_user',
+                                                        U.sexe      as 'sexe'
                                                 FROM notifications     N 
                                                 LEFT JOIN utilisateurs U ON U.id = N.user_id
                                                 ORDER BY N.id desc");
@@ -74,7 +75,7 @@
                                 ?>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo $url; ?>assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?php echo $url; ?>/assets/images/user/avatar-<?php if ($notification['sexe'] == '1') { echo "1"; } else { echo "0"; } ?>.jpg?<?php echo rand(1, 758); ?>" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong><?php echo $notification['nom_user']." ".$notification['prenom_user'];?></strong><!--<span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span>--></p>
                                             <p><?php echo $notification['message'];?></p>
