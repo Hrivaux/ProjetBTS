@@ -26,6 +26,9 @@ $day = date('d');
 $year = date('Y');
 $today = $year . '-' . $month . '-' . $day;
 
+setlocale(LC_ALL, 'fr_FR.UTF8', 'fr_FR','fr','fr','fra','fr_FR@euro');
+
+
 // Paramètres du site
 $req = $bdd->query("SELECT * FROM site_settings WHERE id = 1");
 $config = $req->fetch(PDO::FETCH_ASSOC);

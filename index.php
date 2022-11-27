@@ -51,5 +51,61 @@
 		</div>
 		<script src="assets/js/vendor-all.min.js"></script>
 		<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<div class="modal fade" id="password" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le mot de passe saisi est incorrect.</h3>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="email" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">L'adresse, mail saisie n'existe pas ou est incorrecte.</h3>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="champs" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Merci de remplir la totalité des champs.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['login_err'])) {
+		$errlogin = htmlspecialchars($_GET['login_err']);
+		
+		switch($errlogin)
+		{
+			case 'password':
+?>
+<script>
+$(document).ready(function(){
+    $("#password").modal('show');
+});
+</script>
+<?php }
+switch($errlogin)
+{
+	case 'email':
+?>
+<script>
+$(document).ready(function(){
+    $("#email").modal('show');
+});
+</script>
+<?php }
+switch($errlogin)
+{
+	case 'champs':
+?>
+<script>
+$(document).ready(function(){
+    $("#champs").modal('show');
+});
+</script>
+<?php break; } } ?>	
 	</body>
 </html>

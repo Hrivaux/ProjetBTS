@@ -15,7 +15,7 @@
             <ul class="navbar-nav mr-auto">
                 <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a></li>
                 <li class="nav-item dropdown">
-                    <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown"><?php echo $prenomnom; ?></a>
+                    <b><?php echo $prenomnom; ?></b>
                   <!--  <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="javascript:">Action</a></li>
                         <li><a class="dropdown-item" href="javascript:">Autre action</a></li>
@@ -25,7 +25,7 @@
                 <li class="nav-item">
                     <div class="main-search">
                         <div class="input-group">
-                            <input type="text" id="m-search" class="form-control" placeholder="Rechercher . . .">
+                            <input type="text" id="m-search" class="form-control" style="width: 100px;" placeholder="Rechercher...">
                             <a href="javascript:" class="input-group-append search-close">
                                 <i class="feather icon-x input-group-text"></i>
                             </a>
@@ -43,9 +43,9 @@
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Notifications</h6>
-                                <div class="float-right">
+                                <!--<div class="float-right">
                                     <a href="javascript:">Effacer tout</a>
-                                </div>
+                                </div> -->
                             </div>
                             <ul class="noti-body">
                                 <li class="n-title">
@@ -56,14 +56,16 @@
                                                         N.id        as 'id_notif',
                                                         N.user_id   as 'user_id',
                                                         N.message   as 'message',
-                                                        N.urgence   as 'urgence',
+                                                        N.grade     as 'grade',
                                                         N.send_date as 'date',
                                                         U.id        as 'id_user',
                                                         U.nom       as 'nom_user',
+                                                        U.grade     as 'grade_user',
                                                         U.prenom    as 'prenom_user',
                                                         U.sexe      as 'sexe'
                                                 FROM notifications     N 
                                                 LEFT JOIN utilisateurs U ON U.id = N.user_id
+                                                WHERE N.grade <= U.grade
                                                 ORDER BY N.id desc");
 
                                         $reqnotif = $bdd->prepare($requete);
@@ -86,9 +88,6 @@
                                              else {
                                                     echo "Aucune notification."; } ?>
                             </ul>
-                            <div class="noti-footer">
-                                <a href="javascript:">show all</a>
-                            </div>
                         </div>
                     </div>
                 </li>
@@ -106,7 +105,7 @@
                                 </a>
                             </div>
                             <ul class="pro-body">
-                                <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Mon profil</a></li>
+                                <li><a href="tb_medecin.php" class="dropdown-item"><i class="feather icon-user"></i> Les médecins</a></li>
                                 <li><a href="javascript:" class="dropdown-item"><i class="feather icon-settings"></i> Paramètres</a></li>
                             </ul>
                         </div>

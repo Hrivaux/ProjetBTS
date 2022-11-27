@@ -110,14 +110,9 @@ include('templates/meta.php');
                                                                 <p class="m-0"><?php echo $users['email'];?></p>
                                                             </td>
                                                             <td>
-                                                                <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i><?php echo $users['date_embauche'];?></h6>
+                                                                <h6 class="text-muted"><?php echo strftime('%d-%m-%Y',strtotime($users['date_embauche']));?></h6>
                                                             </td>
-                                                            <td>
-
-                                                             <a href="" methode="post" type="submit">
-
-
-                                                            </td>
+                                                            <td><?php if ($grade_encours > $users['grade']) { ?><a href="inc/actions/delete_user.php?id=<?php echo $users['id'];?>" class="label theme-bg2 text-white f-12">Supprimer</a></td><?php } ?></td>
                                                         </tr>
                                                     <?php } } ?>
                                                     </tbody>
@@ -431,6 +426,27 @@ $(document).ready(function(){
 });
 </script>
 <?php break; } } ?>	
-</body>
 
+<div class="modal fade" id="successd" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Félicitations, le compte a bien été supprimé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['delete'])) {
+		$errlogin = htmlspecialchars($_GET['delete']);
+		
+		switch($errlogin)
+		{
+			case 'successd':
+?>
+<script>
+$(document).ready(function(){
+    $("#successd").modal('show');
+});
+</script>
+<?php break; } } ?>	
+</body>
 </html>

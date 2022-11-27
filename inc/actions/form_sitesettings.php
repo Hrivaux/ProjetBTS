@@ -24,6 +24,9 @@ $requete_update = "UPDATE site_settings SET ";
 	
 	if ($bdd->exec($requete_update))
 	{
+		//Logs
+		$req_logs = ("INSERT INTO logs(user_id,type_log,action, date) VALUES ($id_encours, 'Modification', 'A modifié les paramètres du site', '$today')");
+		$bdd->exec($req_logs);
 		Header('Location: '.$url.'/site_settings.php?action=success_update_site');
 	}
 	else 

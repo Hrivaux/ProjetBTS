@@ -4,9 +4,14 @@ require ('global.php');
 
 connected_only();
 
-$pageinfo = "Listes des médecins";
+$pageinfo = "Logs des utilisateurs";
 
 include('templates/meta.php');
+
+if ($grade_encours <= 2) 
+{
+    Header('location: accueil.php');
+}
 ?>
 
 <body>
@@ -27,15 +32,15 @@ include('templates/meta.php');
 								<div class="col-md-12">
 									<div class="page-header-title">
 										<h5 class="m-b-10">
-											Tables Médecin
+											Logs
 										</h5>
 									</div>
 									<ul class="breadcrumb">
 										<li class="breadcrumb-item">
 											<a href="index.html"><i class="feather icon-home"></i></a>
 										</li>
-										<li class="breadcrumb-item"><a href="#!">Tables</a></li>
-										<li class="breadcrumb-item"><a href="javascript:">Tables Médecin</a></li>
+										<li class="breadcrumb-item"><a href="#!">Administration</a></li>
+										<li class="breadcrumb-item"><a href="javascript:">Logs</a></li>
 									</ul>
 								</div>
 							</div>
@@ -57,70 +62,63 @@ include('templates/meta.php');
 													<thead>
 														<tr>
 															<th>
-																#
+																Utilisateur
 															</th>
 															<th>
-																Nom
+																Type d'action
 															</th>
 															<th>
-																N°siret
+																Logs
 															</th>
 															<th>
-																Adresse
-															</th>
-															<th>
-																Type de médicaments
-															</th>
-															<th>
-																Quantité des échantillons
+																Date
 															</th>
 														</tr>
 													</thead>
 													<tbody>
 
 <?php
-$requete = ("SELECT M.id as 'm_id', M.img as 'm_img', M.nom as 'm_nom', M.prenom as 'm_prenom', M.siret as 'm_siret', M.adresse as 'm_adresse', M.ville as 'm_ville', M.code_postal as 'm_code_postal', M.type_medicament as 'm_typemed', M.quantite_echantillon as 'm_qtt', E.id as 'e_id', E.nom_medicament as 'e_nom'
-FROM medecins 			M
-INNER JOIN echantillons E on M.type_medicament = E.id
- ORDER BY M.id DESC");
+$requete = ("SELECT 
+				L.id	as 'log_id',
+				L.type_log	as 'type',
+				L.action	as 'action',
+				L.date	as 'date',
+				U.id,
+				U.nom	as 'nom',
+				U.prenom as 'prenom'
+			FROM 
+				logs 				L
+			INNER JOIN utilisateurs U ON L.user_id = U.id
+			ORDER BY L.id DESC");
 
-$reqmedecins = $bdd->prepare($requete);
-$reqmedecins->execute();
+$reqlogs = $bdd->prepare($requete);
+$reqlogs->execute();
 
-$resultat = $reqmedecins->fetchAll();
+$resultat = $reqlogs->fetchAll();
 if (!empty($resultat))
 {
-    foreach ($resultat as $medecins)
+    foreach ($resultat as $logs)
     {
 ?>
 
 <tr>
 	<td>
-		<a href="profilmedecins.php?id=<?php echo $medecins['m_id'];?>"><?php echo $medecins['m_id']; ?></a>
-	</td>
-	<td>
 		<h6 class="m-0">
-			<img class="rounded-circle  m-r-10" style="width:40px;" src="img/<?php echo $medecins['m_img'];?>" alt="Photo de profil">
-			<?php echo $medecins['m_nom']." ".$medecins['m_prenom']; ?>
+			<b><?php echo $logs['nom']." ".$logs['prenom']; ?></b>
 		</h6>
 		<td>
 			<h6 class="m-0">
-				<?php echo $medecins['m_siret']; ?>
-			</h6>
-		</td>
-		<td>
-			<h6 class="m-0 text-c-purple">
-				<?php echo $medecins['m_adresse']." ".$medecins['m_ville']." - ".$medecins['m_code_postal'];?>
+				<?php echo $logs['type']; ?>
 			</h6>
 		</td>
 		<td>
 			<h6 class="m-0">
-				<?php echo $medecins['e_nom']; ?>
+				<?php echo $logs['action']; ?>
 			</h6>
 		</td>
 		<td>
 			<h6 class="m-0">
-				<?php echo $medecins['m_qtt']; ?>
+				<?php echo strftime('%d-%m-%Y',strtotime($logs['date'])); ?>
 			</h6>
 		</td>
 	</tr>

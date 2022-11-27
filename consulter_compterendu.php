@@ -15,7 +15,7 @@ if (is_int($idCR))
     $compterendu = $requete->fetch();
         
     if (!$compterendu) {
-        header('location: tbl_bootstrap.php');
+        header('location: liste_cr.php');
          exit; }     
 }
 else
