@@ -32,10 +32,9 @@ include('templates/meta.php');
 									</div>
 									<ul class="breadcrumb">
 										<li class="breadcrumb-item">
-											<a href="index.html"><i class="feather icon-home"></i></a>
-										</li>
-										<li class="breadcrumb-item"><a href="#!">Tables</a></li>
-										<li class="breadcrumb-item"><a href="javascript:">Tables Médecin</a></li>
+											<a href="accueil.php"><i class="feather icon-home"></i></a></li>
+										<li class="breadcrumb-item"><a>SAISIES & CONSULTATIONS</a></li>
+                                        <li class="breadcrumb-item"><a href="liste_cr.php">Liste des médecins</a></li>
 									</ul>
 								</div>
 							</div>

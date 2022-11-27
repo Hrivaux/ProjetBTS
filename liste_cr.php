@@ -4,6 +4,8 @@ require ('global.php');
 
 connected_only();
 
+
+
 $pageinfo = "Listes des comptes rendus";
 
 include('templates/meta.php');
@@ -32,9 +34,9 @@ include('templates/meta.php');
                                         <h5 class="m-b-10">Liste des comptes rendus</h5>
                                     </div>
                                     <ul class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="#!">Tables</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Basic Tables</a></li>
+                                        <li class="breadcrumb-item"><a href="accueil.php"><i class="feather icon-home"></i></a></li>
+                                        <li class="breadcrumb-item"><a>SAISIES & CONSULTATIONS</a></li>
+                                        <li class="breadcrumb-item"><a href="liste_cr.php">Listes des comptes rendus</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -75,10 +77,13 @@ include('templates/meta.php');
                                                                         CR.avis             as 'avis',
                                                                         M.id                as 'Mid_medecin',
                                                                         M.nom               as 'nom_medecin',
-                                                                        M.prenom            as 'prenom_medecin'
+                                                                        M.prenom            as 'prenom_medecin',
+                                                                        E.id                as 'echantillon',
+                                                                        E.nom_medicament    as 'nom_medicament'
                                                     FROM comptesrendus  CR
                                                     LEFT JOIN medecins  M ON M.id = CR.id_medecin
-                                                    WHERE id_visiteur = $id_encours AND (etat = '1')
+                                                    LEFT JOIN echantillons  E ON E.id = CR.id_echantillon
+                                                    WHERE (id_visiteur = $id_encours) AND (etat = '1')
                                                     ORDER BY CR.id DESC");
 
                                                     $reqcr = $bdd->prepare($requete);
@@ -97,10 +102,10 @@ include('templates/meta.php');
                                                             <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $cr['id_medecin'];?>"><?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0 text-c-purple"><?php echo $cr['date'];?></h6>
+                                                            <h6 class="m-0 text-c-purple"><?php echo $cr['date']?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php echo $cr['id_echantillon']; ?></h6>
+                                                            <h6 class="m-0"><?php echo $cr['nom_medicament']; ?></h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
@@ -151,11 +156,33 @@ include('templates/meta.php');
                                                                         CR.avis             as 'avis',
                                                                         M.id                as 'Mid_medecin',
                                                                         M.nom               as 'nom_medecin',
-                                                                        M.prenom            as 'prenom_medecin'
+                                                                        M.prenom            as 'prenom_medecin',
+                                                                        E.id                as 'echantillon',
+                                                                        E.nom_medicament    as 'nom_medicament'
                                                     FROM comptesrendus  CR
                                                     LEFT JOIN medecins  M ON M.id = CR.id_medecin
+                                                    LEFT JOIN echantillons  E ON E.id = CR.id_echantillon
                                                     WHERE (id_visiteur = $id_encours) AND (etat = '0')
                                                     ORDER BY CR.id DESC");
+
+
+                                                   /* $requete = ("SELECT CR.id               as 'id_compterendu',
+                                                                        CR.id_visiteur      as 'id_visiteur',
+                                                                        CR.id_medecin       as 'id_medecin',
+                                                                        CR.date             as 'date',
+                                                                        CR.id_echantillon   as 'id_echantillon',
+                                                                        CR.avis             as 'avis',
+                                                                        E.id                as 'Eid_echantillon',
+                                                                        E.type_medicament   as 'type_medicament',
+                                                                        E.nom               as 'Enom_medicament',
+                                                                        E.fournisseur       as 'Efournisseur',
+
+                                                    FROM comptesrendus  CR
+                                                    LEFT JOIN echantillons  E ON E.id = CR.id_echantillon
+                                                    WHERE (id_visiteur = $id_encours) AND (etat = '0')
+                                                    ORDER BY CR.id DESC");
+                                                    */
+
 
                                                     $reqcr = $bdd->prepare($requete);
                                                     $reqcr->execute();
@@ -176,7 +203,7 @@ include('templates/meta.php');
                                                             <h6 class="m-0 text-c-purple"><?php echo $cr['date'];?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php echo $cr['id_echantillon']; ?></h6>
+                                                            <h6 class="m-0"><?php echo $cr['nom_medicament']; ?></h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
@@ -208,6 +235,108 @@ include('templates/meta.php');
 <script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
+    <div class="modal fade" id="successcr" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte rendu a bien été créé.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['actioncr'])) {
+		$errlogin = htmlspecialchars($_GET['actioncr']);
+		
+		switch($errlogin)
+		{
+			case 'successcr':
+?>
+<script>
+$(document).ready(function(){
+    $("#successcr").modal('show');
+});
+</script>
+<?php break; } } ?>
+
+
+
+
+<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Une erreur est survenue, votre compte rendu n'a pas été modifié.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['action'])) 
+	{
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'erreur':
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#erreur").modal('show');
+    });
+</script>
+<?php break; } } ?>
+
+
+
+<script src="assets/js/vendor-all.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+    <div class="modal fade" id="successcr" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte rendu a bien été modifié.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['actioncr'])) {
+		$errlogin = htmlspecialchars($_GET['actioncr']);
+		
+		switch($errlogin)
+		{
+			case 'successcr':
+?>
+<script>
+$(document).ready(function(){
+    $("#successcr").modal('show');
+});
+</script>
+<?php break; } } ?>
+
+<script src="assets/js/vendor-all.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+    <div class="modal fade" id="successcrmodif" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Le compte rendu a bien été modifié.</h3>
+		</div>
+	</div>
+</div>
+<?php
+	if(isset($_GET['actioncrmodif'])) {
+		$errlogin = htmlspecialchars($_GET['actioncrmodif']);
+		
+		switch($errlogin)
+		{
+			case 'successcrmodif':
+?>
+<script>
+$(document).ready(function(){
+    $("#successcrmodif").modal('show');
+});
+</script>
+<?php break; } } ?>
+
+
 
 </body>
 </html>

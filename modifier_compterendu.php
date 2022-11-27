@@ -133,8 +133,8 @@ include('templates/meta.php');
                                                                 <hr>
                                                                 <?php 
                                                 	$requete_echantillon = ("SELECT CR.id   as 'id_compterendu',
-                                                                        CR.id_echantillon   as 'id_echantillon',
-                                                                        M.id                as 'echantillon',
+                                                                                    CR.id_echantillon   as 'id_echantillon',
+                                                                                    M.id                as 'echantillon',
                                                                         M.nom_medicament    as 'nom_medicament'
                                                     FROM comptesrendus      CR
                                                     LEFT JOIN echantillons  M ON M.id = CR.id_echantillon
@@ -149,7 +149,7 @@ include('templates/meta.php');
                                                             foreach($echanti as $e)  { 
                                                     ?>
                                                             <?php echo $e['nom_medicament']?></a>
-                                                                <?php echo $compterendu['id_echantillon']; ?>
+                                                        
                                                                 <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
@@ -187,7 +187,7 @@ include('templates/meta.php');
                                                                         <label class="custom-control-label" for="avis">Bien passé </label>
                                                                     </div>
                                                                     <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="avis" name="avis" class="custom-control-input">
+                                                                        <input type="radio" id="avis1" class="custom-control-input">
                                                                         <label class="custom-control-label" value="0" for="avis1">Mal passé</label>
                                                                     </div>
                                                                 </div>
@@ -206,11 +206,22 @@ include('templates/meta.php');
                                                         <label class="custom-control-label" for="etat">Terminé </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="etat" name="etat" value="0" class="custom-control-input">
+                                                        <input type="radio" id="etat1" name="etat1" value="0" class="custom-control-input">
                                                         <label class="custom-control-label" for="etat1">A terminé</label>
                                                     </div>
+
+                                                        <div class="form-group">
+                                                        <h5 class="mt-5">Nouvelle visite</h5>
+                                                        <hr>    
+                                                        <?php if ($compterendu['nouvelle_visite'] == NULL) { echo "Pas de nouvelle visite"; } else {echo $compterendu['nouvelle_visite'];}; ?>
                                                         </div>
-                                                    
+                                                            <br><br>
+                                                            <h6><mark> Votre changement si besoin</mark></h6>
+                                                            <br> 
+                                                        <hr>    
+                                                            <input name="nouvelle_visite" type="date" class="form-control text-center" placeholder="Date">
+                                                    </div> 
+                                                    <div>
                                                         <h5 class="mt-5">Commentaire</h5>                                      
                                                        <hr> 
                                                         
@@ -233,6 +244,9 @@ include('templates/meta.php');
 <script src="assets/js/vendor-all.min.js"></script>
 <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/pcoded.min.js"></script>
+
+
+
 
 </body>
 </html>
