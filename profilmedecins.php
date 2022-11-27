@@ -103,7 +103,11 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 											<?php echo $profilmedecin['code_postal']; ?>
 										</td>
 										<td class="py-4 px-6">
-											<?php echo $profilmedecin['type_medicament']; ?>
+							<?php $requetes = $bdd->("SELECT * FROM medecins LEFT JOIN echantillons ON medecins.id = echantillons.id"); ?>
+									<?php echo $requetes['nom_medicament']; 
+									?>
+
+
 										</td>
 										<td class="py-4 px-6">
 											<?php echo $profilmedecin['quantite_echantillon']; ?>
@@ -113,9 +117,6 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 							</table>
 						</div>
 					</center>
-
-
-
 
     <!-- Required Js -->
 <script src="assets/js/vendor-all.min.js"></script>
