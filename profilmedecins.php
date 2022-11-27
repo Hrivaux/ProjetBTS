@@ -93,13 +93,17 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 									</tr>
 								</thead>
 
-								<?php
-$requete2 = $bdd->prepare('SELECT * FROM echantillons WHERE id');
-$requete2->execute();
-$medecins = $requete2->fetch();
-?>
+		<?php						
+$requete = ('SELECT M.id , E.id , E.nom_medicament
+FROM medecins  M
+JOIN echantillons E ON E.id = M.id');
+$reqmedecins = $bdd->prepare($requete);
+$reqmedecins->execute();
+$resultat = $reqmedecins->fetchAll();
 
-								<tbody>
+?>
+	
+							<tbody>
 									<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 										<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 											<?php echo $profilmedecin['ville']; ?>
@@ -108,7 +112,7 @@ $medecins = $requete2->fetch();
 											<?php echo $profilmedecin['code_postal']; ?>
 										</td>
 										<td class="py-4 px-6">
-										<?php echo $medecins['fournisseur']; ?>
+										<?php echo $resultat['E.nom_medicament']; ?>
 										</td>
 										<td class="py-4 px-6">
 											<?php echo $profilmedecin['quantite_echantillon']; ?>
@@ -118,8 +122,7 @@ $medecins = $requete2->fetch();
 							</table>
 						</div>
 					</center>
-
-								
+			
 
     <!-- Required Js -->
 <script src="assets/js/vendor-all.min.js"></script>
