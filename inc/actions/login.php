@@ -21,11 +21,11 @@
 					$_SESSION['user'] = $data['email'];
 					header('Location: ../../accueil.php');
 					
-				}else header('Location: ../index.php?login_err=password');
-			}else header('Location: ../index.php?login_err=email');
-		}else header('Location: ../index.php?login_err=champs');
+				}else header('Location: ../../index.php?login_err=password');
+			}else header('Location: ../../index.php?login_err=email');
+		}else header('Location: ../../index.php?login_err=email');
 		
-	} else header('Location: ../index.php');
+	} else header('Location: ../../index.php?login_err=champs');
 
 ?>
 

@@ -15,8 +15,6 @@ if (!$profilmedecin) {
     exit;
 }
 $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
-
-
 ?>
 
 
