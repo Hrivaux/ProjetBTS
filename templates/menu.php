@@ -44,10 +44,10 @@
                         <label>Saisies & consultations</label>
                     </li>
                     <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                        <a href="<?php echo $url; ?>/form_elements.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
+                        <a href="<?php echo $url; ?>/redact_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
                     </li>
                     <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="<?php echo $url; ?>/tbl_bootstrap.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des comptes rendus</span></a>
+                        <a href="<?php echo $url; ?>/liste_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des comptes rendus</span></a>
                     </li>
                     <li data-username="Liste des médecins" class="nav-item">
                         <a href="<?php echo $url; ?>/tb_medecin.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des médecins</span></a>

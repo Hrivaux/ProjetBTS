@@ -26,6 +26,6 @@ if (!empty($id_medecin) || !empty($id_echantillon) || !empty($date) || !empty($c
 } 
 else
 {
-   Header('location: ../../form_elements.php?action=erreur');
+   Header('location: ../../redact_cr.php?action=erreur');
 }
 ?>
