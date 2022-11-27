@@ -58,9 +58,6 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 										<th scope="col" class="py-3 px-6">
 											Email
 										</th>
-										<th scope="col" class="py-3 px-6">
-											Mot de passe
-										</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -73,9 +70,6 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 										</td>
 										<td class="py-4 px-6">
 											<?php echo $profilmedecin['email']; ?>
-										</td>
-										<td class="py-4 px-6 text-red-500">
-											Accès restreint
 										</td>
 									</tr>
 								</tbody>

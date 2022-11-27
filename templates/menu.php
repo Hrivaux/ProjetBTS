@@ -67,6 +67,7 @@
                     <li data-username="Paramètres du site" class="nav-item"><a href="<?php echo $url; ?>/site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li>
                     <li data-username="Notifications" class="nav-item"><a href="<?php echo $url; ?>/notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notifications</span></a></li>
                     <li data-username="Création de compte" class="nav-item"><a href="<?php echo $url; ?>/inscription.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li>
+                    <li data-username="Historique (logs)" class="nav-item"><a href="<?php echo $url; ?>/logs.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Historique (logs)</span></a></li>
                     <?php } ?>
 
                     <li class="nav-item pcoded-menu-caption">

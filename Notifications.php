@@ -7,6 +7,10 @@ connected_only();
 $pageinfo = "Envoyer une notification";
 
 include('templates/meta.php');
+if ($grade_encours <= 2) 
+{
+    Header('location: accueil.php');
+}
 ?>
 
 <body>
@@ -60,12 +64,12 @@ include('templates/meta.php');
 														</div>
 														<label for="pet-select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le niveau d'urgence :</label>
 														<select id="urgence" name="urgence" class="form-control" required >
-															<option selected>Veuillez choisir une option</option>
-															<option value="1">Ne pas faire </option>
-															<option value="2">Est-ce vraiment à faire ? </option>
-															<option value="3">À faire bientôt </option>
-															<option value="4">À faire immédiatement </option>
-															<option value="5">À faire dans l'extrême urgence</option>
+															<option selected>Grade visé?</option>
+															<?php $reponse = $bdd->query('SELECT * FROM grade');
+                                                                     while ($donnees = $reponse->fetch())
+									                                        { ?>
+				        	                                                <option value="<?php echo $donnees['id_grade']; ?>"><?php echo $donnees['libelle_grade']; ?></option>
+				                                                <?php } ?>
 														</select>
 														<br>
 														<br>
