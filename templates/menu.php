@@ -24,7 +24,7 @@
                         <a href="<?php echo $url; ?>/accueil.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Tableau de bord</span></a>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
-                        <label>Elements</label>
+                        <label>BONUS / SI BESOIN</label>
                     </li>
                     <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Composants</span></a>
@@ -55,12 +55,11 @@
                     <li data-username="Ajouter un médecin" class="nav-item">
                         <a href="<?php echo $url; ?>/add_medecins.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Ajouter un médecin</span></a>
                     </li>
-                    <li class="nav-item pcoded-menu-caption">
+                    <!--<li class="nav-item pcoded-menu-caption">
                         <label>Chart & Maps</label>
                     </li>
-                    <li data-username="Charts Morris" class="nav-item"><a href="<?php echo $url; ?>/chart-morris.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a></li>
-                    <li data-username="Maps Google" class="nav-item"><a href="<?php echo $url; ?>/map-google.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a></li>
-                    <?php if ($user['grade'] >= 3) { ?>
+                     <li data-username="Charts Morris" class="nav-item"><a href="<?php echo $url; ?>/chart-morris.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a></li> -->
+                     <?php if ($user['grade'] >= 3) { ?>
                     <li class="nav-item pcoded-menu-caption">
                         <label>Administration</label>
                     </li>

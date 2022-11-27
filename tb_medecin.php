@@ -79,7 +79,10 @@ include('templates/meta.php');
 													<tbody>
 
 <?php
-$requete = ("SELECT * FROM medecins ORDER BY id DESC");
+$requete = ("SELECT M.id as 'm_id', M.img as 'm_img', M.nom as 'm_nom', M.prenom as 'm_prenom', M.siret as 'm_siret', M.adresse as 'm_adresse', M.ville as 'm_ville', M.code_postal as 'm_code_postal', M.type_medicament as 'm_typemed', M.quantite_echantillon as 'm_qtt', E.id as 'e_id', E.nom_medicament as 'e_nom'
+FROM medecins 			M
+INNER JOIN echantillons E on M.type_medicament = E.id
+ ORDER BY M.id DESC");
 
 $reqmedecins = $bdd->prepare($requete);
 $reqmedecins->execute();
@@ -93,31 +96,31 @@ if (!empty($resultat))
 
 <tr>
 	<td>
-		<a href="profilmedecins.php?id=<?php echo $medecins['id'];?>"><?php echo $medecins['id']; ?></a>
+		<a href="profilmedecins.php?id=<?php echo $medecins['m_id'];?>"><?php echo $medecins['m_id']; ?></a>
 	</td>
 	<td>
 		<h6 class="m-0">
-			<img class="rounded-circle  m-r-10" style="width:40px;" src="assets/images/user/avatar-3.jpg" alt="activity-user">
-			<?php echo $medecins['nom']." ".$medecins['prenom']; ?>
+			<img class="rounded-circle  m-r-10" style="width:40px;" src="img/<?php echo $medecins['m_img'];?>" alt="Photo de profil">
+			<?php echo $medecins['m_nom']." ".$medecins['m_prenom']; ?>
 		</h6>
 		<td>
 			<h6 class="m-0">
-				<?php echo $medecins['siret']; ?>
+				<?php echo $medecins['m_siret']; ?>
 			</h6>
 		</td>
 		<td>
 			<h6 class="m-0 text-c-purple">
-				<?php echo $medecins['adresse']." ".$medecins['ville']." - ".$medecins['code_postal'];?>
+				<?php echo $medecins['m_adresse']." ".$medecins['m_ville']." - ".$medecins['m_code_postal'];?>
 			</h6>
 		</td>
 		<td>
 			<h6 class="m-0">
-				<?php echo $medecins['type_medicament']; ?>
+				<?php echo $medecins['e_nom']; ?>
 			</h6>
 		</td>
 		<td>
 			<h6 class="m-0">
-				<?php echo $medecins['quantite_echantillon']; ?>
+				<?php echo $medecins['m_qtt']; ?>
 			</h6>
 		</td>
 	</tr>
