@@ -5,7 +5,6 @@ require ('global.php');
 
 connected_only();
 
-
 $requete = $bdd->prepare('SELECT * FROM medecins WHERE id = :id');
 $requete->bindValue('id', $_GET['id']);
 $requete->execute();
@@ -58,6 +57,7 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 										</th>
 									</tr>
 								</thead>
+								
 								<tbody>
 									<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 										<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -92,6 +92,13 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 										</th>
 									</tr>
 								</thead>
+
+								<?php
+$requete2 = $bdd->prepare('SELECT * FROM echantillons WHERE id');
+$requete2->execute();
+$medecins = $requete2->fetch();
+?>
+
 								<tbody>
 									<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 										<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -101,11 +108,7 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 											<?php echo $profilmedecin['code_postal']; ?>
 										</td>
 										<td class="py-4 px-6">
-							<?php $requetes = $bdd->("SELECT * FROM medecins LEFT JOIN echantillons ON medecins.id = echantillons.id"); ?>
-									<?php echo $requetes['nom_medicament']; 
-									?>
-
-
+										<?php echo $medecins['fournisseur']; ?>
 										</td>
 										<td class="py-4 px-6">
 											<?php echo $profilmedecin['quantite_echantillon']; ?>
@@ -115,6 +118,8 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 							</table>
 						</div>
 					</center>
+
+								
 
     <!-- Required Js -->
 <script src="assets/js/vendor-all.min.js"></script>
