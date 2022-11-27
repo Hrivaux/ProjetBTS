@@ -43,9 +43,9 @@
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Notifications</h6>
-                                <div class="float-right">
+                                <!--<div class="float-right">
                                     <a href="javascript:">Effacer tout</a>
-                                </div>
+                                </div> -->
                             </div>
                             <ul class="noti-body">
                                 <li class="n-title">
@@ -56,14 +56,16 @@
                                                         N.id        as 'id_notif',
                                                         N.user_id   as 'user_id',
                                                         N.message   as 'message',
-                                                        N.urgence   as 'urgence',
+                                                        N.grade     as 'grade',
                                                         N.send_date as 'date',
                                                         U.id        as 'id_user',
                                                         U.nom       as 'nom_user',
+                                                        U.grade     as 'grade_user',
                                                         U.prenom    as 'prenom_user',
                                                         U.sexe      as 'sexe'
                                                 FROM notifications     N 
                                                 LEFT JOIN utilisateurs U ON U.id = N.user_id
+                                                WHERE N.grade <= U.grade
                                                 ORDER BY N.id desc");
 
                                         $reqnotif = $bdd->prepare($requete);
@@ -86,9 +88,6 @@
                                              else {
                                                     echo "Aucune notification."; } ?>
                             </ul>
-                            <div class="noti-footer">
-                                <a href="javascript:">show all</a>
-                            </div>
                         </div>
                     </div>
                 </li>

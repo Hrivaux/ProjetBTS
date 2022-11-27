@@ -31,6 +31,9 @@ if (isset($nom) && isset($prenom) && isset($siret) && isset($email) && isset($ad
 
     $reponse->execute(array($personne_rattachee, $nomfichier, $siret, $nom, $prenom, $email, $ville, $codepostal, $echantillon, $quantiteechantillon));
 
+    //Logs
+    $req_logs = ("INSERT INTO logs(user_id,type_log,action, date) VALUES ($id_encours, 'Insertion', 'A créé le profil du médecin ($email)', '$today')");
+    $bdd->exec($req_logs);
     header ('Location: ../../accueil.php?actionno=successmed');
 } 
 else 

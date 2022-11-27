@@ -110,7 +110,7 @@ include('templates/meta.php');
                                                                 <p class="m-0"><?php echo $users['email'];?></p>
                                                             </td>
                                                             <td>
-                                                                <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i><?php echo $users['date_embauche'];?></h6>
+                                                                <h6 class="text-muted"><?php echo strftime('%d-%m-%Y',strtotime($users['date_embauche']));?></h6>
                                                             </td>
                                                             <td>
 
