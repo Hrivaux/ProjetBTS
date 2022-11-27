@@ -10,6 +10,8 @@ if (!$_GET['id']) {
 }
 
 if ($requete->execute()) {
+    $req_logs = ("INSERT INTO logs(user_id,type_log,action, date) VALUES ($id_encours, 'Suppression', 'A supprimé un compte', '$today')");
+    $bdd->exec($req_logs);
     Header('Location: ../../accueil.php?delete=successd');
 }
 
