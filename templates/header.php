@@ -15,7 +15,7 @@
             <ul class="navbar-nav mr-auto">
                 <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a></li>
                 <li class="nav-item dropdown">
-                    <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown"><?php echo $prenomnom; ?></a>
+                    <b><?php echo $prenomnom; ?></b>
                   <!--  <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="javascript:">Action</a></li>
                         <li><a class="dropdown-item" href="javascript:">Autre action</a></li>
@@ -25,7 +25,7 @@
                 <li class="nav-item">
                     <div class="main-search">
                         <div class="input-group">
-                            <input type="text" id="m-search" class="form-control" placeholder="Rechercher . . .">
+                            <input type="text" id="m-search" class="form-control" style="width: 100px;" placeholder="Rechercher...">
                             <a href="javascript:" class="input-group-append search-close">
                                 <i class="feather icon-x input-group-text"></i>
                             </a>
@@ -105,7 +105,7 @@
                                 </a>
                             </div>
                             <ul class="pro-body">
-                                <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Mon profil</a></li>
+                                <li><a href="tb_medecin.php" class="dropdown-item"><i class="feather icon-user"></i> Les médecins</a></li>
                                 <li><a href="javascript:" class="dropdown-item"><i class="feather icon-settings"></i> Paramètres</a></li>
                             </ul>
                         </div>
