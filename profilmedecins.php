@@ -102,7 +102,6 @@ $reqmedecins->execute();
 $resultat = $reqmedecins->fetchAll();
 
 ?>
-	
 							<tbody>
 									<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 										<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -112,8 +111,8 @@ $resultat = $reqmedecins->fetchAll();
 											<?php echo $profilmedecin['code_postal']; ?>
 										</td>
 										<td class="py-4 px-6">
-										<?php echo $resultat['E.nom_medicament']; ?>
-										</td>
+										<?php echo $['']; ?>
+										</td>x
 										<td class="py-4 px-6">
 											<?php echo $profilmedecin['quantite_echantillon']; ?>
 										</td>
