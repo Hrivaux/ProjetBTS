@@ -3,13 +3,6 @@
 require ('global.php');
 
 connected_only();
-
-if ($grade_encours <= 2) 
-{
-    Header('location: accueil.php');
-}
-else {
-    
 $pageinfo = "Saisie de compte rendu";
 
 include('templates/meta.php');
@@ -167,11 +160,6 @@ include('templates/meta.php');
     });
 </script>
 <?php break; } } ?>	
-
-<?php 
-}
-?>
-
 
 <div class="modal fade" id="successcr" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">

@@ -92,17 +92,15 @@ $prenomnomprofil = $profilmedecin['prenom'] ." " . $profilmedecin['nom'];
 										</th>
 									</tr>
 								</thead>
+									<?php						
+							$requete_med = ("SELECT M.type_medicament as 'type_medoc', E.id as 'echantillon_id', E.nom_medicament as 'nom_medoc'
+							FROM medecins M
+							LEFT JOIN echantillons E ON M.type_medicament = E.id");
 
-		<?php						
-$requete = ('SELECT M.id , E.id , E.nom_medicament
-FROM medecins  M
-JOIN echantillons E ON E.id = M.id');
-$reqmedecins = $bdd->prepare($requete);
-$reqmedecins->execute();
-$resultat = $reqmedecins->fetchAll();
-
-?>
-	
+							$medicament = $bdd->prepare($requete_med);
+							$medicament->execute();
+							$resultatmedoc = $medicament->fetch();
+							?>
 							<tbody>
 									<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 										<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -112,7 +110,7 @@ $resultat = $reqmedecins->fetchAll();
 											<?php echo $profilmedecin['code_postal']; ?>
 										</td>
 										<td class="py-4 px-6">
-										<?php echo $resultat['E.nom_medicament']; ?>
+										<?php echo $info_medoc['nom_medoc']; ?>
 										</td>
 										<td class="py-4 px-6">
 											<?php echo $profilmedecin['quantite_echantillon']; ?>
