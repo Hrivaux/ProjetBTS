@@ -4,7 +4,7 @@ require ('global.php');
 
 connected_only();
 
-if ($grade_encours <= 2) 
+if ($grade_encours == 3) 
 {
     Header('location: accueil.php');
 }
@@ -79,12 +79,12 @@ include('templates/meta.php');
                                                         </div>
 
                                                         <div class="form-group">
-                                                        <h5 class="mt-5">Date</h5>
+                                                        <h5 class="mt-5">Date de la visite</h5>
                                                         <hr>    
                                                             <input name="date" type="date" class="form-control text-center" placeholder="Date">
                                                         </div>
                                                         <div class="form-group">
-                                                            <h5 class="mt-5">Echantillon tester</h5>
+                                                            <h5 class="mt-5">Echantillon testé</h5>
                                                             <hr>
                                                               <select name="id_echantillon"  id="id_echantillon" class="form-control text-center" required>
 		                                                    	<?php $reponse = $bdd->query('SELECT id, nom_medicament, fournisseur FROM echantillons');
@@ -96,6 +96,24 @@ include('templates/meta.php');
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>
+
+
+                                                        
+                                                        <div class="form-group">
+                                                            <h5 class="mt-5">Motif de la visiste</h5>
+                                                            <hr>
+														<select id="motif_visite" name="motif_visite" class="form-control text-center" required >
+															<option selected>Motif de la visite</option>
+															<?php $reponse = $bdd->query('SELECT * FROM motif_visite');
+                                                                     while ($donnees = $reponse->fetch())
+									                                        { ?>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['libelle_motif']; ?></option>
+				                                            <?php } ?>
+														</select>
+                                                        </div>
+
+
+
                                                         <div class="">
                                                 <div class="text-center">
                                                     <h5 class="mt-5">Avis</h5>
@@ -113,11 +131,11 @@ include('templates/meta.php');
                                                     <hr>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="1" name="etat" class="custom-control-input" value="1">
-                                                        <label class="custom-control-label" for="1">Terminer </label>
+                                                        <label class="custom-control-label" for="1">Terminé</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="0" name="etat" class="custom-control-input" value="0">
-                                                        <label class="custom-control-label" for="0">A terminer</label>
+                                                        <label class="custom-control-label" for="0">A terminé</label>
                                                     </div>
                                                     
                                                     
@@ -130,7 +148,7 @@ include('templates/meta.php');
                                                     <div>                 
                                                         <h5 class="mt-5">Commentaire </h5>                                      
                                                        <hr> 
-                                                            <input type="text" name="compterendu" class="form-control height: 300px;"  size="50" id="compterendu" rows="5"></input>
+                                                            <textarea type="text" name="compterendu" cols="40" rows="10" class="form-control height: 300px;"  size="50" id="compterendu" rows="5"></textarea>
                                                             <br><br>
                                                       <input type="submit" value="Envoyer"class="btn btn-primary"/>  
                                                     </div>
