@@ -11,6 +11,7 @@ $date = $_POST["date"];
 $compterendu = $_POST["compterendu"];
 $avis = $_POST['avis'];
 $etat = $_POST['etat'];
+$nouvelle_visite = $_POST['nouvelle_visite'];
 
 $req = "UPDATE comptesrendus SET ";
 
@@ -44,18 +45,24 @@ if (!empty($etat))
     $req = $req . "etat='$etat',";
 }
 
+if (!empty($nouvelle_visite))
+{
+    $req = $req . "nouvelle_visite='$nouvelle_visite',";
+}
+
 $req = substr($req, 0, -1) . " WHERE id = $idCR";
 
 if ($bdd->exec($req))
 {    //Logs
-    $req_logs = ("INSERT INTO logs(user_id,type_log,action, date) VALUES ($id_encours, 'Insertion', 'A modifié le compte rendu ($idCR)', '$today')");
+    $req_logs = ("INSERT INTO logs(user_id,type_log,action, date) VALUES ($id_encours, 'Modification', 'A modifié le compte rendu ($idCR)', '$today')");
     $bdd->exec($req_logs);
-    echo "Update réussie";
+    Header('location: ../../liste_cr.php?actioncrmodif=successcrmodif');
 }
 else
 {
-    echo "Update raté";
+   Header('location: ../../liste_cr.php?action=erreur');
 }
+?>
 
 
 

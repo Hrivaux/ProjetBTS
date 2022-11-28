@@ -63,13 +63,13 @@ if ($grade_encours <= 2)
 															<input type="text" class="form-control" name="objet" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required  >
 														</div>
 														<label for="pet-select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le niveau d'urgence :</label>
-														<select id="urgence" name="urgence" class="form-control" required >
+														<select id="urgence" name="urgence" class="form-control"  placeholder="Grade visé ?" required >
 															<option selected>Grade visé?</option>
 															<?php $reponse = $bdd->query('SELECT * FROM grade');
                                                                      while ($donnees = $reponse->fetch())
 									                                        { ?>
 				        	                                                <option value="<?php echo $donnees['id_grade']; ?>"><?php echo $donnees['libelle_grade']; ?></option>
-				                                                <?php } ?>
+				                                            <?php } ?>
 														</select>
 														<br>
 														<br>

@@ -64,7 +64,7 @@ include('templates/meta.php');
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Photo de profil</label>
-															<input type="text" id="get_image" name="get_image" class="form-control" accept="image/png, image/jpeg; image/jpg; image/gif" placeholder="Photo de profil du médecin">
+															<input type="text" id="get_image" name="get_image" class="form-control" accept="image/png, image/jpeg; image/jpg; image/gif" placeholder="URL de la photo de profil du médecin">
 														</div>
 														<div class="form-group">
 															<label for="exampleInputEmail1">Siret</label>

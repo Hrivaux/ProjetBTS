@@ -3,13 +3,6 @@
 require ('global.php');
 
 connected_only();
-
-if ($grade_encours <= 2) 
-{
-    Header('location: accueil.php');
-}
-else {
-    
 $pageinfo = "Saisie de compte rendu";
 
 include('templates/meta.php');
@@ -39,9 +32,10 @@ include('templates/meta.php');
                                         <h5 class="m-b-10">Compte rendue</h5>
                                     </div>
                                     <ul class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Form Componants</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Form Elements</a></li>
+                                        <li class="breadcrumb-item"><a href="accueil.php"><i class="feather icon-home"></i></a></li>
+                                        <li class="breadcrumb-item"><a>SAISIES & CONSULTATIONS</a></li>
+                                        <li class="breadcrumb-item"><a href="liste_cr.php">Rédiger un compte rendu</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -76,9 +70,7 @@ include('templates/meta.php');
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>
-                                                        
-                                                        <div class="">
-                                                
+
                                                         <div class="form-group">
                                                         <h5 class="mt-5">Date</h5>
                                                         <hr>    
@@ -102,11 +94,11 @@ include('templates/meta.php');
                                                     <h5 class="mt-5">Avis</h5>
                                                     <hr>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="0">
+                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="1">
                                                         <label class="custom-control-label" for="bien_passer">Bien passé </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="1">
+                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="0">
                                                         <label class="custom-control-label" for="mal_passer">Mal passé</label>
                                                     </div>
                                                     <div class="text-center">
@@ -122,16 +114,21 @@ include('templates/meta.php');
                                                     </div>
                                                     
                                                     
-                                                    </div>
-                                                    </div>
+                                                    <div class="form-group">
+                                                        <h5 class="mt-5">Nouvelle visite</h5>
+                                                        <h7> Si besoin</h7>
+                                                        <hr>    
+                                                            <input name="nouvelle_visite" type="date" class="form-control text-center" placeholder="Date">
+                                                    </div> 
+                                                    <div>                 
                                                         <h5 class="mt-5">Commentaire </h5>                                      
                                                        <hr> 
                                                             <input type="text" name="compterendu" class="form-control height: 300px;"  size="50" id="compterendu" rows="5"></input>
                                                             <br><br>
                                                       <input type="submit" value="Envoyer"class="btn btn-primary"/>  
                                                     </div>
-                                                </form>
-                                                </div>
+                                         </form>
+                                    </div>
                                             
                       
    
@@ -163,11 +160,6 @@ include('templates/meta.php');
     });
 </script>
 <?php break; } } ?>	
-
-<?php 
-}
-?>
-
 
 <div class="modal fade" id="successcr" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
