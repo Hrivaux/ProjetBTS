@@ -32,7 +32,7 @@ include('templates/meta.php');
 									</div>
 									<ul class="breadcrumb">
 										<li class="breadcrumb-item">
-											<a href="accueil.php"><i class="feather icon-home"></i></a></li>
+										<a href="accueil.php"><i class="feather icon-home"></i></a></li>
 										<li class="breadcrumb-item"><a>SAISIES & CONSULTATIONS</a></li>
                                         <li class="breadcrumb-item"><a href="liste_cr.php">Liste des médecins</a></li>
 									</ul>
@@ -43,7 +43,7 @@ include('templates/meta.php');
 					<div class="main-body">
 						<div class="page-wrapper">
 							<div class="row">
-								<div class="col-xl-12">
+								<div class="col-xl-13">
 									<div class="card">
 										<div class="card-header">
 											<h5>
@@ -57,6 +57,9 @@ include('templates/meta.php');
 														<tr>
 															<th>
 																#
+															</th>
+															<th>
+																Photo
 															</th>
 															<th>
 																Nom
@@ -97,29 +100,40 @@ if (!empty($resultat))
 	<td>
 		<a href="profilmedecins.php?id=<?php echo $medecins['m_id'];?>"><?php echo $medecins['m_id']; ?></a>
 	</td>
+
 	<td>
 		<h6 class="m-0">
-			<img class="rounded-circle w-1" style="width:40px;" src="img/<?php echo $medecins['m_img'];?>" alt="Photo de profil">
-			<?php echo $medecins['m_nom']." ".$medecins['m_prenom']; ?>
+		<img class="rounded-circle  m-r-10" style=" height:40px; width:40px;" src="img/<?php echo $medecins['m_img'];?>" alt="Photo de profil">
 		</h6>
-		<td>
+	</td>
+
+	<td>
+		<h6 class="m-0">
+		<?php echo $medecins['m_nom']." ".$medecins['m_prenom']; ?>
+		</h6>		
+	</td>
+
+	<td>
 			<h6 class="m-0">
-				<?php echo $medecins['m_siret']; ?>
+			<?php echo $medecins['m_siret']; ?>
 			</h6>
 		</td>
+
 		<td>
 			<h6 class="m-0 text-c-purple">
-				<?php echo $medecins['m_adresse']." ".$medecins['m_ville']." - ".$medecins['m_code_postal'];?>
+			<?php echo $medecins['m_adresse']." ".$medecins['m_ville']." - ".$medecins['m_code_postal'];?>
 			</h6>
 		</td>
+
 		<td>
 			<h6 class="m-0">
-				<?php echo $medecins['e_nom']; ?>
+			<?php echo $medecins['e_nom']; ?>
 			</h6>
 		</td>
+		
 		<td>
 			<h6 class="m-0">
-				<?php echo $medecins['m_qtt']; ?>
+			<?php echo $medecins['m_qtt']; ?>
 			</h6>
 		</td>
 	</tr>
