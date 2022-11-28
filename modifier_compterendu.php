@@ -44,10 +44,44 @@ include('templates/meta.php');
                                     <div class="page-header-title">
                                         <h5 class="m-b-10">Compte rendue</h5>
                                     </div>
+
+                                    <?php 
+                                                	$requete = ("SELECT CR.id               as 'id_compterendu',
+                                                                        CR.id_visiteur      as 'id_visiteur',
+                                                                        CR.id_medecin       as 'id_medecin',
+                                                                        CR.date             as 'date',
+                                                                        CR.id_echantillon   as 'id_echantillon',
+                                                                        CR.avis             as 'avis',
+                                                                        M.id                as 'Mid_medecin',
+                                                                        M.nom               as 'nom_medecin',
+                                                                        M.prenom            as 'prenom_medecin'
+                                                    FROM comptesrendus  CR
+                                                    LEFT JOIN medecins  M ON M.id = id_medecin
+                                                    WHERE CR.id = $idCR
+                                                    ORDER BY id_compterendu DESC");
+
+                                                    $reqcr = $bdd->prepare($requete);
+                                                    $reqcr->execute();
+                                                        
+                                                    $resultat = $reqcr->fetchAll();
+                                                        if (!empty($resultat)) 
+                                                        {
+                                                            foreach($resultat as $cr)  { 
+                                                    ?>
+
                                     <ul class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Form Componants</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Form Elements</a></li>
+                                    <li class="breadcrumb-item"><a href="accueil.php"><i class="feather icon-home"></i></a></li>
+                                        <li class="breadcrumb-item"><a>SAISIES & CONSULTATIONS</a></li>
+                                        <li class="breadcrumb-item"><a href="liste_cr.php">Listes des comptes rendus</a></li>
+                                        <li class="breadcrumb-item"><a>Modifier le compte rendue du médecin <?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?> datant du  <?php echo $compterendu['date']; ?></a></li>
+                                        <?php
+                                                                        } 
+                                                 } 
+                                                else
+                                                {
+                                                    echo "Aucn compte-rendu ne vous a été rattaché";
+                                                }
+                                               ?>
                                     </ul>
                                 </div>
                             </div>
@@ -92,9 +126,11 @@ include('templates/meta.php');
                                                         {
                                                             foreach($resultat as $cr)  { 
                                                     ?>
-                                                            <?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a>
+                                                            <?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; 
                                                             
-                                                            <?php
+                                                            }?></a>
+                                                            
+                                                            <?php /*
                                                                         } ?>
                                                             <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
@@ -109,12 +145,12 @@ include('templates/meta.php');
 					                                                        </option>
                                                                             <?php } ?>  
                                                                             </select>
-                                                  <?php                      } 
+                                                  <?php    */                  } 
                                                                     else
                                                                      {
                                                                       echo "Aucn compte-rendu ne vous a été rattaché";
                                                                      }
-                                               ?>             
+                                                            ?>             
                                                         </div>
                                                         <div class="form-group">
 
