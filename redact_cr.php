@@ -4,7 +4,7 @@ require ('global.php');
 
 connected_only();
 
-if ($grade_encours <= 2) 
+if ($grade_encours == 3) 
 {
     Header('location: accueil.php');
 }
@@ -155,7 +155,7 @@ include('templates/meta.php');
                                          </form>
                                     </div>
                                             
-                      
+      <?php } ?>                 
    
 <script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
