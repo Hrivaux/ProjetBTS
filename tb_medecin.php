@@ -99,7 +99,7 @@ if (!empty($resultat))
 	</td>
 	<td>
 		<h6 class="m-0">
-			<img class="rounded-circle  m-r-10" style="width:40px;" src="img/<?php echo $medecins['m_img'];?>" alt="Photo de profil">
+			<img class="rounded-circle w-1" style="width:40px;" src="img/<?php echo $medecins['m_img'];?>" alt="Photo de profil">
 			<?php echo $medecins['m_nom']." ".$medecins['m_prenom']; ?>
 		</h6>
 		<td>
