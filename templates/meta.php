@@ -15,4 +15,5 @@
     <link rel="stylesheet" href="<?php echo $url; ?>/assets/plugins/animation/css/animate.min.css">
     <link rel="stylesheet" href="<?php echo $url; ?>/assets/css/style.css">
 
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>

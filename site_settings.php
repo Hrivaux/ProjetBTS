@@ -4,7 +4,7 @@ require ('global.php');
 
 connected_only();
 
-if ($grade_encours != 3) {
+if ($grade_encours < 3) {
 	Header('location: accueil.php');
 }
 

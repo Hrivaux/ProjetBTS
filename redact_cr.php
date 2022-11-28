@@ -4,7 +4,7 @@ require ('global.php');
 
 connected_only();
 
-if ($grade_encours == 3) 
+if ($grade_encours <= 2) 
 {
     Header('location: accueil.php');
 }
@@ -185,11 +185,6 @@ include('templates/meta.php');
     });
 </script>
 <?php break; } } ?>	
-
-<?php 
-}
-?>
-
 
 <div class="modal fade" id="successcr" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
