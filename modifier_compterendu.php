@@ -44,7 +44,6 @@ include('templates/meta.php');
                                     <div class="page-header-title">
                                         <h5 class="m-b-10">Compte rendue</h5>
                                     </div>
-
                                     <?php 
                                                 	$requete = ("SELECT CR.id               as 'id_compterendu',
                                                                         CR.id_visiteur      as 'id_visiteur',
@@ -260,12 +259,10 @@ include('templates/meta.php');
                                                     <div>
                                                         <h5 class="mt-5">Commentaire</h5>                                      
                                                        <hr> 
-                                                        
-                                                            <?php echo $compterendu['compterendu']; ?>
                                                             <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>  
-                                                            <input type="text" name="compterendu" class="form-control height: 300px;"  size="50" id="compterendu" rows="5"></input>
+                                                            <input type="text" name="compterendu" class="form-control height: auto;"  value="<?php echo $compterendu['compterendu']; ?>" size="50" id="compterendu" rows="5"></input>
                                                             <br><br>
                                                       <input type="submit" value="Envoyer"class="btn btn-primary"/> 
                                                     </div>
