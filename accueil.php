@@ -127,7 +127,7 @@ include('templates/meta.php');
                                         <div class="card-block">
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="col">
-                                                    <h5 class="m-0">Rendez-Vous quotidien</h5>
+                                                    <h5 class="m-0">Prochain rendez-vous????</h5>
                                                 </div>
                                                 <div class="col-auto">
                                                     <label class="label theme-bg2 text-white f-14 f-w-400 float-right">65%</label>
