@@ -1,3 +1,8 @@
+<?php
+include ("global.php");
+
+already_connected();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>

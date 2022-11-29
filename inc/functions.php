@@ -19,7 +19,7 @@ function connected_only()
 function already_connected()
 {
 	if(isset($_SESSION['user'])) {
-		Header("Location: index.php");
+		Header("Location: accueil.php");
 		exit();
 								}
 }

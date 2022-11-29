@@ -20,13 +20,13 @@
                     <li class="nav-item pcoded-menu-caption">
                         <label>Navigation</label>
                     </li>
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
+                    <li data-username="Accueil" class="nav-item active">
                         <a href="<?php echo $url; ?>/accueil.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Tableau de bord</span></a>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
                         <label>RDV DE SES MORTS</label>
                     </li>
-                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds">
+                    <li data-username="Saisie & consultations">
                         <a href="prendstonrdv.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Prise de rendez-vous</span></a>
                     <li class="nav-item pcoded-menu-caption">
                         <label>Saisies & consultations</label>
