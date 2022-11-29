@@ -10,15 +10,16 @@ $compterendu = $_POST["compterendu"];
 $avis = $_POST['avis'];
 $etat = $_POST['etat'];
 $nouvelle_visite = $_POST["nouvelle_visite"];
+$id_motif = $_POST["id_motif"];
 
 
 
 
-if (!empty($id_medecin) || !empty($id_echantillon) || !empty($date) || !empty($compterendu) || !empty($avis) || !empty($etat) || !empty($nouvelle_visite)) {
+if (!empty($id_medecin) || !empty($id_echantillon) || !empty($date) || !empty($compterendu) || !empty($avis) || !empty($etat) || !empty($nouvelle_visite) || !empty($id_motif)) {
 
-   $reponse = $bdd->prepare("INSERT INTO comptesrendus(id_visiteur, id_medecin, date, id_echantillon, compterendu, avis, etat, nouvelle_visite) VALUES (?,?,?,?,?,?,?,?)");
+   $reponse = $bdd->prepare("INSERT INTO comptesrendus(id_visiteur, id_medecin, date, id_echantillon, compterendu, avis, etat, nouvelle_visite, id_motif) VALUES (?,?,?,?,?,?,?,?,?)");
 
-   $reponse->execute(array($id_encours, $id_medecin, $date, $id_echantillon, $compterendu, $avis, $etat, $nouvelle_visite));
+   $reponse->execute(array($id_encours, $id_medecin, $date, $id_echantillon, $compterendu, $avis, $etat, $nouvelle_visite, $id_motif));
    Header('location: ../../liste_cr.php?actioncr=successcr');
 
    //Logs

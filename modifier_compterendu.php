@@ -167,13 +167,13 @@ include('templates/meta.php');
                                                                 <h5 class="mt-5">Echantillon tester</h5>
                                                                 <hr>
                                                                 <?php 
-                                                	$requete_echantillon = ("SELECT CR.id   as 'id_compterendu',
+                                                	$requete_echantillon = ("SELECT CR.id               as 'id_compterendu',
                                                                                     CR.id_echantillon   as 'id_echantillon',
                                                                                     M.id                as 'echantillon',
-                                                                        M.nom_medicament    as 'nom_medicament'
-                                                    FROM comptesrendus      CR
-                                                    LEFT JOIN echantillons  M ON M.id = CR.id_echantillon
-                                                    WHERE CR.id = $idCR ");
+                                                                                    M.nom_medicament    as 'nom_medicament'
+                                                                            FROM comptesrendus      CR
+                                                                            LEFT JOIN echantillons  M ON M.id = CR.id_echantillon
+                                                                            WHERE CR.id = $idCR ");
 
                                                     $reqechantillon = $bdd->prepare($requete_echantillon);
                                                     $reqechantillon->execute();
@@ -203,7 +203,78 @@ include('templates/meta.php');
                                                                      }
                                                ?>          
 
+
+
+
+
+
+
+
+
+                                                                  
+                                                        
+
+
+                                                        <div class="form-group">
+                                                            <h5 class="mt-5">Motif de la visiste</h5>
+                                                            <hr>
+                                                            <?php 
+                                                	$requete_motif = ("SELECT   CR.id               as 'id_compterendu',
+                                                                                CR.id_motif         as 'id_motif',
+                                                                                H.id                as 'id',
+                                                                                H.libelle_motif    as 'libelle_motif'
+                                                                      FROM comptesrendus      CR
+                                                                      LEFT JOIN motif_visite H ON H.id = CR.id_motif
+                                                                      WHERE CR.id = $idCR ");
+
+                                                    $reqmotif = $bdd->prepare($requete_motif);
+                                                    $reqmotif->execute();
+                                                        
+                                                    $motif = $reqmotif->fetchAll();
+                                                        if (!empty($motif)) 
+                                                        {
+                                                            foreach($motif as $h)  { 
+                                                    ?>
+                                                            <?php echo $h['libelle_motif']?></a>
+                                                            <br><br>
+                                                                <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
+														<select id="motif_visite" name="motif_visite" class="form-control text-center" required >
+															<option selected>Motif de la visite</option>
+															<?php $reponse = $bdd->query('SELECT * FROM motif_visite');
+                                                                     while ($donnees = $reponse->fetch())
+									                                        { ?>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['libelle_motif']; ?></option>
+				                                                      <?php } ?>
+														</select>
+
+
+                                                        <?php }}                     
+                                                                    else
+                                                                     {
+                                                                      echo "Aucn compte-rendu ne vous a été rattaché";
+                                                                     }
+                                               ?>
+                                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                
                                                                 <div class="text-center">
 
                                                                     <h5 class="mt-5">Avis</h5>
@@ -217,14 +288,15 @@ include('templates/meta.php');
                                                                     <br><br>
                                                                     <h6><mark> Votre changement si besoin</mark></h6>
                                                                     <br>
-                                                                    <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="avis" value="1" name="avis" class="custom-control-input">
-                                                                        <label class="custom-control-label" for="avis">Bien passé </label>
-                                                                    </div>
-                                                                    <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="avis1" class="custom-control-input">
-                                                                        <label class="custom-control-label" value="0" for="avis1">Mal passé</label>
-                                                                    </div>
+                                                                <div class="text-center">
+                                                                        <div class="custom-control custom-radio">
+                                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="1">
+                                                                        <label class="custom-control-label" for="bien_passer">Bien passé </label>
+                                                                        </div>
+                                                                        <div class="custom-control custom-radio">
+                                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="0">
+                                                                        <label class="custom-control-label" for="mal_passer">Mal passé</label>
+                                                                        </div>
                                                                 </div>
 
                                                                 <div class="form-group">
@@ -237,12 +309,12 @@ include('templates/meta.php');
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>
                                                             <div class="custom-control custom-radio">
-                                                        <input type="radio" id="etat" name="etat" value="1" class="custom-control-input">
-                                                        <label class="custom-control-label" for="etat">Terminé </label>
+                                                        <input type="radio" id="1" name="etat" class="custom-control-input" value="1">
+                                                        <label class="custom-control-label" for="1">Terminé</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="etat1" name="etat1" value="0" class="custom-control-input">
-                                                        <label class="custom-control-label" for="etat1">A terminé</label>
+                                                        <input type="radio" id="0" name="etat" class="custom-control-input" value="0">
+                                                        <label class="custom-control-label" for="0">A terminé</label>
                                                     </div>
 
                                                         <div class="form-group">
@@ -250,10 +322,10 @@ include('templates/meta.php');
                                                         <hr>    
                                                         <?php if ($compterendu['nouvelle_visite'] == NULL) { echo "Pas de nouvelle visite"; } else {echo $compterendu['nouvelle_visite'];}; ?>
                                                         </div>
-                                                            <br><br>
+                                                            
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br> 
-                                                        <hr>    
+                                                          
                                                             <input name="nouvelle_visite" type="date" class="form-control text-center" placeholder="Date">
                                                     </div> 
                                                     <div>

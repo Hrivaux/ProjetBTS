@@ -12,6 +12,7 @@ $compterendu = $_POST["compterendu"];
 $avis = $_POST['avis'];
 $etat = $_POST['etat'];
 $nouvelle_visite = $_POST['nouvelle_visite'];
+$id_motif = $_POST["id_motif"];
 
 $req = "UPDATE comptesrendus SET ";
 
@@ -48,6 +49,11 @@ if (!empty($etat))
 if (!empty($nouvelle_visite))
 {
     $req = $req . "nouvelle_visite='$nouvelle_visite',";
+}
+
+if (!empty($id_motif))
+{
+    $req = $req . "id_motif='$id_motif',";
 }
 
 $req = substr($req, 0, -1) . " WHERE id = $idCR";

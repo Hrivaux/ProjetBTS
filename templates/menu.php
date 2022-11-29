@@ -28,20 +28,20 @@
                     </li>
                     <li data-username="Saisie & consultations">
                         <a href="prendstonrdv.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Prise de rendez-vous</span></a>
-                    <li class="nav-item pcoded-menu-caption">
+                   <li class="nav-item pcoded-menu-caption">
                         <label>Saisies & consultations</label>
                     </li>
                     <li data-username="rediger CR" class="nav-item">
-                        <a href="<?php echo $url; ?>/redact_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
+                        <a href="<?php echo $url; ?>/redact_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-edit"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
                     </li>
                     <li data-username="Liste des comptes-rendus" class="nav-item">
-                        <a href="<?php echo $url; ?>/liste_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des comptes rendus</span></a>
+                        <a href="<?php echo $url; ?>/liste_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Liste des comptes rendus</span></a>
                     </li>
                     <li data-username="Liste des médecins" class="nav-item">
-                        <a href="<?php echo $url; ?>/tb_medecin.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Liste des médecins</span></a>
+                        <a href="<?php echo $url; ?>/tb_medecin.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-list"></i></span><span class="pcoded-mtext">Liste des médecins</span></a>
                     </li>
                     <li data-username="Ajouter un médecin" class="nav-item">
-                        <a href="<?php echo $url; ?>/add_medecins.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Ajouter un médecin</span></a>
+                        <a href="<?php echo $url; ?>/add_medecins.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Ajouter un médecin</span></a>
                     </li>
                     <!--<li class="nav-item pcoded-menu-caption">
                         <label>Chart & Maps</label>
@@ -52,7 +52,7 @@
                         <label>Administration</label>
                     </li>
                     <li data-username="Paramètres du site" class="nav-item"><a href="<?php echo $url; ?>/site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li>
-                    <li data-username="Notifications" class="nav-item"><a href="<?php echo $url; ?>/notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notifications</span></a></li>
+                    <li data-username="Notifications" class="nav-item"><a href="<?php echo $url; ?>/notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-bell"></i></span><span class="pcoded-mtext">Notifications</span></a></li>
                     <li data-username="Création de compte" class="nav-item"><a href="<?php echo $url; ?>/inscription.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li>
                     <li data-username="Historique (logs)" class="nav-item"><a href="<?php echo $url; ?>/logs.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Historique (logs)</span></a></li>
                     <?php } ?>
