@@ -71,9 +71,7 @@ include('templates/meta.php');
                                                                      while ($donnees = $reponse->fetch())
 									                                        {
 									                                            ?>
-				        	                                                <option value="<?php echo $donnees['id']; ?>"> 
-					                                                        <?php echo $donnees['prenom']." ".$donnees['nom']; ?>
-					                                                        </option>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['prenom']." ".$donnees['nom']; ?></option>
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>

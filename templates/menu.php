@@ -24,11 +24,15 @@
                         <a href="<?php echo $url; ?>/accueil.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Tableau de bord</span></a>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
-                        <label>RDV DE SES MORTS</label>
+                        <label>VISITES</label>
                     </li>
                     <li data-username="Saisie & consultations">
-                        <a href="prendstonrdv.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Prise de rendez-vous</span></a>
-                   <li class="nav-item pcoded-menu-caption">
+                        <a href="prendre_rdv.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Organiser une visite</span></a>
+                    </li>
+                    <li data-username="Visites à venir" class="nav-item">
+                        <a href="<?php echo $url; ?>/mes_visites.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-clock"></i></span><span class="pcoded-mtext">Visites à venir et à rédiger</span></a>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
                         <label>Saisies & consultations</label>
                     </li>
                     <li data-username="rediger CR" class="nav-item">

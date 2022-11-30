@@ -1,25 +1,145 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-	<title>OH SONIA</title>
+<?php
+@session_start();
+require('global.php');
 
-</head>
+connected_only();
 
-<body class="" background="https://media0.giphy.com/media/hufkeVydPvZZl1nyVS/giphy.gif?cid=790b7611c31eb118b03cbff2803d4045fcf34b5a089144f3&rid=giphy.gif&ct=g">
-<audio autoplay loop>
-      <source src="https://www.youtube.com/watch?v=QH2-TGUlwu4">
-</audio>
-	<h1 class="p-20 text-2xl text-red-800 font-bold text-center">Oh noo :'(</h1>
+$pageinfo = "Organiser une visite";
 
-	<div style="background-color: rgba(000, 000, 000, 0.2); display: table; text-align: center; width: 640px; margin: 0 auto; border: 1px solid rgb(255,0,0); color: rgb(0,255,255); font-weight: bold; font-family: verdana; font-size: 16px; line-height: 16px; padding: 20px 30px;">
+include('templates/meta.php');
+?>
 
-        Gabin le tapin
+<body>
+	<div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
 	</div>
+	<?php include('templates/menu.php'); ?>
+	<?php include('templates/header.php'); ?>
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="page-header">
+						<div class="page-block">
+							<div class="row align-items-center">
+								<div class="col-md-12">
+									<div class="page-header-title">
+										<h5 class="m-b-10">
+											Notifications
+										</h5>
+									</div>
+									<ul class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="index.html"><i class="feather icon-home"></i></a>
+										</li>
+										<li class="breadcrumb-item"><a href="javascript:">VISITES</a></li>
+										<li class="breadcrumb-item"><a href="javascript:">Organiser une visite</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="card">
+										<div class="card-body">
+											<h5>
+												Organiser une visite
+											</h5>
+											<hr><br>
+											<div class="row">
+												<div class="col-md-12">
+													<form method="post" action="inc/actions/visite.php" enctype="multipart/form-data">
+													<label for="medecin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Médecin :</label>
+															<select id="medecin" name="medecin" class="form-control" required>
+																<option selected>Veuillez choisir un médecin</option>
+																<?php $reponse = $bdd->query("SELECT id, nom, prenom, visiteur_id FROM medecins WHERE visiteur_id = '$id_encours'");
+                                                                     while ($donnees = $reponse->fetch())
+									                                        { ?>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['nom']." ".$donnees['prenom']; ?></option>
+				                                                <?php } ?>
+															</select><br>
+														<div class="form-group">
+															<label for="exampleInputEmail1">Date de la visite</label>
+															<input type="date" id="date" name="date" class="form-control">
+														</div>
+														<label for="echantillon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type d'échantillon à faire essayer :</label>
+															<select id="echantillon" name="echantillon" class="form-control" required>
+																<option selected>Veuillez choisir une option</option>
+																<?php $reponse = $bdd->query('SELECT id, nom_medicament FROM echantillons');
+                                                                     while ($donnees = $reponse->fetch())
+									                                        { ?>
+				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['nom_medicament']; ?></option>
+				                                                <?php } ?>
+															</select><br>
+												</div>
+											</div>
+											<input type="submit" value="Organiser la visite" class="btn btn-primary" />
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script src="assets/js/vendor-all.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/pcoded.min.js"></script>
 
+<!-- Modal box erreurs -->
+<div class="modal fade" id="ok" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">La visite a bien été planifiée.</h3>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="tbmodal">
+			<h3 style="color:white;">Merci de remplir tous les champs.</h3>
+		</div>
+	</div>
+</div>
 
-<center><img src="img/gabin.jpg"></center>
+<?php
+	if(isset($_GET['action'])) 
+	{
+		$errlogin = htmlspecialchars($_GET['action']);
+		
+		switch($errlogin)
+		{
+			case 'ok':
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#ok").modal('show');
+    });
+</script>
+<?php  }
+
+switch($errlogin) {
+		case 'erreur':
+			{
+?>
+<script>
+    $(document).ready(function()
+    {
+        $("#erreur").modal('show');
+    });
+</script>
+<?php break; } } } ?>	
+
 </body>
+
 </html>
