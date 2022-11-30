@@ -124,7 +124,7 @@ include('templates/meta.php');
 
                                 <div class="col-xl-4 col-md-6">
                                     <div class="card card-event">
-                                        <div class="card-block">
+                                        <!-- <div class="card-block">
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="col">
                                                     <h5 class="m-0">Prochain rendez-vous????</h5>
@@ -136,7 +136,7 @@ include('templates/meta.php');
                                             <h2 class="mt-3 f-w-300">45<sub class="text-muted f-14">Rendez-vous</sub></h2>
                                             <h6 class="text-muted mt-4 mb-0">Prévu à ce jour</h6>
                                             <i class="fab fa-angellist text-c-red f-50"></i>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="card">
                                         <div class="card-block border-bottom">
