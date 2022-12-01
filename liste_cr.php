@@ -107,7 +107,7 @@ include('templates/meta.php');
                                                             <h6 class="m-0"><?php echo $cr['nom_medicament']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
+                                                            <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Bien passée"; } else { echo "Mal passée"; }; ?></h6>
                                                         </td>
                                                         <td>
                                                             <a href="archiver_compterendu.php<?php echo $cr['id_compterendu'];?>">Archiver</a>

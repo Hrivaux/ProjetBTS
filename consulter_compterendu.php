@@ -23,12 +23,10 @@ else
     Header('location: accueil.php');
 }
 
-<<<<<<< HEAD
     $pageinfo = "Saisie des comptes rendus";
-=======
+
 $pageinfo = "Saisie des comptes rendus";
 $pageactive = "";
->>>>>>> 22c846ea0048b95874db22297fd63491ae700d31
 
     include('templates/meta.php');
 ?>
@@ -173,7 +171,7 @@ $pageactive = "";
                                                     LEFT JOIN echantillons  M ON M.id = CR.id_echantillon
                                                     WHERE CR.id = $idCR ");
 
-<<<<<<< HEAD
+
                                                     $reqechantillon = $bdd->prepare($requete_echantillon);
                                                     $reqechantillon->execute();
                                                         
@@ -197,7 +195,7 @@ $pageactive = "";
                                                     <hr>
                                                     <br>
                                                     <?php if ($compterendu['id_motif'] == 1) { echo "Périodicité"; } else if ($compterendu['id_motif'] == 2) { echo "Nouveautés ou Actualisations"; } else if ($compterendu['id_motif'] == 3) { echo "Remontage"; } else if ($compterendu['id_motif'] == 4) { echo "Autres"; }else { echo "Pas de motif";} ; ?> 
-=======
+<?php
                                                                 $reqechantillon = $bdd->prepare($requete_echantillon);
                                                                 $reqechantillon->execute();
 
@@ -252,7 +250,7 @@ $pageactive = "";
                                                                 </form>
                                                             </div>
                                                         </div>
->>>>>>> 6406bf8f851a878824dd362f06ff2049d20d6fcf
+
                                                     </div>
                                                 <div class="text-center">
                                                     <h5 class="mt-5">Avis</h5>
