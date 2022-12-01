@@ -23,7 +23,12 @@ else
     Header('location: accueil.php');
 }
 
+<<<<<<< HEAD
     $pageinfo = "Saisie des comptes rendus";
+=======
+$pageinfo = "Saisie des comptes rendus";
+$pageactive = "";
+>>>>>>> 22c846ea0048b95874db22297fd63491ae700d31
 
     include('templates/meta.php');
 ?>
