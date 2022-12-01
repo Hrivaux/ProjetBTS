@@ -85,7 +85,7 @@ include('templates/meta.php');
                                 <div class="col-xl-8 col-md-6">
                                     <div class="card Recent-Users">
                                         <div class="card-header">
-                                            <h5>Utilisateurs récents</h5>
+                                            <h5>Tous les utilisateurs</h5>
                                         </div>
                                         <div class="card-block px-0 py-3">
                                             <div class="table-responsive">
