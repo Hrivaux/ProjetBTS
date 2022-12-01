@@ -186,6 +186,12 @@ else
                                                     echo "Il n'y a pas d'échantillon rattaché";
                                                 }
                                                ?>
+                                               <div class="text-center">
+                                                    <h5 class="mt-5">Motif de la visite</h5>
+                                                    <hr>
+                                                    <br>
+                                                    <?php if ($compterendu['id_motif'] == 1) { echo "Périodicité"; } else if ($compterendu['id_motif'] == 2) { echo "Nouveautés ou Actualisations"; } else if ($compterendu['id_motif'] == 3) { echo "Remontage"; } else if ($compterendu['id_motif'] == 4) { echo "Autres"; }else { echo "Pas de motif";} ; ?> 
+                                                    </div>
                                                 <div class="text-center">
                                                     <h5 class="mt-5">Avis</h5>
                                                     <hr>
@@ -216,3 +222,6 @@ else
                                                     </div>
                                                 </form>
                                                 </div>
+    <script src="assets/js/vendor-all.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
