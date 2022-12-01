@@ -114,7 +114,8 @@ else
                                                 <div class="">
                                                         <div class="text-center">
                                                         <h5 class="text-center">Nom du médecin</h5>
-                                                      <hr>   
+                                                      <hr> 
+                                                      <br>  
                                                       <?php 
                                                 	$requete = ("SELECT CR.id               as 'id_compterendu',
                                                                         CR.id_visiteur      as 'id_visiteur',
@@ -150,12 +151,14 @@ else
                                                ?>
                                                         <div class="form-group">
                                                         <h5 class="mt-5">Date</h5>
-                                                        <hr>    
+                                                        <hr>   
+                                                        <br> 
                                                         <?php echo $compterendu['date']; ?> 
                                                         </div>
                                                         <div class="form-group">
                                                         <h5 class="text-center">Échantillon testé</h5>
-                                                      <hr>   
+                                                      <hr>  
+                                                      <br> 
                                                       <?php 
                                                 	$requete_echantillon = ("SELECT CR.id   as 'id_compterendu',
                                                                         CR.id_echantillon   as 'id_echantillon',
@@ -186,18 +189,21 @@ else
                                                 <div class="text-center">
                                                     <h5 class="mt-5">Avis</h5>
                                                     <hr>
+                                                    <br>
                                                     <?php if ($compterendu['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?> 
                                                     </div>
                                                     <div class="text-center">
                                                     <h5 class="mt-5">Etat</h5>
                                                     <hr>
+                                                    <br>
                                                     <?php if ($compterendu['etat'] == 1) { echo "Terminer"; } else { echo "A terminer"; }; ?> 
                                                     </div>
                                                     
 
                                                     <div class="form-group">
                                                         <h5 class="mt-5">Nouvelle visite</h5>
-                                                        <hr>    
+                                                        <hr>   
+                                                        <br> 
                                                         <?php if ($compterendu['nouvelle_visite'] == NULL) { echo "Pas de nouvelle visite"; } else {echo $compterendu['nouvelle_visite'];}; ?>
                                                         </div>
 
@@ -205,6 +211,7 @@ else
                                                     <div>
                                                         <h5 class="mt-5">Commentaire</h5>                                      
                                                        <hr> 
+                                                       <br>
                                                        <?php echo $compterendu['compterendu']; ?> 
                                                     </div>
                                                 </form>
