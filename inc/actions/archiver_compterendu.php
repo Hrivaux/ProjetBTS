@@ -3,7 +3,7 @@
 require ('global.php');
 
 connected_only();
-
+/*
 
 
 $pageinfo = "Listes des comptes rendus";
@@ -21,5 +21,5 @@ VALUES ($code, $tab['id'], $tab['id_visiteur'], $tab['id_medecin'], $tab['date']
 
 $suppr = mysql_query("DELETE FROM comptesrendus WHERE (id = 
 $cr['id_compterendu'])") 
-
+*/
 ?>

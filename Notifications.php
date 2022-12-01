@@ -5,6 +5,7 @@ require ('global.php');
 connected_only();
 
 $pageinfo = "Envoyer une notification";
+$pageactive = "NOTIFS";
 
 include('templates/meta.php');
 if ($grade_encours <= 2) 

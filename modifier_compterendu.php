@@ -16,6 +16,7 @@ if (is_int($idCR)) {
 }
 
 $pageinfo = "Saisie des comptes rendus";
+$pageactive = "";
 
 include('templates/meta.php');
 ?>

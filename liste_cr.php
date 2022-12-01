@@ -4,9 +4,8 @@ require ('global.php');
 
 connected_only();
 
-
-
 $pageinfo = "Listes des comptes rendus";
+$pageactive = "CR";
 
 include('templates/meta.php');
 ?>

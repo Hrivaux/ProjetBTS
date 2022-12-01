@@ -22,6 +22,7 @@ if (!$profilmedecin) {
 $prenomnomprofil = $profilmedecin['m_prenom'] ." " . $profilmedecin['m_nom'];
 
 $pageinfo = "Profil médecin - $prenomnomprofil";
+$pageactive = "";
 
 include ("templates/meta.php");
 ?>
