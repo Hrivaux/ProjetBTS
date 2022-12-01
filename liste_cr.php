@@ -64,6 +64,7 @@ include('templates/meta.php');
                                                             <th>Date</th>
                                                             <th>Échantillon</th>
                                                             <th>Avis</th>
+                                                            <th>Archiver</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -110,6 +111,9 @@ include('templates/meta.php');
                                                         <td>
                                                             <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
                                                         </td>
+                                                        <td>
+                                                            <a href="archiver_compterendu.php<?php echo $cr['id_compterendu'];?>">Archiver</a>
+                                                        </td>
                                                     </tr>
                                             <?php 
                                                 } 
@@ -144,6 +148,7 @@ include('templates/meta.php');
                                                             <th>Date</th>
                                                             <th>Echantillon</th>
                                                             <th>Avis</th>
+                                                            <th>Archiver</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -208,6 +213,7 @@ include('templates/meta.php');
                                                         <td>
                                                             <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
                                                         </td>
+                                                        
                                                     </tr>
                                             <?php 
                                                 } 
