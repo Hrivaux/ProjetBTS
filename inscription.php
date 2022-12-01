@@ -60,6 +60,7 @@ else {
 							<input id="zip" name="codepostal" type="text" pattern="[0-9]*" class="form-control"placeholder="Code postal">
 						</div>
 						<input type="submit" value="Ouvrir le compte" class="btn btn-primary shadow-2 mb-4"/>
+						<a class="text-white btn btn-primary shadow-2 mb-4" href="index.php">Retour</a>
 					</form>
 				</div>
 			</div>
