@@ -9,6 +9,7 @@ if ($grade_encours < 3) {
 }
 
 $pageinfo = "Paramètres du site";
+$pageactive = "PARAMS";
 
 include('templates/meta.php');
 ?>

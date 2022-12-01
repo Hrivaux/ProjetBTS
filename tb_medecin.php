@@ -5,6 +5,7 @@ require ('global.php');
 connected_only();
 
 $pageinfo = "Listes des médecins";
+$pageactive = "LM";
 
 include('templates/meta.php');
 ?>

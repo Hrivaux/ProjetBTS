@@ -7,6 +7,7 @@ connected_only();
 require_once('inc/calculateur.php');
 
 $pageinfo = "Gestion des comptes rendus";
+$pageactive = "Accueil";
 
 include('templates/meta.php');
 ?>

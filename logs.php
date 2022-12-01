@@ -5,6 +5,7 @@ require ('global.php');
 connected_only();
 
 $pageinfo = "Logs des utilisateurs";
+$pageactive = "LOGS";
 
 include('templates/meta.php');
 

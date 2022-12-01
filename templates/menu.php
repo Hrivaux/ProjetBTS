@@ -20,16 +20,16 @@
                     <li class="nav-item pcoded-menu-caption">
                         <label>Navigation</label>
                     </li>
-                    <li data-username="Accueil" class="nav-item active">
-                        <a href="<?php echo $url; ?>/accueil.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Tableau de bord</span></a>
+                    <li data-username="Accueil" <?php if ($pageactive == "Accueil") {  ?> class="nav-item active" <?php } ?>>
+                        <a href="accueil.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Accueil</span></a>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
                         <label>VISITES</label>
                     </li>
-                    <li data-username="Saisie & consultations">
+                    <li data-username="Saisie & consultations" <?php if ($pageactive == "RDV1") {  ?> class="nav-item active" <?php } ?>>
                         <a href="prendre_rdv.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Organiser une visite</span></a>
                     </li>
-                    <li data-username="Visites à venir" class="nav-item">
+                    <li data-username="Visites à venir" <?php if ($pageactive == "RDV2") {  ?> class="nav-item active" <?php } ?>>
                         <a href="<?php echo $url; ?>/mes_visites.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-clock"></i></span><span class="pcoded-mtext">Visites à venir et à rédiger</span></a>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
@@ -38,13 +38,13 @@
                     <!-- <li data-username="rediger CR" class="nav-item">
                         <a href="<?php echo $url; ?>/redact_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-edit"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
                     </li> -->
-                    <li data-username="Liste des comptes-rendus" class="nav-item">
+                    <li data-username="Liste des comptes-rendus" <?php if ($pageactive == "CR") {  ?> class="nav-item active" <?php } ?>>
                         <a href="<?php echo $url; ?>/liste_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Liste des comptes rendus</span></a>
                     </li>
-                    <li data-username="Liste des médecins" class="nav-item">
+                    <li data-username="Liste des médecins" <?php if ($pageactive == "LM") {  ?> class="nav-item active" <?php } ?>>
                         <a href="<?php echo $url; ?>/tb_medecin.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-list"></i></span><span class="pcoded-mtext">Liste des médecins</span></a>
                     </li>
-                    <li data-username="Ajouter un médecin" class="nav-item">
+                    <li data-username="Ajouter un médecin" <?php if ($pageactive == "AM") {  ?> class="nav-item active" <?php } ?>>
                         <a href="<?php echo $url; ?>/add_medecins.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Ajouter un médecin</span></a>
                     </li>
                     <!--<li class="nav-item pcoded-menu-caption">
@@ -55,10 +55,10 @@
                     <li class="nav-item pcoded-menu-caption">
                         <label>Administration</label>
                     </li>
-                    <li data-username="Paramètres du site" class="nav-item"><a href="<?php echo $url; ?>/site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li>
-                    <li data-username="Notifications" class="nav-item"><a href="<?php echo $url; ?>/notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-bell"></i></span><span class="pcoded-mtext">Notifications</span></a></li>
-                    <li data-username="Création de compte" class="nav-item"><a href="<?php echo $url; ?>/inscription.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li>
-                    <li data-username="Historique (logs)" class="nav-item"><a href="<?php echo $url; ?>/logs.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Historique (logs)</span></a></li>
+                    <li data-username="Paramètres du site" <?php if ($pageactive == "PARAMS") {  ?> class="nav-item active" <?php } ?>><a href="<?php echo $url; ?>/site_settings.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Paramètres du site</span></a></li>
+                    <li data-username="Notifications" <?php if ($pageactive == "NOTIFS") {  ?> class="nav-item active" <?php } ?>><a href="<?php echo $url; ?>/notifications.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-bell"></i></span><span class="pcoded-mtext">Notifications</span></a></li>
+                    <li data-username="Création de compte"><a href="<?php echo $url; ?>/inscription.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span><span class="pcoded-mtext">Création de compte</span></a></li>
+                    <li data-username="Historique (logs)" <?php if ($pageactive == "LOGS") {  ?> class="nav-item active" <?php } ?>><a href="<?php echo $url; ?>/logs.php" class="nav-link"><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Historique (logs)</span></a></li>
                     <?php } ?>
 
                     <li class="nav-item pcoded-menu-caption">

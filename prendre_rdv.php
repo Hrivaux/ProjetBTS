@@ -5,6 +5,7 @@ require('global.php');
 connected_only();
 
 $pageinfo = "Organiser une visite";
+$pageactive = "RDV1";
 
 include('templates/meta.php');
 ?>
