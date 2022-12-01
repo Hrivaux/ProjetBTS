@@ -57,7 +57,7 @@ include('templates/meta.php');
 													<thead>
 														<tr>
 															<th>
-																#
+																Profil
 															</th>
 															<th>
 																Photo
