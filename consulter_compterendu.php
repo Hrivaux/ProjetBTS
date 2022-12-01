@@ -173,6 +173,7 @@ $pageactive = "";
                                                     LEFT JOIN echantillons  M ON M.id = CR.id_echantillon
                                                     WHERE CR.id = $idCR ");
 
+<<<<<<< HEAD
                                                     $reqechantillon = $bdd->prepare($requete_echantillon);
                                                     $reqechantillon->execute();
                                                         
@@ -196,6 +197,62 @@ $pageactive = "";
                                                     <hr>
                                                     <br>
                                                     <?php if ($compterendu['id_motif'] == 1) { echo "Périodicité"; } else if ($compterendu['id_motif'] == 2) { echo "Nouveautés ou Actualisations"; } else if ($compterendu['id_motif'] == 3) { echo "Remontage"; } else if ($compterendu['id_motif'] == 4) { echo "Autres"; }else { echo "Pas de motif";} ; ?> 
+=======
+                                                                $reqechantillon = $bdd->prepare($requete_echantillon);
+                                                                $reqechantillon->execute();
+
+                                                                $echanti = $reqechantillon->fetchAll();
+                                                                if (!empty($echanti)) {
+                                                                    foreach ($echanti as $e) {
+                                                                ?>
+                                                                        <?php echo $e['nom_medicament'] ?></a>
+
+                                                                <?php
+                                                                    }
+                                                                } else {
+                                                                    echo "Il n'y a pas d'échantillon rattaché";
+                                                                }
+                                                                ?>
+                                                                <div class="text-center">
+                                                                    <h5 class="mt-5">Avis</h5>
+                                                                    <hr>
+                                                                    <?php if ($compterendu['avis'] == 1) {
+                                                                        echo "Favorable";
+                                                                    } else {
+                                                                        echo "Défavorable";
+                                                                    }; ?>
+                                                                </div>
+                                                                <div class="text-center">
+                                                                    <h5 class="mt-5">Etat</h5>
+                                                                    <hr>
+                                                                    <?php if ($compterendu['etat'] == 1) {
+                                                                        echo "Terminé";
+                                                                    } else {
+                                                                        echo "À terminer";
+                                                                    }; ?>
+                                                                </div>
+
+
+                                                                <div class="form-group">
+                                                                    <h5 class="mt-5">Nouvelle visite</h5>
+                                                                    <hr>
+                                                                    <?php if ($compterendu['nouvelle_visite'] == NULL) {
+                                                                        echo "Pas de nouvelle visite";
+                                                                    } else {
+                                                                        echo $compterendu['nouvelle_visite'];
+                                                                    }; ?>
+                                                                </div>
+
+
+                                                                <div>
+                                                                    <h5 class="mt-5">Commentaire</h5>
+                                                                    <hr>
+                                                                    <?php echo $compterendu['compterendu']; ?>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+>>>>>>> 6406bf8f851a878824dd362f06ff2049d20d6fcf
                                                     </div>
                                                 <div class="text-center">
                                                     <h5 class="mt-5">Avis</h5>

@@ -75,7 +75,7 @@ include('templates/meta.php');
                                         <li class="breadcrumb-item"><a href="liste_cr.php">Listes des comptes rendus</a></li>
                                         <li class="breadcrumb-item"><a>Modifier le compte rendue du médecin <?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?> datant du  <?php echo $compterendu['date']; ?></a></li>
                                         <?php
-                                                                        } 
+                                            } 
                                                  } 
                                                 else
                                                 {

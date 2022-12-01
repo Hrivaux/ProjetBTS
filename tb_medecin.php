@@ -57,7 +57,7 @@ include('templates/meta.php');
 													<thead>
 														<tr>
 															<th>
-																#
+																Profil
 															</th>
 															<th>
 																Photo
@@ -99,7 +99,7 @@ if (!empty($resultat))
 
 <tr>
 	<td>
-		<a href="profilmedecins.php?id=<?php echo $medecins['m_id'];?>"><?php echo $medecins['m_id']; ?></a>
+		<a href="profilmedecins.php?id=<?php echo $medecins['m_id'];?>"><img src="img/button.png"></a>
 	</td>
 
 	<td>

@@ -56,7 +56,7 @@ include('templates/meta.php');
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header text-center">
-                                            <h5>Ecrivez votre compte rendu</h5>
+                                            <h5>Écrivez votre compte rendu</h5>
                                         </div>
                                         <div class="card-body">
                                             <h5>Compte rendu de M. <?php echo $prenomnom; ?></h5>
@@ -83,10 +83,11 @@ include('templates/meta.php');
                                                             <input name="date" type="date" class="form-control text-center" placeholder="Date">
                                                         </div>
                                                         <div class="form-group">
-                                                            <h5 class="mt-5">Echantillon testé</h5>
+                                                            <h5 class="mt-5">Échantillon testé</h5>
                                                             <hr>
                                                               <select name="id_echantillon"  id="id_echantillon" class="form-control text-center" required>
-		                                                    	<?php $reponse = $bdd->query('SELECT id, nom_medicament, fournisseur FROM echantillons');
+                                                              <option selected></option>
+                                                                <?php $reponse = $bdd->query('SELECT id, nom_medicament, fournisseur FROM echantillons');
                                                                      while ($donnees = $reponse->fetch())
 									                                        { ?>
 				        	                                                <option value="<?php echo $donnees['id']; ?>"> 
@@ -99,8 +100,9 @@ include('templates/meta.php');
                                                         <div class="form-group">
                                                             <h5 class="mt-5">Motif de la visiste</h5>
                                                             <hr>
+                                                            
 														<select id="motif_visite" name="motif_visite" class="form-control text-center" required >
-															<option selected>Motif de la visite</option>
+															<option selected></option>
 															<?php $reponse = $bdd->query('SELECT * FROM motif_visite');
                                                                      while ($donnees = $reponse->fetch())
 									                                        { ?>
@@ -114,7 +116,7 @@ include('templates/meta.php');
                                                         <div class="">
                                                 <div class="text-center">
                                                     <h5 class="mt-5">Avis</h5>
-                                                    <hr>
+                                                    <br>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="1">
                                                         <label class="custom-control-label" for="bien_passer">Bien passé </label>
@@ -123,28 +125,28 @@ include('templates/meta.php');
                                                         <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="0">
                                                         <label class="custom-control-label" for="mal_passer">Mal passé</label>
                                                     </div>
-                                                    <div class="text-center">
-                                                    <h5 class="mt-5">Etat</h5>
                                                     <hr>
+                                                    <div class="text-center">
+                                                    <h5 class="mt-5">État</h5>
+                                                    <br>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="1" name="etat" class="custom-control-input" value="1">
                                                         <label class="custom-control-label" for="1">Terminé</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="0" name="etat" class="custom-control-input" value="0">
-                                                        <label class="custom-control-label" for="0">A terminé</label>
+                                                        <label class="custom-control-label" for="0">À terminé</label>
                                                     </div>
-                                                    
-                                                    
+                                                    <hr>                                                    
                                                     <div class="form-group">
                                                         <h5 class="mt-5">Nouvelle visite</h5>
-                                                        <h7> Si besoin</h7>
-                                                        <hr>    
+                                                        <p>(Si besoin)</p>
+                                                        <br>    
                                                             <input name="nouvelle_visite" type="date" class="form-control text-center" placeholder="Date">
                                                     </div> 
                                                     <div>                 
-                                                        <h5 class="mt-5">Commentaire </h5>                                      
-                                                       <hr> 
+                                                        <h5 class="mt-5">Commentaire : </h5>                                     
+                                                       <br> 
                                                             <textarea type="text" name="compterendu" cols="40" rows="10" class="form-control height: 300px;"  size="50" id="compterendu" rows="5"></textarea>
                                                             <br><br>
                                                       <input type="submit" value="Envoyer"class="btn btn-primary"/>  
