@@ -18,6 +18,7 @@ if (isset($_SESSION['user']))
     $nomprenom = $user['nom'] . " " . $user['prenom'];
     $id_encours = $user['id'];
     $grade_encours = $user['grade'];
+    $region_encours = $user['region'];
 }
 
 // Date du jour en PHP

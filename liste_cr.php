@@ -41,17 +41,14 @@ include('templates/meta.php');
                             </div>
                         </div>
                     </div>
-                    <!-- [ breadcrumb ] end -->
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!-- [ basic-table ] start -->
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Compte rendu fait</h5>
-                                            <p>Cliquer dessus pour les consuleters (Non Modifiable)</p>
+                                            <h5>Comptes rendus terminés</h5>
+                                            <p>Cliquez sur "ouvrir" pour les consulter (modifiables uniquement par les délégués)</p>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -79,10 +76,12 @@ include('templates/meta.php');
                                                                         M.nom               as 'nom_medecin',
                                                                         M.prenom            as 'prenom_medecin',
                                                                         E.id                as 'echantillon',
-                                                                        E.nom_medicament    as 'nom_medicament'
+                                                                        E.nom_medicament    as 'nom_medicament',
+                                                                        U.grade             as 'grade_utilisateur'
                                                     FROM comptesrendus  CR
                                                     LEFT JOIN medecins  M ON M.id = CR.id_medecin
                                                     LEFT JOIN echantillons  E ON E.id = CR.id_echantillon
+                                                    LEFT JOIN utilisateurs U ON U.id = CR.id_visiteur
                                                     WHERE (id_visiteur = $id_encours) AND (etat = '1')
                                                     ORDER BY CR.id DESC");
 
@@ -128,14 +127,12 @@ include('templates/meta.php');
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ basic-table ] end -->
-
-                                <!-- [ Hover-table ] start -->
+                                
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Compte rendu à faire</h5>
-                                            <p>Cliquer dessus pour les modifiers</p>
+                                            <h5>Compte rendu à rédiger</h5>
+                                            <p>Cliquer dessus pour les modifier</p>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -168,25 +165,6 @@ include('templates/meta.php');
                                                     LEFT JOIN echantillons  E ON E.id = CR.id_echantillon
                                                     WHERE (id_visiteur = $id_encours) AND (etat = '0')
                                                     ORDER BY CR.id DESC");
-
-
-                                                   /* $requete = ("SELECT CR.id               as 'id_compterendu',
-                                                                        CR.id_visiteur      as 'id_visiteur',
-                                                                        CR.id_medecin       as 'id_medecin',
-                                                                        CR.date             as 'date',
-                                                                        CR.id_echantillon   as 'id_echantillon',
-                                                                        CR.avis             as 'avis',
-                                                                        E.id                as 'Eid_echantillon',
-                                                                        E.type_medicament   as 'type_medicament',
-                                                                        E.nom               as 'Enom_medicament',
-                                                                        E.fournisseur       as 'Efournisseur',
-
-                                                    FROM comptesrendus  CR
-                                                    LEFT JOIN echantillons  E ON E.id = CR.id_echantillon
-                                                    WHERE (id_visiteur = $id_encours) AND (etat = '0')
-                                                    ORDER BY CR.id DESC");
-                                                    */
-
 
                                                     $reqcr = $bdd->prepare($requete);
                                                     $reqcr->execute();

@@ -187,9 +187,9 @@ include('templates/meta.php');
                                                                     <h5 class="mt-5">Etat</h5>
                                                                     <hr>
                                                                     <?php if ($compterendu['etat'] == 1) {
-                                                                        echo "Terminer";
+                                                                        echo "Terminé";
                                                                     } else {
-                                                                        echo "A terminer";
+                                                                        echo "À terminer";
                                                                     }; ?>
                                                                 </div>
 
