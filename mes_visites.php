@@ -115,11 +115,11 @@ include('templates/meta.php');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-12">
+                                <!-- <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Compte rendu à faire</h5>
-                                            <p>Cliquer dessus pour les modifiers</p>
+                                            <h5>Visites rédigées</h5>
+                                            <p>Ci-dessous, les visites dont le compte rendu a déjà été rédigé.</p>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -178,7 +178,7 @@ include('templates/meta.php');
                                                  } 
                                                 else
                                                 {
-                                                    echo "Aucn compte-rendu ne vous a été rattaché";
+                                                    echo "Aucne visite ne vous a été rattachée";
                                                 }
                                                ?>
                                                        
@@ -187,7 +187,7 @@ include('templates/meta.php');
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 </div>
                             </div>
                         </div>

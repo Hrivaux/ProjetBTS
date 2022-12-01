@@ -11,6 +11,7 @@ if ($grade_encours == 3)
 else {
     
 $pageinfo = "Saisie de compte rendu";
+$pageactive = "";
 
 include('templates/meta.php');
 ?>
@@ -67,7 +68,7 @@ include('templates/meta.php');
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                             <hr>
                                                               <select name="id_medecin"  id="id_medecin" class="form-control text-center" required>
-		                                                    	<?php $reponse = $bdd->query('SELECT id, nom, prenom FROM medecins');
+		                                                    	<?php $reponse = $bdd->query("SELECT id, nom, prenom FROM medecins WHERE visiteur_id = $id_encours");
                                                                      while ($donnees = $reponse->fetch())
 									                                        {
 									                                            ?>
@@ -94,8 +95,6 @@ include('templates/meta.php');
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>
-
-
                                                         
                                                         <div class="form-group">
                                                             <h5 class="mt-5">Motif de la visiste</h5>
