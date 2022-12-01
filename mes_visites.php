@@ -61,7 +61,6 @@ include('templates/meta.php');
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
                                                     <?php 
                                                 	$requete = ("SELECT 
 																	V.id 				as 'visite_id',
@@ -79,7 +78,6 @@ include('templates/meta.php');
 																LEFT JOIN echantillons E ON V.echantillon_id = E.id
 																WHERE V.visiteur_id = $id_encours AND V.statut_visite = '0'
 													");
-
                                                     $reqv = $bdd->prepare($requete);
                                                     $reqv->execute();
                                                         
@@ -127,55 +125,51 @@ include('templates/meta.php');
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th>Compte rendu</th>
+                                                            <th>Saisir le compte rendu</th>
                                                             <th>Médecin</th>
                                                             <th>Date</th>
-                                                            <th>Echantillon</th>
-                                                            <th>Avis</th>
+                                                            <th>Échantillon</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                    <?php
-                                                    $requete = ("SELECT CR.id               as 'id_compterendu',
-                                                                        CR.id_visiteur      as 'id_visiteur',
-                                                                        CR.id_medecin       as 'id_medecin',
-                                                                        CR.date             as 'date',
-                                                                        CR.id_echantillon   as 'id_echantillon',
-                                                                        CR.avis             as 'avis',
-                                                                        M.id                as 'Mid_medecin',
-                                                                        M.nom               as 'nom_medecin',
-                                                                        M.prenom            as 'prenom_medecin',
-                                                                        E.id                as 'echantillon',
-                                                                        E.nom_medicament    as 'nom_medicament'
-                                                    FROM comptesrendus  CR
-                                                    LEFT JOIN medecins  M ON M.id = CR.id_medecin
-                                                    LEFT JOIN echantillons  E ON E.id = CR.id_echantillon
-                                                    WHERE (id_visiteur = $id_encours) AND (etat = '0')
-                                                    ORDER BY CR.id DESC");
-
-                                                    $reqcr = $bdd->prepare($requete);
-                                                    $reqcr->execute();
-                                                        
-                                                    $resultat = $reqcr->fetchAll();
-                                                        if (!empty($resultat)) 
-                                                        {
-                                                            foreach($resultat as $cr)  { 
-                                                    ?>
+                                                    <tbody> <?php 
+                                                	$requete = ("SELECT 
+																	V.id 				as 'visite_id',
+																	V.medecin_id 		as 'visite_medecin',
+																	V.visiteur_id 		as 'visite_visiteur',
+																	V.echantillon_id 	as 'visite_echantillon',
+																	V.date_visite		as 'visite_date',
+																	V.statut_visite		as 'visite_statut',
+																	M.id				as 'medecin_id',
+																	M.nom				as 'medecin_nom',
+																	M.prenom			as 'medecin_prenom',
+																	E.nom_medicament	as 'medicament_nom',
+																	CR.id 				as 'compterendu_id'
+																FROM visites V
+																LEFT JOIN medecins M ON V.medecin_id = M.id
+																LEFT JOIN echantillons E ON V.echantillon_id = E.id
+																LEFT JOIN comptesrendus CR ON CR.id_medecin = V.medecin_id
+																WHERE V.visiteur_id = $id_encours AND V.statut_visite = '1'
+													");
+													 $reqv = $bdd->prepare($requete);
+													 $reqv->execute();
+														 
+													 $resultat = $reqv->fetchAll();
+														 if (!empty($resultat)) 
+														 {
+															 foreach($resultat as $visiteCR)  { 
+													?>
                                                     <tr>
                                                         <td>
-                                                            <a href="modifier_compterendu.php?id=<?php echo $cr['id_compterendu'];?>">Ouvrir</a>
+                                                            <a href="consulter_compterendu.php?id=<?php echo $visiteCR['compterendu_id'];?>">Ouvrir</a>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $cr['id_medecin'];?>"><?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a></h6>
+                                                            <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $visiteCR['medecin_id'];?>"><?php echo $visite['medecin_prenom']." ".$visite['medecin_nom']; ?></a></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0 text-c-purple"><?php echo $cr['date'];?></h6>
+                                                            <h6 class="m-0 text-c-purple"><?php echo strftime('%d-%m-%Y',strtotime($visiteCR['visite_date']))?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php echo $cr['nom_medicament']; ?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
+                                                            <h6 class="m-0"><?php echo $visiteCR['medicament_nom']; ?></h6>
                                                         </td>
                                                     </tr>
                                             <?php 

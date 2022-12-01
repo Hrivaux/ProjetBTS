@@ -35,9 +35,9 @@
                     <li class="nav-item pcoded-menu-caption">
                         <label>Saisies & consultations</label>
                     </li>
-                    <li data-username="rediger CR" class="nav-item">
+                    <!-- <li data-username="rediger CR" class="nav-item">
                         <a href="<?php echo $url; ?>/redact_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-edit"></i></span><span class="pcoded-mtext">Rédiger CR</span></a>
-                    </li>
+                    </li> -->
                     <li data-username="Liste des comptes-rendus" class="nav-item">
                         <a href="<?php echo $url; ?>/liste_cr.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Liste des comptes rendus</span></a>
                     </li>
