@@ -69,7 +69,7 @@ include('templates/meta.php');
 																	V.visiteur_id 		as 'visite_visiteur',
 																	V.echantillon_id 	as 'visite_echantillon',
 																	V.date_visite		as 'visite_date',
-																	V.statut_visite		as 'visite_statut',
+																	V.statut_visite		as 'statue_visite',
 																	M.id				as 'medecin_id',
 																	M.nom				as 'medecin_nom',
 																	M.prenom			as 'medecin_prenom',
