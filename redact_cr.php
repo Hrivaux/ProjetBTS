@@ -119,11 +119,11 @@ $echantillonvisite = $_GET['echantillon'];
                                                     <br>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="1">
-                                                        <label class="custom-control-label" for="bien_passer">Bien passé </label>
+                                                        <label class="custom-control-label" for="bien_passer">Favorable </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="0">
-                                                        <label class="custom-control-label" for="mal_passer">Mal passé</label>
+                                                        <label class="custom-control-label" for="mal_passer">Défavorable</label>
                                                     </div>
                                                     <hr>
                                                     <div class="text-center">
@@ -135,7 +135,7 @@ $echantillonvisite = $_GET['echantillon'];
                                                     </div>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="0" name="etat" class="custom-control-input" value="0">
-                                                        <label class="custom-control-label" for="0">À terminé</label>
+                                                        <label class="custom-control-label" for="0">À terminer</label>
                                                     </div>
                                                     <hr>                                                    
                                                     <div class="form-group">

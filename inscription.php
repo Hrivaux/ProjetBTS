@@ -68,7 +68,6 @@ else {
 	</div>
 	<script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Modal box erreurs -->
 	<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="tbmodal">

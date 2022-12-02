@@ -155,7 +155,6 @@ else
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ Main Content ] end -->
                         </div>
                     </div>
                 </div>

@@ -91,7 +91,6 @@ if ($grade_encours <= 2)
 								</div>
 							</div>
 						</div>
-						<!-- [ Main Content ] end -->
 					</div>
 				</div>
 			</div>
@@ -100,12 +99,10 @@ if ($grade_encours <= 2)
 </div>
 
 
-    <!-- Required Js -->
 	<script src="assets/js/vendor-all.min.js"></script>
 <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/pcoded.min.js"></script>
 
-	<!-- Modal box erreurs -->
 	<div class="modal fade" id="erreur" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="tbmodal">

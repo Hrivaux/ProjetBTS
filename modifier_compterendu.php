@@ -157,11 +157,11 @@ include('templates/meta.php');
                                                                 <h5 class="mt-5">Date</h5>
                                                                 <hr>
 
-                                                                <?php echo $compterendu['date']; ?>
+                                                                
                                                                 <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
-                                                                <input name="date" type="date" class="form-control text-center" placeholder="Date">
+                                                                <input name="date" type="date" class="form-control text-center" placeholder="Date" value="<?php echo $compterendu['date']; ?>">
                                                             </div>
 
                                                             <div class="form-group">
@@ -183,13 +183,12 @@ include('templates/meta.php');
                                                         if (!empty($echanti)) 
                                                         {
                                                             foreach($echanti as $e)  { 
-                                                    ?>
-                                                            <?php echo $e['nom_medicament']?></a>
-                                                        
+                                                    ?>                                                
                                                                 <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
                                                                 <select name="id_echantillon" id="id_echantillon" class="form-control text-center" required>
+                                                                <option><?php echo $e['nom_medicament']?></option>
                                                                     <?php $reponse = $bdd->query('SELECT id, nom_medicament, fournisseur FROM echantillons');
                                                                     while ($donnees = $reponse->fetch()) { ?>
                                                                         <option value="<?php echo $donnees['id']; ?>">
@@ -203,19 +202,6 @@ include('templates/meta.php');
                                                                       echo "Aucn compte-rendu ne vous a été rattaché";
                                                                      }
                                                ?>          
-
-
-
-
-
-
-
-
-
-                                                                  
-                                                        
-
-
                                                         <div class="form-group">
                                                             <h5 class="mt-5">Motif de la visiste</h5>
                                                             <hr>
@@ -223,7 +209,7 @@ include('templates/meta.php');
                                                 	$requete_motif = ("SELECT   CR.id               as 'id_compterendu',
                                                                                 CR.id_motif         as 'id_motif',
                                                                                 H.id                as 'id',
-                                                                                H.libelle_motif    as 'libelle_motif'
+                                                                                H.libelle_motif     as 'libelle_motif'
                                                                       FROM comptesrendus      CR
                                                                       LEFT JOIN motif_visite H ON H.id = CR.id_motif
                                                                       WHERE CR.id = $idCR ");
@@ -236,12 +222,12 @@ include('templates/meta.php');
                                                         {
                                                             foreach($motif as $h)  { 
                                                     ?>
-                                                            <?php echo $h['libelle_motif']?></a>
+                                                    <?php echo $h['libelle_motif']?>
                                                             <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
 														<select id="motif_visite" name="motif_visite" class="form-control text-center" required >
-															<option selected>Motif de la visite</option>
+															<option><?php echo $h['libelle_motif']?></option>
 															<?php $reponse = $bdd->query('SELECT * FROM motif_visite');
                                                                      while ($donnees = $reponse->fetch())
 									                                        { ?>
@@ -259,75 +245,51 @@ include('templates/meta.php');
                                                         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                                
-                                                                <div class="text-center">
-
                                                                     <h5 class="mt-5">Avis</h5>
                                                                     <hr>
 
-                                                                    <?php if ($compterendu['avis'] == '1') {
-                                                                        echo "Favorable";
-                                                                    } else {
-                                                                        echo "Défavorable";
-                                                                    }; ?>
+                                                                   
                                                                     <br><br>
                                                                     <h6><mark> Votre changement si besoin</mark></h6>
                                                                     <br>
-                                                                <div class="text-center">
+                                                                
                                                                         <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="1">
-                                                                        <label class="custom-control-label" for="bien_passer">Bien passé </label>
+                                                                        <input type="radio" id="1" name="avis" class="custom-control-input" value="1"<?php if($compterendu['avis']==1) { echo 'checked="checked"' ; } ?>>
+                                                                        <label class="custom-control-label" for="1">Bien passé </label>
                                                                         </div>
                                                                         <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="0">
-                                                                        <label class="custom-control-label" for="mal_passer">Mal passé</label>
+                                                                        <input type="radio" id="0" name="avis" class="custom-control-input" value="0"<?php if($compterendu['avis']==0) { echo 'checked="checked"' ; } ?>>
+                                                                        <label class="custom-control-label" for="0">Mal passé</label>
                                                                         </div>
-                                                                </div>
+                                                                
 
                                                                 <div class="form-group">
 
                                                         <h5 class="mt-5">Etat</h5>
                                                         <hr>  
                                                         
-                                                        <?php if ($compterendu['etat'] == 1) { echo "Terminé"; } else { echo "A terminé"; }; ?>
+                                                        
                                                         <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>
                                                             <div class="custom-control custom-radio">
-                                                        <input type="radio" id="1" name="etat" class="custom-control-input" value="1">
+                                                        <input type="radio" id="1" name="etat" class="custom-control-input" value="1" <?php if($compterendu['etat']==1) { echo 'checked="checked"' ; } ?>>
                                                         <label class="custom-control-label" for="1">Terminé</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="0" name="etat" class="custom-control-input" value="0">
-                                                        <label class="custom-control-label" for="0">A terminé</label>
+                                                        <input type="radio" id="0" name="etat" class="custom-control-input" value="0"<?php if($compterendu['etat']==0) { echo 'checked="checked"' ; } ?>>
+                                                        <label class="custom-control-label" for="0">A terminer</label>
                                                     </div>
 
                                                         <div class="form-group">
                                                         <h5 class="mt-5">Nouvelle visite</h5>
                                                         <hr>    
-                                                        <?php if ($compterendu['nouvelle_visite'] == NULL) { echo "Pas de nouvelle visite"; } else {echo $compterendu['nouvelle_visite'];}; ?>
                                                         </div>
                                                             
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br> 
                                                           
-                                                            <input name="nouvelle_visite" type="date" class="form-control text-center" placeholder="Date">
+                                                            <input name="nouvelle_visite" type="date" class="form-control text-center" placeholder="Date" value="<?php if ($compterendu['nouvelle_visite'] == NULL) { echo "Pas de nouvelle visite"; } else {echo $compterendu['nouvelle_visite'];}; ?>">
                                                     </div> 
                                                     <div>
                                                         <h5 class="mt-5">Commentaire</h5>                                      
@@ -335,7 +297,7 @@ include('templates/meta.php');
                                                             <br><br>
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>  
-                                                            <input type="text" name="compterendu" class="form-control height: auto;"  value="<?php echo $compterendu['compterendu']; ?>" size="50" id="compterendu" rows="5"></input>
+                                                            <textarea type="text" name="compterendu" cols="40" rows="10" class="form-control height: 300px;"  size="50" id="compterendu" rows="5"><?php echo $compterendu['compterendu']; ?> </textarea>
                                                             <br><br>
                                                       <input type="submit" value="Envoyer"class="btn btn-primary"/> 
                                                     </div>
