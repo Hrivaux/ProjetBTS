@@ -26,7 +26,7 @@ $pageactive = "";
 
 include ("templates/meta.php");
 ?>
-
+<style>th, td { border-left: 1px solid #e2e8f0; width: 300px; text-align: center; }</style>
 	<body class="content-center">
 		<div class="loader-bg">
 			<div class="loader-track">
@@ -73,11 +73,8 @@ include ("templates/meta.php");
 							<table class="border-2 text-sm text-left text-gray-500 dark:text-gray-400">
 								<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 									<tr>
-										<th scope="col" class="py-3 px-6">
+										<th scope="col" class="py-3 px-6" style="text-align: center;">
 											Adresse
-										</th>
-										<th scope="col" class="py-3 px-6">
-											Code Postal
 										</th>
 										<th scope="col" class="py-3 px-6">
 											Type médicaments
@@ -90,11 +87,8 @@ include ("templates/meta.php");
 							<tbody>
 									<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 										<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-											<?php echo $profilmedecin['m_ville']; ?>
+											<?php echo $profilmedecin['m_adresse'].", ".$profilmedecin['m_ville']." - ".$profilmedecin['m_code_postal']; ?>
 										</th>
-										<td class="py-4 px-6">
-											<?php echo $profilmedecin['m_code_postal']; ?>
-										</td>
 										<td class="py-4 px-6">
 										<?php echo $profilmedecin['e_nom']; ?>
 										</td>

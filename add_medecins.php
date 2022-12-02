@@ -5,7 +5,6 @@ require('global.php');
 connected_only();
 
 $pageinfo = "Ajouter un médecin";
-$pageactive = "AM";
 
 include('templates/meta.php');
 ?>
