@@ -73,7 +73,8 @@ include('templates/meta.php');
 																	M.id				as 'medecin_id',
 																	M.nom				as 'medecin_nom',
 																	M.prenom			as 'medecin_prenom',
-																	E.nom_medicament	as 'medicament_nom'
+																	E.nom_medicament	as 'medicament_nom',
+                                                                    E.id                as 'medicament_id'
 																FROM visites V
 																LEFT JOIN medecins M ON V.medecin_id = M.id
 																LEFT JOIN echantillons E ON V.echantillon_id = E.id
@@ -89,7 +90,7 @@ include('templates/meta.php');
                                                     ?>
                                                     <tr>
                                                         <td>
-                                                            <a href="redact_cr.php">Rédiger un compte rendu</a>
+                                                            <a href="redact_cr.php?med=<?php echo $visite['medecin_id'];?>&echantillon=<?php echo $visite['medicament_id']; ?>">Rédiger un compte rendu</a>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $visite['medecin_id'];?>"><?php echo $visite['medecin_prenom']." ".$visite['medecin_nom']; ?></a></h6>
@@ -115,79 +116,6 @@ include('templates/meta.php');
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-xl-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Visites rédigées</h5>
-                                            <p>Ci-dessous, les visites dont le compte rendu a déjà été rédigé.</p>
-                                        </div>
-                                        <div class="card-block table-border-style">
-                                            <div class="table-responsive">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Saisir le compte rendu</th>
-                                                            <th>Médecin</th>
-                                                            <th>Date</th>
-                                                            <th>Échantillon</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody> <?php 
-                                                	$requete = ("SELECT 
-																	V.id 				as 'visite_id',
-																	V.medecin_id 		as 'visite_medecin',
-																	V.visiteur_id 		as 'visite_visiteur',
-																	V.echantillon_id 	as 'visite_echantillon',
-																	V.date_visite		as 'visite_date',
-																	V.statut_visite		as 'visite_statut',
-																	M.id				as 'medecin_id',
-																	M.nom				as 'medecin_nom',
-																	M.prenom			as 'medecin_prenom',
-																	E.nom_medicament	as 'medicament_nom',
-																	CR.id 				as 'compterendu_id'
-																FROM visites V
-																LEFT JOIN medecins M ON V.medecin_id = M.id
-																LEFT JOIN echantillons E ON V.echantillon_id = E.id
-																LEFT JOIN comptesrendus CR ON CR.id_medecin = V.medecin_id
-																WHERE V.visiteur_id = $id_encours AND V.statut_visite = '1'
-													");
-													 $reqv = $bdd->prepare($requete);
-													 $reqv->execute();
-														 
-													 $resultat = $reqv->fetchAll();
-														 if (!empty($resultat)) 
-														 {
-															 foreach($resultat as $visiteCR)  { 
-													?>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="consulter_compterendu.php?id=<?php echo $visiteCR['compterendu_id'];?>">Ouvrir</a>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $visiteCR['medecin_id'];?>"><?php echo $visite['medecin_prenom']." ".$visite['medecin_nom']; ?></a></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0 text-c-purple"><?php echo strftime('%d-%m-%Y',strtotime($visiteCR['visite_date']))?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="m-0"><?php echo $visiteCR['medicament_nom']; ?></h6>
-                                                        </td>
-                                                    </tr>
-                                            <?php 
-                                                } 
-                                                 } 
-                                                else
-                                                {
-                                                    echo "Aucne visite ne vous a été rattachée";
-                                                }
-                                               ?>
-                                                       
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
                                 </div>
                             </div>
                         </div>
