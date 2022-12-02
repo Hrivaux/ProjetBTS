@@ -108,7 +108,6 @@ include ("templates/meta.php");
 						<a class="btn btn-primary m-2" href="tb_medecin.php">Retour</a>
 </center>
 
-    <!-- Required Js -->
 <script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
