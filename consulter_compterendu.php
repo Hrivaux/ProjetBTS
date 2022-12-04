@@ -161,7 +161,7 @@ $pageactive = "";
                                                             <?php if ($compterendu['nouvelle_visite'] == NULL) {
                                                                 echo "Pas de nouvelle visite";
                                                             } else {
-                                                                echo $compterendu['nouvelle_visite'];
+                                                                echo strftime('%d-%m-%Y',strtotime($compterendu['nouvelle_visite']));
                                                             }; ?>
                                                         </div>
 
