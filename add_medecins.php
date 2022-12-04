@@ -89,19 +89,6 @@ include('templates/meta.php');
 															<label for="exampleInputEmail1">Code postal</label>
 															<input type="number" class="form-control" name="codepostal" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Code postal du médecin" required>
 														</div>
-														<label for="echantillon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type de médicament :</label>
-															<select id="echantillon" name="echantillon" class="form-control" required>
-																<option selected>Veuillez choisir une option</option>
-																<?php $reponse = $bdd->query('SELECT id, nom_medicament FROM echantillons');
-                                                                     while ($donnees = $reponse->fetch())
-									                                        { ?>
-				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['nom_medicament']; ?></option>
-				                                                <?php } ?>
-															</select><br>
-														<div class="form-group">
-															<label for="exampleInputEmail1">Quantité échantillon</label>
-															<input type="number" class="form-control" name="quantiteechantillon" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Quantité d'échantillons" required>
-														</div>
 												</div>
 												<br>
 												<div class="col-md-12">
