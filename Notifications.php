@@ -63,7 +63,7 @@ if ($grade_encours <= 2)
 															<label for="exampleInputEmail1">Objet</label>
 															<input type="text" class="form-control" name="objet" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Objet de votre notification" required  >
 														</div>
-														<label for="pet-select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le niveau d'urgence :</label>
+														<label for="pet-select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">A qui envoyer? :</label>
 														<select id="urgence" name="urgence" class="form-control"  placeholder="Grade visé ?" required >
 															<option selected>Grade visé?</option>
 															<?php $reponse = $bdd->query('SELECT * FROM grade');
