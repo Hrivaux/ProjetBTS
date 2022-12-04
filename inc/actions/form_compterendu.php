@@ -16,7 +16,7 @@ $id_motif = $_POST["id_motif"];
 
 
 if (!empty($id_medecin) || !empty($id_echantillon) || !empty($date) || !empty($compterendu) || !empty($avis) || !empty($etat) || !empty($nouvelle_visite) || !empty($id_motif)) {
-
+      
    $reponse = $bdd->prepare("INSERT INTO comptesrendus(id_visiteur, id_medecin, date, id_echantillon, compterendu, avis, etat, nouvelle_visite, id_motif) VALUES (?,?,?,?,?,?,?,?,?)");
 
    $reponse->execute(array($id_encours, $id_medecin, $date, $id_echantillon, $compterendu, $avis, $etat, $nouvelle_visite, $id_motif));
@@ -25,6 +25,9 @@ if (!empty($id_medecin) || !empty($id_echantillon) || !empty($date) || !empty($c
    //Logs
    $req_logs = ("INSERT INTO logs(user_id,type_log,action, date) VALUES ($id_encours, 'Insertion', 'A rédigé un compte rendu.', '$date')");
    $bdd->exec($req_logs);
+
+   $supp_visite = ("DELETE FROM visites WHERE medecin_id = $id_medecin");
+   $bdd->exec($supp_visite);
 } 
 else
 {

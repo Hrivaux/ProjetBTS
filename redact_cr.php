@@ -72,11 +72,12 @@ $echantillonvisite = $_GET['echantillon'];
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                             <hr>
                                                               <br><br>
+                                                              <select name="id_medecin" class="form-control text-center" required>
 		                                                    	<?php $reponse = $bdd->query("SELECT id, nom, prenom FROM medecins WHERE id = $medecinvisite");
                                                                      while ($donnees = $reponse->fetch())
 									                                        {
 									                                            ?>
-				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['prenom']." ".$donnees['nom']; ?></option>
+				        	                                                <option value="<?php echo $donnees['id']; ?>" selected><?php echo $donnees['prenom']." ".$donnees['nom']; ?></option>
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>
@@ -90,10 +91,11 @@ $echantillonvisite = $_GET['echantillon'];
                                                             <h5 class="mt-5">Échantillon testé</h5>
                                                             <hr>
                                                              <br><br>
+                                                             <select name="id_echantillon" class="form-control text-center" required>
                                                                 <?php $reponse = $bdd->query("SELECT id, nom_medicament, fournisseur FROM echantillons WHERE id = $echantillonvisite");
                                                                      while ($donnees_e = $reponse->fetch())
 									                                        { ?>
-				        	                                                <option value="<?php echo $donnees_e['id']; ?>"><?php echo $donnees_e['nom_medicament']; ?></option>
+				        	                                                <option value="<?php echo $donnees_e['id']; ?>" selected><?php echo $donnees_e['nom_medicament']; ?></option>
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>

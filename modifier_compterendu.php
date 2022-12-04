@@ -130,24 +130,7 @@ include('templates/meta.php');
                                                             
                                                             }?></a>
                                                             
-                                                            <?php /*
-                                                                        } ?>
-                                                            <br><br>
-                                                            <h6><mark> Votre changement si besoin</mark></h6>
-                                                            <br>
-                                                            <select name="id_medecin"  id="id_medecin" class="form-control text-center" required>
-		                                                    	<?php $reponse = $bdd->query('SELECT id, nom, prenom FROM medecins');
-                                                                     while ($donnees = $reponse->fetch())
-									                                        {
-									                                            ?>
-				        	                                                <option value="<?php echo $donnees['id']; ?>"> 
-					                                                        <?php echo $donnees['prenom']." ".$donnees['nom']; ?>
-					                                                        </option>
-                                                                            <?php } ?>  
-                                                                            </select>
-                                                  <?php    */                  } 
-                                                                    else
-                                                                     {
+                                                            <?php } else {
                                                                       echo "Aucn compte-rendu ne vous a été rattaché";
                                                                      }
                                                             ?>             
@@ -165,7 +148,7 @@ include('templates/meta.php');
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <h5 class="mt-5">Echantillon tester</h5>
+                                                                <h5 class="mt-5">Echantillon testé</h5>
                                                                 <hr>
                                                                 <?php 
                                                 	$requete_echantillon = ("SELECT CR.id               as 'id_compterendu',
@@ -226,7 +209,7 @@ include('templates/meta.php');
                                                             <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
-														<select id="motif_visite" name="motif_visite" class="form-control text-center" required >
+														<select id="id_motif" name="id_motif" class="form-control text-center" required >
 															<option><?php echo $h['libelle_motif']?></option>
 															<?php $reponse = $bdd->query('SELECT * FROM motif_visite');
                                                                      while ($donnees = $reponse->fetch())
