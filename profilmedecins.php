@@ -14,6 +14,14 @@ $requete->bindValue('id', $_GET['id']);
 $requete->execute();
 $profilmedecin = $requete->fetch();
 
+$idmedecin = $_GET['id'];
+
+
+// Nombre de médicaments
+$nbMEDOC = $bdd->query("SELECT count(*) as nb from comptesrendus WHERE id_medecin = $idmedecin");
+$data = $nbMEDOC->fetch();
+$nbmedocs = $data['nb'];
+
 if (!$profilmedecin) {
 	header('location: tb_medecin.php');
     exit;
@@ -80,7 +88,7 @@ include ("templates/meta.php");
 											Type médicaments
 										</th>
 										<th scope="col" class="py-3 px-6">
-											Quantité médicaments
+											Nombre de compte<?php if ($nbmedocs > 1) { ?>s <?php } ?> rendu<?php if ($nbmedocs > 1) { ?>s <?php } ?>
 										</th>
 									</tr>
 								</thead>
@@ -93,7 +101,7 @@ include ("templates/meta.php");
 										<?php echo $profilmedecin['e_nom']; ?>
 										</td>
 										<td class="py-4 px-6">
-											<?php echo $profilmedecin['m_qtt']; ?>
+											<?php echo $nbmedocs; ?>
 										</td>
 									</tr>
 								</tbody>
