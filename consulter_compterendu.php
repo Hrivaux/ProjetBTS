@@ -101,7 +101,8 @@ $pageactive = "";
                                                         <div class="text-center">
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                       <hr> 
-                                                      <br>  
+                                                      <br>
+                                                      <?php echo $compterendu['prenom_medecin']." ".$compterendu['nom_medecin']; ?> 
                                                         <div class="form-group">
                                                         <h5 class="mt-5">Date</h5>
                                                         <hr>   
@@ -112,6 +113,7 @@ $pageactive = "";
                                                         <div class="text-center">
                                                             <h5 class="mt-5">Échantillon testé</h5>
                                                             <hr>
+                                                            <br>
                                                             <?php if ($compterendu['nom_medoc'] == NULL) {
                                                                 echo "Pas de médicament lié à ce compte rendu.";
                                                             } else {
@@ -122,16 +124,18 @@ $pageactive = "";
                                                         <div class="text-center">
                                                             <h5 class="mt-5">Avis</h5>
                                                             <hr>
-                                                            <?php if ($compterendu['avis'] == 1) {
-                                                                echo "Favorable";
+                                                            <br>
+                                                            <?php if ($compterendu['avis'] == 3) {
+                                                                echo "Bien passée";
                                                             } else {
-                                                                echo "Défavorable";
+                                                                echo "Mal passée";
                                                             }; ?>
                                                         </div>
 
                                                         <div class="text-center">
                                                             <h5 class="mt-5">Etat</h5>
                                                             <hr>
+                                                            <br>
                                                             <?php if ($compterendu['etat'] == 1) {
                                                                 echo "Terminé";
                                                             } else {
@@ -142,6 +146,7 @@ $pageactive = "";
                                                         <div class="form-group">
                                                             <h5 class="mt-5">Motif de la visite</h5>
                                                             <hr>
+                                                            <br>
                                                             <?php if ($compterendu['libelle_motif'] == NULL) {
                                                                 echo "Pas de motif attitré";
                                                             } else {
@@ -152,6 +157,7 @@ $pageactive = "";
                                                         <div class="form-group">
                                                             <h5 class="mt-5">Nouvelle visite</h5>
                                                             <hr>
+                                                            <br>
                                                             <?php if ($compterendu['nouvelle_visite'] == NULL) {
                                                                 echo "Pas de nouvelle visite";
                                                             } else {
@@ -163,6 +169,7 @@ $pageactive = "";
                                                         <div>
                                                             <h5 class="mt-5">Commentaire</h5>
                                                             <hr>
+                                                            <br>
                                                             <?php echo $compterendu['compterendu']; ?>
                                                         </div>
                                                                 </form>

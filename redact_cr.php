@@ -104,7 +104,7 @@ $echantillonvisite = $_GET['echantillon'];
                                                             <h5 class="mt-5">Motif de la visiste</h5>
                                                             <hr>
                                                             
-														<select id="motif_visite" name="motif_visite" class="form-control text-center" required>
+														<select id="id_motif" name="id_motif" class="form-control text-center" required>
 															<?php $reponse = $bdd->query('SELECT * FROM motif_visite');
                                                                      while ($donnees = $reponse->fetch())
 									                                        { ?>
