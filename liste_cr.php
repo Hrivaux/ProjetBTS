@@ -177,7 +177,7 @@ include('templates/meta.php');
                                                             <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $cr['id_medecin'];?>"><?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0 text-c-purple"><?php echo $cr['date'];?></h6>
+                                                            <h6 class="m-0 text-c-purple"><?php echo strftime('%d-%m-%Y',strtotime($cr['date']));?></h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0"><?php echo $cr['nom_medicament']; ?></h6>

@@ -120,11 +120,11 @@ $echantillonvisite = $_GET['echantillon'];
                                                     <h5 class="mt-5">Avis</h5>
                                                     <br>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="1">
+                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="3">
                                                         <label class="custom-control-label" for="bien_passer">Bien passée </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="0">
+                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="2">
                                                         <label class="custom-control-label" for="mal_passer">Mal passée</label>
                                                     </div>
                                                     <hr>

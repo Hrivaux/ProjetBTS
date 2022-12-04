@@ -78,7 +78,7 @@ $pageactive = "";
                                         <li class="breadcrumb-item"><a href="accueil.php"><i class="feather icon-home"></i></a></li>
                                         <li class="breadcrumb-item"><a>SAISIES & CONSULTATIONS</a></li>
                                         <li class="breadcrumb-item"><a href="liste_cr.php">Listes des comptes rendus</a></li>
-                                        <li class="breadcrumb-item"><a>Consulter le compte rendue du médecin <?php echo $compterendu['prenom_medecin']." ".$compterendu['nom_medecin']; ?> datant du  <?php echo $compterendu['date']; ?></a></li>
+                                        <li class="breadcrumb-item"><a>Consulter le compte rendue du médecin <?php echo $compterendu['prenom_medecin']." ".$compterendu['nom_medecin']; ?> datant du  <?php echo strftime('%d-%m-%Y',strtotime($compterendu['date']));?></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@ $pageactive = "";
                                                         <h5 class="mt-5">Date</h5>
                                                         <hr>   
                                                         <br> 
-                                                        <?php echo $compterendu['date']; ?> 
+                                                        <?php echo strftime('%d-%m-%Y',strtotime($compterendu['date']));?> 
                                                         </div>
 
                                                         <div class="text-center">
