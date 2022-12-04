@@ -71,9 +71,6 @@ include('templates/meta.php');
 															<th>
 																Adresse
 															</th>
-															<th>
-																Quantité des échantillons
-															</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -120,12 +117,6 @@ if (!empty($resultat))
 		<td>
 			<h6 class="m-0 text-c-purple">
 			<?php echo $medecins['m_adresse']." ".$medecins['m_ville']." - ".$medecins['m_code_postal'];?>
-			</h6>
-		</td>
-		
-		<td>
-			<h6 class="m-0">
-			<?php echo $medecins['m_qtt']; ?>
 			</h6>
 		</td>
 	</tr>
