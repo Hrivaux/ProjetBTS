@@ -71,7 +71,7 @@ $echantillonvisite = $_GET['echantillon'];
                                                         <div class="text-center">
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                             <hr>
-                                                              <select name="id_medecin"  id="id_medecin" class="form-control text-center" required>
+                                                              <br><br>
 		                                                    	<?php $reponse = $bdd->query("SELECT id, nom, prenom FROM medecins WHERE id = $medecinvisite");
                                                                      while ($donnees = $reponse->fetch())
 									                                        {
@@ -89,7 +89,7 @@ $echantillonvisite = $_GET['echantillon'];
                                                         <div class="form-group">
                                                             <h5 class="mt-5">Échantillon testé</h5>
                                                             <hr>
-                                                              <select name="id_echantillon"  id="id_echantillon" class="form-control text-center" required>
+                                                             <br><br>
                                                                 <?php $reponse = $bdd->query("SELECT id, nom_medicament, fournisseur FROM echantillons WHERE id = $echantillonvisite");
                                                                      while ($donnees_e = $reponse->fetch())
 									                                        { ?>
@@ -119,11 +119,11 @@ $echantillonvisite = $_GET['echantillon'];
                                                     <br>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="1">
-                                                        <label class="custom-control-label" for="bien_passer">Favorable </label>
+                                                        <label class="custom-control-label" for="bien_passer">Bien passée </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="0">
-                                                        <label class="custom-control-label" for="mal_passer">Défavorable</label>
+                                                        <label class="custom-control-label" for="mal_passer">Mal passée</label>
                                                     </div>
                                                     <hr>
                                                     <div class="text-center">
