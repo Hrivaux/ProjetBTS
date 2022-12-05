@@ -116,18 +116,6 @@ if (!empty($resultat))
 			<?php echo $medecins['adresse']." ".$medecins['ville']." - ".$medecins['code_postal'];?>
 			</h6>
 		</td>
-
-		<td>
-			<h6 class="m-0">
-			<?php echo $medecins['e_nom']; ?>
-			</h6>
-		</td>
-		
-		<td>
-			<h6 class="m-0">
-			<?php echo $medecins['m_qtt']; ?>
-			</h6>
-		</td>
 	</tr>
 
     <?php
