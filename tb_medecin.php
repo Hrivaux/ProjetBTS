@@ -82,10 +82,7 @@ include('templates/meta.php');
 													<tbody>
 
 <?php
-$requete = ("SELECT M.id as 'm_id', M.img as 'm_img', M.nom as 'm_nom', M.prenom as 'm_prenom', M.siret as 'm_siret', M.adresse as 'm_adresse', M.ville as 'm_ville', M.code_postal as 'm_code_postal', M.type_medicament as 'm_typemed', M.quantite_echantillon as 'm_qtt', E.id as 'e_id', E.nom_medicament as 'e_nom'
-FROM medecins 			M
-INNER JOIN echantillons E on M.type_medicament = E.id
- ORDER BY M.id DESC");
+$requete = ("SELECT * FROM medecins ORDER BY id DESC");
 
 $reqmedecins = $bdd->prepare($requete);
 $reqmedecins->execute();
@@ -99,42 +96,42 @@ if (!empty($resultat))
 
 <tr>
 	<td>
-		<a href="profilmedecins.php?id=<?php echo $medecins['m_id'];?>"><img src="img/button.png"></a>
+		<a href="profilmedecins.php?id=<?php echo $medecins['id'];?>"><img src="img/button.png"></a>
 	</td>
 
 	<td>
 		<h6 class="m-0">
-		<img class="rounded-circle  m-r-10" style=" height:40px; width:40px;" src="img/<?php echo $medecins['m_img'];?>" alt="Photo de profil">
+		<img class="rounded-circle  m-r-10" style=" height:40px; width:40px;" src="img/<?php echo $medecins['img'];?>" alt="Photo de profil">
 		</h6>
 	</td>
 
 	<td>
 		<h6 class="m-0">
-		<?php echo $medecins['m_nom']." ".$medecins['m_prenom']; ?>
+		<?php echo $medecins['nom']." ".$medecins['prenom']; ?>
 		</h6>		
 	</td>
 
 	<td>
 			<h6 class="m-0">
-			<?php echo $medecins['m_siret']; ?>
+			<?php echo $medecins['siret']; ?>
 			</h6>
 		</td>
 
 		<td>
 			<h6 class="m-0 text-c-purple">
-			<?php echo $medecins['m_adresse']." ".$medecins['m_ville']." - ".$medecins['m_code_postal'];?>
+			<?php echo $medecins['adresse']." ".$medecins['ville']." - ".$medecins['code_postal'];?>
 			</h6>
 		</td>
 
 		<td>
 			<h6 class="m-0">
-			<?php echo $medecins['e_nom']; ?>
+			<?php echo $medecins['nom']; ?>
 			</h6>
 		</td>
 		
 		<td>
 			<h6 class="m-0">
-			<?php echo $medecins['m_qtt']; ?>
+			<?php echo $medecins['qtt']; ?>
 			</h6>
 		</td>
 	</tr>
