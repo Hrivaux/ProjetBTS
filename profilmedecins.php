@@ -95,7 +95,7 @@ include ("templates/meta.php");
 											<?php echo $profilmedecin['adresse'].", ".$profilmedecin['ville']." - ".$profilmedecin['code_postal']; ?>
 										</th>
 										<td class="py-4 px-6">
-										gouzigouzi
+										<?php echo $profilmedecin['type_medicament']; ?>
 										</td>
 										<td class="py-4 px-6">
 											<?php echo $nbmedocs; ?>
