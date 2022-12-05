@@ -16,11 +16,6 @@
                 <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a></li>
                 <li class="nav-item dropdown">
                     <b><?php echo $prenomnom; ?></b>
-                  <!--  <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="javascript:">Action</a></li>
-                        <li><a class="dropdown-item" href="javascript:">Autre action</a></li>
-                        <li><a class="dropdown-item" href="javascript:">Something else here</a></li>
-                    </ul> -->
                 </li>
                 <li class="nav-item">
                     <div class="main-search">
@@ -43,9 +38,7 @@
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Notifications</h6>
-                                <!--<div class="float-right">
-                                    <a href="javascript:">Effacer tout</a>
-                                </div> -->
+
                             </div>
                             <ul class="noti-body">
                                 <li class="n-title">

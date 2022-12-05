@@ -60,7 +60,7 @@ include('templates/meta.php');
 													<label for="medecin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Médecin :</label>
 															<select id="medecin" name="medecin" class="form-control" required>
 																<option selected>Veuillez choisir un médecin</option>
-																<?php $reponse = $bdd->query("SELECT id, nom, prenom, visiteur_id FROM medecins WHERE id = $id_encours");
+																<?php $reponse = $bdd->query("SELECT id, nom, prenom, visiteur_id FROM medecins WHERE visiteur_id = $id_encours");
                                                                      while ($donnees_med = $reponse->fetch())
 									                                        { ?>
 				        	                                                <option value="<?php echo $donnees_med['id']; ?>"><?php echo $donnees_med['nom']." ".$donnees_med['prenom']; ?></option>
@@ -98,7 +98,6 @@ include('templates/meta.php');
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/pcoded.min.js"></script>
 
-<!-- Modal box erreurs -->
 <div class="modal fade" id="ok" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="tbmodal">

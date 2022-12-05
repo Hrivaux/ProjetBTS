@@ -14,6 +14,10 @@ $pageinfo = "Saisie de compte rendu";
 $pageactive = "";
 
 include('templates/meta.php');
+
+$medecinvisite = $_GET['med'];
+$echantillonvisite = $_GET['echantillon'];
+
 ?>
 <body>
     <div class="loader-bg">
@@ -37,7 +41,7 @@ include('templates/meta.php');
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Compte rendue</h5>
+                                        <h5 class="m-b-10">Compte rendu</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="accueil.php"><i class="feather icon-home"></i></a></li>
@@ -67,32 +71,31 @@ include('templates/meta.php');
                                                         <div class="text-center">
                                                         <h5 class="text-center">Nom du médecin</h5>
                                                             <hr>
-                                                              <select name="id_medecin"  id="id_medecin" class="form-control text-center" required>
-		                                                    	<?php $reponse = $bdd->query("SELECT id, nom, prenom FROM medecins WHERE visiteur_id = $id_encours");
+                                                              <br><br>
+                                                              <select name="id_medecin" class="form-control text-center" required>
+		                                                    	<?php $reponse = $bdd->query("SELECT id, nom, prenom FROM medecins WHERE id = $medecinvisite");
                                                                      while ($donnees = $reponse->fetch())
 									                                        {
 									                                            ?>
-				        	                                                <option value="<?php echo $donnees['id']; ?>"><?php echo $donnees['prenom']." ".$donnees['nom']; ?></option>
+				        	                                                <option value="<?php echo $donnees['id']; ?>" selected><?php echo $donnees['prenom']." ".$donnees['nom']; ?></option>
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>
 
                                                         <div class="form-group">
-                                                        <h5 class="mt-5">Date de la visite</h5>
+                                                        <h5 class="mt-5">Date du compte rendu</h5>
                                                         <hr>    
-                                                            <input name="date" type="date" class="form-control text-center" placeholder="Date">
+                                                            <input name="date" type="date" class="form-control text-center" value="<?php echo $today;?>">
                                                         </div>
                                                         <div class="form-group">
                                                             <h5 class="mt-5">Échantillon testé</h5>
                                                             <hr>
-                                                              <select name="id_echantillon"  id="id_echantillon" class="form-control text-center" required>
-                                                              <option selected></option>
-                                                                <?php $reponse = $bdd->query('SELECT id, nom_medicament, fournisseur FROM echantillons');
-                                                                     while ($donnees = $reponse->fetch())
+                                                             <br><br>
+                                                             <select name="id_echantillon" class="form-control text-center" required>
+                                                                <?php $reponse = $bdd->query("SELECT id, nom_medicament, fournisseur FROM echantillons WHERE id = $echantillonvisite");
+                                                                     while ($donnees_e = $reponse->fetch())
 									                                        { ?>
-				        	                                                <option value="<?php echo $donnees['id']; ?>"> 
-					                                                            <?php echo $donnees['nom_medicament']; ?>
-					                                                        </option>
+				        	                                                <option value="<?php echo $donnees_e['id']; ?>" selected><?php echo $donnees_e['nom_medicament']; ?></option>
 				                                                        	<?php } ?>
 	                                                                    	</select>
                                                         </div>
@@ -101,8 +104,7 @@ include('templates/meta.php');
                                                             <h5 class="mt-5">Motif de la visiste</h5>
                                                             <hr>
                                                             
-														<select id="motif_visite" name="motif_visite" class="form-control text-center" required >
-															<option selected></option>
+														<select id="id_motif" name="id_motif" class="form-control text-center" required>
 															<?php $reponse = $bdd->query('SELECT * FROM motif_visite');
                                                                      while ($donnees = $reponse->fetch())
 									                                        { ?>
@@ -118,12 +120,12 @@ include('templates/meta.php');
                                                     <h5 class="mt-5">Avis</h5>
                                                     <br>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="1">
-                                                        <label class="custom-control-label" for="bien_passer">Favorable </label>
+                                                        <input type="radio" id="bien_passer" name="avis" class="custom-control-input" value="3">
+                                                        <label class="custom-control-label" for="bien_passer">Bien passée </label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="0">
-                                                        <label class="custom-control-label" for="mal_passer">Défavorable</label>
+                                                        <input type="radio" id="mal_passer" name="avis" class="custom-control-input" value="2">
+                                                        <label class="custom-control-label" for="mal_passer">Mal passée</label>
                                                     </div>
                                                     <hr>
                                                     <div class="text-center">

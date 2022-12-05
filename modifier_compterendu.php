@@ -7,12 +7,36 @@ connected_only();
 $idCR = htmlentities(trim($_GET['id']));
 $idCR = (int) $idCR;
 
-if (is_int($idCR)) {
-    $requete = $bdd->prepare("SELECT * FROM comptesrendus WHERE (id = '$idCR') AND (etat = 1)");
+if (is_int($idCR))
+{
+	$requete = $bdd->prepare("SELECT CR.id               as 'id_compterendu',
+    CR.id_visiteur      as 'id_visiteur',
+    CR.id_medecin       as 'id_medecin',
+    CR.date             as 'date',
+    CR.id_echantillon   as 'id_echantillon',
+    CR.avis             as 'avis',
+    CR.etat             as 'etat',
+    CR.nouvelle_visite  as 'nouvelle_visite',
+    CR.compterendu      as 'compterendu',
+    CR.id_motif         as 'id_motif',
+    MV.libelle_motif    as 'libelle_motif',
+    M.id                as 'Mid_medecin',
+    M.nom               as 'nom_medecin',
+    M.prenom            as 'prenom_medecin',
+    E.nom_medicament    as 'nom_medoc',
+    E.id                as 'id_medoc'
+FROM comptesrendus  CR
+LEFT JOIN medecins  M ON M.id = id_medecin
+LEFT JOIN motif_visite MV ON MV.id = CR.id_motif
+LEFT JOIN echantillons E ON E.id = CR.id_echantillon
+WHERE CR.id = $idCR
+ORDER BY id_compterendu DESC"); 
     $requete->execute();
     $compterendu = $requete->fetch();
-} else {
-    Header('location: accueil.php');
+        
+    if (!$compterendu) {
+        header('location: liste_cr.php');
+         exit; }     
 }
 
 $pageinfo = "Saisie des comptes rendus";
@@ -45,43 +69,14 @@ include('templates/meta.php');
                                     <div class="page-header-title">
                                         <h5 class="m-b-10">Compte rendue</h5>
                                     </div>
-                                    <?php 
-                                                	$requete = ("SELECT CR.id               as 'id_compterendu',
-                                                                        CR.id_visiteur      as 'id_visiteur',
-                                                                        CR.id_medecin       as 'id_medecin',
-                                                                        CR.date             as 'date',
-                                                                        CR.id_echantillon   as 'id_echantillon',
-                                                                        CR.avis             as 'avis',
-                                                                        M.id                as 'Mid_medecin',
-                                                                        M.nom               as 'nom_medecin',
-                                                                        M.prenom            as 'prenom_medecin'
-                                                    FROM comptesrendus  CR
-                                                    LEFT JOIN medecins  M ON M.id = id_medecin
-                                                    WHERE CR.id = $idCR
-                                                    ORDER BY id_compterendu DESC");
-
-                                                    $reqcr = $bdd->prepare($requete);
-                                                    $reqcr->execute();
-                                                        
-                                                    $resultat = $reqcr->fetchAll();
-                                                        if (!empty($resultat)) 
-                                                        {
-                                                            foreach($resultat as $cr)  { 
-                                                    ?>
+                                   
 
                                     <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="accueil.php"><i class="feather icon-home"></i></a></li>
                                         <li class="breadcrumb-item"><a>SAISIES & CONSULTATIONS</a></li>
                                         <li class="breadcrumb-item"><a href="liste_cr.php">Listes des comptes rendus</a></li>
-                                        <li class="breadcrumb-item"><a>Modifier le compte rendue du médecin <?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?> datant du  <?php echo $compterendu['date']; ?></a></li>
-                                        <?php
-                                            } 
-                                                 } 
-                                                else
-                                                {
-                                                    echo "Aucn compte-rendu ne vous a été rattaché";
-                                                }
-                                               ?>
+                                        <li class="breadcrumb-item"><a>Modifier le compte rendue du médecin <?php echo $compterendu['prenom_medecin']." ".$compterendu['nom_medecin']; ?> datant du  <?php echo strftime('%d-%m-%Y',strtotime($compterendu['date']));?></a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -101,56 +96,9 @@ include('templates/meta.php');
                                                 <form action="inc/actions/form_compterendu_modif.php?id=<?php echo $idCR; ?>" method="POST" class="text-center">
                                                         <div class="text-center">
                                                         <h5 class="text-center">Nom du médecin</h5>
-                                                      <hr>   
-                                                            
-                                                      <?php 
-                                                	$requete = ("SELECT CR.id               as 'id_compterendu',
-                                                                        CR.id_visiteur      as 'id_visiteur',
-                                                                        CR.id_medecin       as 'id_medecin',
-                                                                        CR.date             as 'date',
-                                                                        CR.id_echantillon   as 'id_echantillon',
-                                                                        CR.avis             as 'avis',
-                                                                        M.id                as 'Mid_medecin',
-                                                                        M.nom               as 'nom_medecin',
-                                                                        M.prenom            as 'prenom_medecin'
-                                                    FROM comptesrendus  CR
-                                                    LEFT JOIN medecins  M ON M.id = CR.id_medecin
-                                                    WHERE CR.id = $idCR
-                                                    ORDER BY CR.id DESC");
-
-                                                    $reqcr = $bdd->prepare($requete);
-                                                    $reqcr->execute();
-                                                        
-                                                    $resultat = $reqcr->fetchAll();
-                                                        if (!empty($resultat)) 
-                                                        {
-                                                            foreach($resultat as $cr)  { 
-                                                    ?>
-                                                            <?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; 
-                                                            
-                                                            }?></a>
-                                                            
-                                                            <?php /*
-                                                                        } ?>
-                                                            <br><br>
-                                                            <h6><mark> Votre changement si besoin</mark></h6>
-                                                            <br>
-                                                            <select name="id_medecin"  id="id_medecin" class="form-control text-center" required>
-		                                                    	<?php $reponse = $bdd->query('SELECT id, nom, prenom FROM medecins');
-                                                                     while ($donnees = $reponse->fetch())
-									                                        {
-									                                            ?>
-				        	                                                <option value="<?php echo $donnees['id']; ?>"> 
-					                                                        <?php echo $donnees['prenom']." ".$donnees['nom']; ?>
-					                                                        </option>
-                                                                            <?php } ?>  
-                                                                            </select>
-                                                  <?php    */                  } 
-                                                                    else
-                                                                     {
-                                                                      echo "Aucn compte-rendu ne vous a été rattaché";
-                                                                     }
-                                                            ?>             
+                                                           <hr>   
+                                                           <br>
+                                                            <?php echo $compterendu['prenom_medecin']." ".$compterendu['nom_medecin']; ?>                                    
                                                         </div>
                                                         <div class="form-group">
 
@@ -161,34 +109,18 @@ include('templates/meta.php');
                                                                 <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
-                                                                <input name="date" type="date" class="form-control text-center" placeholder="Date" value="<?php echo $compterendu['date']; ?>">
+                                                                <input name="date" type="date" class="form-control text-center" value="<?php echo strftime('%d-%m-%Y',strtotime($compterendu['date']));?>">
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <h5 class="mt-5">Echantillon tester</h5>
+                                                                <h5 class="mt-5">Echantillon testé</h5>
                                                                 <hr>
-                                                                <?php 
-                                                	$requete_echantillon = ("SELECT CR.id               as 'id_compterendu',
-                                                                                    CR.id_echantillon   as 'id_echantillon',
-                                                                                    M.id                as 'echantillon',
-                                                                                    M.nom_medicament    as 'nom_medicament'
-                                                                            FROM comptesrendus      CR
-                                                                            LEFT JOIN echantillons  M ON M.id = CR.id_echantillon
-                                                                            WHERE CR.id = $idCR ");
-
-                                                    $reqechantillon = $bdd->prepare($requete_echantillon);
-                                                    $reqechantillon->execute();
-                                                        
-                                                    $echanti = $reqechantillon->fetchAll();
-                                                        if (!empty($echanti)) 
-                                                        {
-                                                            foreach($echanti as $e)  { 
-                                                    ?>                                                
+                                                                             
                                                                 <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
                                                                 <select name="id_echantillon" id="id_echantillon" class="form-control text-center" required>
-                                                                <option><?php echo $e['nom_medicament']?></option>
+                                                                <option value="<?php echo $compterendu['id_medoc']; ?>" selected ><?php echo $compterendu['nom_medoc']?></option>
                                                                     <?php $reponse = $bdd->query('SELECT id, nom_medicament, fournisseur FROM echantillons');
                                                                     while ($donnees = $reponse->fetch()) { ?>
                                                                         <option value="<?php echo $donnees['id']; ?>">
@@ -196,38 +128,14 @@ include('templates/meta.php');
                                                                         </option>
                                                                     <?php } ?>
                                                                 </select>
-                                                                <?php }}                     
-                                                                    else
-                                                                     {
-                                                                      echo "Aucn compte-rendu ne vous a été rattaché";
-                                                                     }
-                                               ?>          
-                                                        <div class="form-group">
-                                                            <h5 class="mt-5">Motif de la visiste</h5>
-                                                            <hr>
-                                                            <?php 
-                                                	$requete_motif = ("SELECT   CR.id               as 'id_compterendu',
-                                                                                CR.id_motif         as 'id_motif',
-                                                                                H.id                as 'id',
-                                                                                H.libelle_motif     as 'libelle_motif'
-                                                                      FROM comptesrendus      CR
-                                                                      LEFT JOIN motif_visite H ON H.id = CR.id_motif
-                                                                      WHERE CR.id = $idCR ");
-
-                                                    $reqmotif = $bdd->prepare($requete_motif);
-                                                    $reqmotif->execute();
-                                                        
-                                                    $motif = $reqmotif->fetchAll();
-                                                        if (!empty($motif)) 
-                                                        {
-                                                            foreach($motif as $h)  { 
-                                                    ?>
-                                                    <?php echo $h['libelle_motif']?>
+                                                                <div class="form-group">
+                                                                     <h5 class="mt-5">Motif de la visiste</h5>
+                                                                     <hr>
                                                             <br><br>
                                                                 <h6><mark> Votre changement si besoin</mark></h6>
                                                                 <br>
-														<select id="motif_visite" name="motif_visite" class="form-control text-center" required >
-															<option><?php echo $h['libelle_motif']?></option>
+														<select id="id_motif" name="id_motif" class="form-control text-center" required >
+															<option value="<?php echo $compterendu['id_motif']; ?>" selected><?php echo $compterendu['libelle_motif']?></option>
 															<?php $reponse = $bdd->query('SELECT * FROM motif_visite');
                                                                      while ($donnees = $reponse->fetch())
 									                                        { ?>
@@ -236,15 +144,10 @@ include('templates/meta.php');
 														</select>
 
 
-                                                        <?php }}                     
-                                                                    else
-                                                                     {
-                                                                      echo "Aucn compte-rendu ne vous a été rattaché";
-                                                                     }
-                                               ?>
-                                                        </div>
+                                                      
+                                                                </div>
 
-
+                                                                <div class="form-group">
                                                                     <h5 class="mt-5">Avis</h5>
                                                                     <hr>
 
@@ -254,17 +157,18 @@ include('templates/meta.php');
                                                                     <br>
                                                                 
                                                                         <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="1" name="avis" class="custom-control-input" value="1"<?php if($compterendu['avis']==1) { echo 'checked="checked"' ; } ?>>
-                                                                        <label class="custom-control-label" for="1">Bien passé </label>
+                                                                        <input type="radio" id="3" name="avis" class="custom-control-input" value="3"<?php if($compterendu['avis']==3) { echo 'checked="checked"'; } ?>>
+                                                                        <label class="custom-control-label" for="3">Bien passé </label>
                                                                         </div>
                                                                         <div class="custom-control custom-radio">
-                                                                        <input type="radio" id="0" name="avis" class="custom-control-input" value="0"<?php if($compterendu['avis']==0) { echo 'checked="checked"' ; } ?>>
-                                                                        <label class="custom-control-label" for="0">Mal passé</label>
+                                                                        <input type="radio" id="2" name="avis" class="custom-control-input" value="2"<?php if($compterendu['avis']==2) { echo 'checked="checked"'; } ?>>
+                                                                        <label class="custom-control-label" for="2">Mal passé</label>
                                                                         </div>
+                                                                            </div>
                                                                 
 
-                                                                <div class="form-group">
-
+                                                                
+                                                 <div class="form-group">
                                                         <h5 class="mt-5">Etat</h5>
                                                         <hr>  
                                                         
@@ -273,14 +177,14 @@ include('templates/meta.php');
                                                             <h6><mark> Votre changement si besoin</mark></h6>
                                                             <br>
                                                             <div class="custom-control custom-radio">
-                                                        <input type="radio" id="1" name="etat" class="custom-control-input" value="1" <?php if($compterendu['etat']==1) { echo 'checked="checked"' ; } ?>>
-                                                        <label class="custom-control-label" for="1">Terminé</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="0" name="etat" class="custom-control-input" value="0"<?php if($compterendu['etat']==0) { echo 'checked="checked"' ; } ?>>
-                                                        <label class="custom-control-label" for="0">A terminer</label>
-                                                    </div>
-
+                                                            <input type="radio" id="1" name="etat" class="custom-control-input" value="1" <?php if($compterendu['etat']==1) { echo 'checked="checked"'; } ?>>
+                                                            <label class="custom-control-label" for="1">Terminé</label>
+                                                            </div>
+                                                            <div class="custom-control custom-radio">
+                                                            <input type="radio" id="0" name="etat" class="custom-control-input" value="0"<?php if($compterendu['etat']==0) { echo 'checked="checked"'; } ?>>
+                                                            <label class="custom-control-label" for="0">A terminer</label>
+                                                            </div>
+                                                                            </div>
                                                         <div class="form-group">
                                                         <h5 class="mt-5">Nouvelle visite</h5>
                                                         <hr>    

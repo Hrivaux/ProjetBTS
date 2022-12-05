@@ -71,12 +71,6 @@ include('templates/meta.php');
 															<th>
 																Adresse
 															</th>
-															<th>
-																Type de médicaments
-															</th>
-															<th>
-																Quantité des échantillons
-															</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -125,13 +119,13 @@ if (!empty($resultat))
 
 		<td>
 			<h6 class="m-0">
-			<?php echo $medecins['nom']; ?>
+			<?php echo $medecins['e_nom']; ?>
 			</h6>
 		</td>
 		
 		<td>
 			<h6 class="m-0">
-			<?php echo $medecins['qtt']; ?>
+			<?php echo $medecins['m_qtt']; ?>
 			</h6>
 		</td>
 	</tr>
@@ -152,7 +146,6 @@ else
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ Main Content ] end -->
                         </div>
                     </div>
                 </div>

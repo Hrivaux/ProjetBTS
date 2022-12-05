@@ -60,7 +60,6 @@ include('templates/meta.php');
                                                             <th>Date</th>
                                                             <th>Échantillon</th>
                                                             <th>Avis</th>
-                                                            <th>Archiver</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -107,10 +106,7 @@ include('templates/meta.php');
                                                             <h6 class="m-0"><?php echo $cr['nom_medicament']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Bien passée"; } else { echo "Mal passée"; }; ?></h6>
-                                                        </td>
-                                                        <td>
-                                                            <a href="archiver_compterendu.php<?php echo $cr['id_compterendu'];?>">Archiver</a>
+                                                            <h6 class="m-0"><?php if ($cr['avis'] == 3) { echo "Bien passée"; } else { echo "Mal passée"; }; ?></h6>
                                                         </td>
                                                     </tr>
                                             <?php 
@@ -144,7 +140,6 @@ include('templates/meta.php');
                                                             <th>Date</th>
                                                             <th>Echantillon</th>
                                                             <th>Avis</th>
-                                                            <th>Archiver</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -182,13 +177,13 @@ include('templates/meta.php');
                                                             <h6 class="m-0"><a href="profilmedecins.php?id=<?php echo $cr['id_medecin'];?>"><?php echo $cr['prenom_medecin']." ".$cr['nom_medecin']; ?></a></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0 text-c-purple"><?php echo $cr['date'];?></h6>
+                                                            <h6 class="m-0 text-c-purple"><?php echo strftime('%d-%m-%Y',strtotime($cr['date']));?></h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0"><?php echo $cr['nom_medicament']; ?></h6>
                                                         </td>
                                                         <td>
-                                                            <h6 class="m-0"><?php if ($cr['avis'] == 1) { echo "Favorable"; } else { echo "Défavorable"; }; ?></h6>
+                                                            <h6 class="m-0"><?php if ($cr['avis'] == 3) { echo "Bien passée"; } else { echo "Mal passée"; }; ?></h6>
                                                         </td>
                                                         
                                                     </tr>
